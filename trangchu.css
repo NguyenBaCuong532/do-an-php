@@ -45,6 +45,7 @@ body {
 
 .logo-container .logo-text {
     position: fixed;
+    
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -103,6 +104,8 @@ body {
 .elementor-divider{
     text-align: center;
     margin-top: 40px;
+    color: #54595f;
+    font-family: "Rokkitt", Sans-serif;
 
 }
 .container{

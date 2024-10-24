@@ -31,7 +31,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <h1><img src="./img/Screenshot 2024-10-21 193627.png" width="210" height="180"></h1>
+            <h1><img src="./img/logo.png" width="210" height="180"></h1>
         </div>
         <div class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -159,15 +159,7 @@
             </div>
 
         </nav>
-        <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+  
 
 
 
@@ -221,6 +213,15 @@
             }
 
             ?>
+                  <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
             <!-- sản phẩm -->
 
 

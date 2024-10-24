@@ -128,7 +128,7 @@
 </div>
 
 <div class="elementor-divider">
-        <h2>Style Của Bạn</h2>
+        <h2>STYLE CỦA BẠN</h2>
     </div>
     <div class="container">
         <div class="elementor-widget-container">
