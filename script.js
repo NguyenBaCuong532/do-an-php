@@ -1,63 +1,76 @@
-//scroll top
-var timeOut;
-	function scrollToTop() {
-		if(document.body.scrollTop!==0 || document.documentElement.scrollTop!==0) {
-			window.scrollBy(0,-50);
-			timeOut = setTimeout('scrollToTop()',10);
-		} else
-		clearTimeout(timeOut);
-	}
 
-var slideIndex = 1;
-showSlides(slideIndex);
-// showSlidesAuto(slideIndex);
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
- 	var i;
- 	var slides = document.getElementsByClassName("mySlides");
-  	var dots = document.getElementsByClassName("dot");
- 	if (n > slides.length) {slideIndex = 1}    
- 	if (n < 1) {slideIndex = slides.length}
- 	for (i = 0; i < slides.length; i++) {
- 	    slides[i].style.display = "none";  
-	} 
-	for (i = 0; i < dots.length; i++) {
-	    dots[i].className = dots[i].className.replace(" active", "");
-	}
- 	slides[slideIndex-1].style.display = "block";  
- 	dots[slideIndex-1].className += " active";
-}
-//cuộn trang
 window.onscroll = function() {
 	var navbar = document.querySelector('.header');
-	if (window.scrollY > 50) { // Khi cuộn xuống 50px hoặc hơn
-	  navbar.classList.add('scrolled');
+	if (window.scrollY > 20) {
+		navbar.classList.add('scrolled');
 	} else {
-	  navbar.classList.remove('scrolled');
+		navbar.classList.remove('scrolled');
 	}
-  };
+	var logo = document.querySelector('.logo-text');
+	var scrollPos = window.scrollY;
 
-function showSlidesAuto() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
-}
-document.querySelector("#main > div > div._193wCc > div > div.OQtnd7 > div > div.row.shopee-search-item-result__items > div:nth-child(2)")
+	if (scrollPos > 50) {
+		logo.style.fontSize = "40px";
+		logo.style.top = "143px";
+		logo.style.left = "25px";
+		logo.style.letterSpacing = "10px";
+		logo.style.fontFamily = "serif";
+		logo.style.color = "#000";
+		logo.style.width = "10px";
+
+
+		logo.style.transform = "translate(0, 0)";
+	} else {
+		logo.style.fontSize = "320px";
+		logo.style.top = "50%";
+		logo.style.left = "12%";
+		logo.style.letterSpacing = "50px";
+		logo.style.fontFamily = "serif";
+		logo.style.color = "#fff";
+
+
+		logo.style.transform = "translate(-50%, -50%)";
+	}
+
+	var tag = document.querySelector('.elementor-divider1');
+	var tag2 = document.querySelector('.elementor-divider2');
+	var tag3 = document.querySelector('.elementor-divider3');
+	var tag4 = document.querySelector('.elementor-divider4');
+
+	if (window.scrollY > 100) {
+		tag.classList.add('animate__backInRight');
+
+	}
+	else {
+		tag.classList.remove('animate__backInRight');
+
+	}
+	if(window.scrollY > 650){
+		tag2.classList.add('animate__backInRight');
+
+
+	}
+	 else {
+		tag2.classList.remove('animate__backInRight');
+
+	}
+	if(window.scrollY > 1050){
+		tag3.classList.add('animate__backInRight');
+
+
+	}
+	 else {
+		tag3.classList.remove('animate__backInRight');
+
+	}
+	if(window.scrollY > 1550){
+		tag4.classList.add('animate__backInRight');
+
+
+	}
+	 else {
+		tag4.classList.remove('animate__backInRight');
+
+	}
+
+};

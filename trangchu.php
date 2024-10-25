@@ -17,47 +17,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        window.onscroll = function() {
-            var navbar = document.querySelector('.header');
-            if (window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            var logo = document.querySelector('.logo-text');
-            var scrollPos = window.scrollY;
-
-            if (scrollPos > 50) {
-                logo.style.fontSize = "40px";
-                logo.style.top = "89px";
-                logo.style.left = "65px";
-                logo.style.letterSpacing = "10px";
-                logo.style.fontFamily = "serif";
-                logo.style.color = "#000";
-                logo.style.width = "10px";
-
-
-                logo.style.transform = "translate(0, 0)";
-            } else {
-                logo.style.fontSize = "320px";
-                logo.style.top = "50%";
-                logo.style.left = "13%";
-                logo.style.letterSpacing = "50px";
-                logo.style.fontFamily = "serif";
-                logo.style.color = "#fff";
-
-
-                logo.style.transform = "translate(-50%, -50%)";
-            }
-        };
-    </script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
 </head>
 
 <body>
     <div class="header">
         <div class="logo">
-            <h1><img src="./img/Screenshot 2024-10-21 193627.png" width="210" height="180"></h1>
+            <h1><img src="./img/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
         </div>
         <div class="navbar navbar-expand-lg">
 
@@ -74,7 +43,7 @@
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="index.php">Cửa hàng</a>
+                            <a class="nav-link" href="index.php">Cửa Hàng</a>
 
                         </li>
                         <li class="nav-item">
@@ -101,168 +70,96 @@
     </div>
 
     <div class="container">
-        <div class="swiper-slide-image"></div>
-        <img src="https://res.cloudinary.com/wordpressphuongthao/images/v1625125280/slideshow_4_331de4b/slideshow_4_331de4b.jpeg" alt="ảnh lỗi">
+        <div class="elementor-widget ">
+                <img src="./img/anhnen1.jpg" alt="">
+            </div>
+        </div>
+    
 
+    <div class="elementor-divider1 animate__backInRight">
+        <h2>SANG TRỌNG QUÝ PHÁI</h2>
     </div>
 
-    <div class="elementor-divider">
-        <h2>MIỄN PHÍ SHIP HOÁ ĐƠN 500K</h2>
-    </div>
     <div class="container">
-        <div class="elementor-widget-container">
-            <img src="./img/anhbox1.png" alt="">
+        <div class="elementor-widget-container ">
+            <img src="./img/fashion-2309519_640.jpg" alt="">
         </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
+        <div class="elementor-widget-container ">
+            <img src="./img/wrist-watch-2159351_640.jpg" alt="">
 
         </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
+       
+    </div>
 
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-</div>
-
-<div class="elementor-divider">
+    <div class="elementor-divider2 ">
         <h2>STYLE CỦA BẠN</h2>
     </div>
     <div class="container">
-        <div class="elementor-widget-container">
-            <img src="./img/anhbox1.png" alt="">
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-</div>
-<div class="elementor-divider">
-        <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
-    </div>
-    <div class="container">
-        <div class="elementor-widget-container">
-            <img src="./img/anhbox1.png" alt="">
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-</div>
-<div class="elementor-divider">
-        <h2>SẢN PHẨM BÁN CHẠY</h2>
-    </div>
-    <div class="container">
-        <div class="elementor-widget-container">
-            <img src="./img/anhbox1.png" alt="">
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-        <div class="elementor-widget-container">
-        <img src="./img/anhbox1.png" alt="">
-
-        </div>
-</div>
-        
-        <!-- <div class="box1 swiper-slide-image"></div>
-        <img src="https://res.cloudinary.com/wordpressphuongthao/images/v1625125280/slideshow_4_331de4b/slideshow_4_331de4b.jpeg" alt="ảnh lỗi">
-
-    </div>
-    <div class="container">
-        <div class="swiper-slide-image"></div>
-        <img src="https://res.cloudinary.com/wordpressphuongthao/images/v1625125280/slideshow_4_331de4b/slideshow_4_331de4b.jpeg" alt="ảnh lỗi">
-
-    </div>
-    <div class="container">
-        <div class="swiper-slide-image"></div>
-        <img src="https://res.cloudinary.com/wordpressphuongthao/images/v1625125280/slideshow_4_331de4b/slideshow_4_331de4b.jpeg" alt="ảnh lỗi">
-
-    </div>
-    <div class="container">
-        <div class="swiper-slide-image"></div>
-        <img src="https://res.cloudinary.com/wordpressphuongthao/images/v1625125280/slideshow_4_331de4b/slideshow_4_331de4b.jpeg" alt="ảnh lỗi">
-
-    </div> -->
-  
-    <div class="footer">
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </ul>
-        </div>
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Ngày Sinh</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-            </ul>
-        </div>
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Mã Sinh Viên</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a class="footer-item-link">1111111</a>
-                </li>
-                <li class="footer-item">
-                    <a class="footer-item-link">111111</a>
-                </li>
-                <li class="footer-item">
-                    <a class="footer-item-link">11111111</a>
-                </li>
-            </ul>
+        <div class="elementor-widget ">
+                <img src="./img/anh4.jpg" alt="">
+            </div>
         </div>
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
+        <div class="elementor-divider3 ">
+            <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
+        </div>
+        <div class="container">
+            <div class="elementor-widget-container animate__rotateInUpRight">
+                <img src="./img/anhbox1.png" alt="">
+            </div>
+            <div class="elementor-widget-container animate__fadeInUp">
+                <img src="./img/anhbox1.png" alt="">
+
+            </div>
+            <div class="elementor-widget-container animate__rotateInUpLeft">
+                <img src="./img/anhbox1.png" alt="">
+
+            </div>
+        </div>
+        <div class="elementor-divider4 animate__backInRight">
+            <h2>BÀI VIẾT MỚI</h2>
+        </div>
+        <div class="container-box animate__lightSpeedInRight">
+            <div class="elementor-widget-container ">
+                <img src="./img/woman-8793611_640.jpg" alt="">
+            </div>
+            <div class="elementor-widget-container">
+                <img src="./img/anhbox1.png" alt="">
+
+            </div>
+          
         </div>
 
-    </div>
 
-  
+
+        <div class="footer">
+
+
+            <div class="column l-2-4 me-4 s-6">
+                <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+                <div class="footer-list">
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                    </li>
+                </div>
+            </div>
+            
+
+            <div class="column l-2-4 me-4 s-6">
+                <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
+                <input class="footer__input" type="text" placeholder="Email address">
+                <input type="submit" value="Gửi">
+            </div>
+
+        </div>
+
+
 
 
 

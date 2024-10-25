@@ -56,6 +56,9 @@ li:hover {
 .navbar .container-fluid {
     margin-left: 10px;
 }
+.navbar-nav .nav-item a:hover{
+    color: #771616;
+}
 
 .navbar .container-fluid li {
     padding: 20px;
@@ -72,13 +75,14 @@ li:hover {
 
 
 .container {
-    height: 90%;
+    width: 100%;
     display: flex;
 }
 
+
 .container .category {
     margin-top: 30px;
-    width: 40%;
+    width: 30%;
     margin-left: -140px;
     padding: 20px 0;
     border-right: 1px solid #f1f1f1;
@@ -108,11 +112,12 @@ li:hover {
     padding: 15px;
     margin-top: -10px;
     display: flex;
-    width: 100%;
+    width: 70%;
     flex-wrap: wrap;
     margin-top: 30px;
     margin-left: 20px;
     border-top: 1px solid #f1f1f1;
+    height: 50%;
 
 }
 
