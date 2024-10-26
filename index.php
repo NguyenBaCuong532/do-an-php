@@ -29,9 +29,10 @@
 </head>
 
 <body>
+    <!-- ----------------------------------------------start Header------------------------------------------- -->
     <div class="header">
         <div class="logo">
-        <h1><img src="./img/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
+            <h1><img src="./img/trangchu/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
 
         </div>
         <div class="navbar navbar-expand-lg">
@@ -73,12 +74,9 @@
 
 
 
-
-
+    <!-- ----------------------------------------------end Header------------------------------------------- -->
+    <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
     <div class="container">
-
-
-
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>
@@ -88,7 +86,7 @@
 
                 <p>
                     <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Túi(Thời trang)
+                        Phụ Kiện Giày
                     </a>
 
                 </p>
@@ -104,15 +102,14 @@
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-                            <li class="category-item category-item--active">
-                                Vòng Cổ
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
                 <p>
                     <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample0" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ kiện giày dép
+                    Phụ Kiện Dép
+
                     </a>
 
                 </p>
@@ -128,15 +125,14 @@
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-                            <li class="category-item category-item--active">
-                                Vòng Cổ
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>
                 <p>
                     <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Kính Mắt
+                    Phụ Kiện Trang Sức
+
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample1">
@@ -151,78 +147,140 @@
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-                            <li class="category-item category-item--active">
-                                Vòng Cổ
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
             </div>
 
         </nav>
-  
 
 
+        <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
+        <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
+        <?php
+        // PHẦN XỬ LÝ PHP
+        // BƯỚC 1: KẾT NỐI CSDL
+        $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
 
+        // BƯỚC 2: TÌM TỔNG SỐ RECORDS
+        $result = mysqli_query($conn, 'select count(ProductID) as total from product');
+        $row = mysqli_fetch_assoc($result);
+        $total_records = $row['total'];
+
+        // BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 10;
+
+        // BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
+        // tổng số trang
+        $total_page = ceil($total_records / $limit);
+
+        // Giới hạn current_page trong khoảng 1 đến total_page
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
+        }
+
+        // Tìm Start
+        $start = ($current_page - 1) * $limit;
+
+        // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
+        // Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
+        $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
+
+        ?>
         <div class="home-product">
 
             <?php
-            $products = [
-                ["name" => "Sản phẩm 1", "price" => 100000, "description" => "Mô tả sản phẩm 1"],
-                ["name" => "Sản phẩm 2", "price" => 200000, "description" => "Mô tả sản phẩm 2"],
-                ["name" => "Sản phẩm 3", "price" => 300000, "description" => "Mô tả sản phẩm 3"],
-                ["name" => "Sản phẩm 3", "price" => 300000, "description" => "Mô tả sản phẩm 3"],
-                ["name" => "Sản phẩm 3", "price" => 300000, "description" => "Mô tả sản phẩm 3"],
-            ];
-            foreach ($products as $product) {
-
-                echo  '<div class="row" >
-							<a class="home-product-item">
-								<div class="home-product-item__img" style="background-image:url(./img/tuixach.jpg)">
-								</div>
-								<h4 class="home-product-item__name">Túi Xách</h4>
-								<div class="home-product-item__price">
-									<div class="home-product-item__price-old">10.000đ</div>
-									<div class="home-product-item__price-new">20.000đ</div>
-								</div>
-								<div class="home-product-item__action">
-									<span class="home-product-item__like home-product-item__liked">
-										<i class="home-product-item__like-none far fa-heart"></i>
-										<i class="home-product-item__like-fill fas fa-heart"></i>
-									</span>
-									<div class="home-product-item__rating">
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-									</div>
-									<span class="home-product-item__sold">Số lượng : 10</span>
-								</div>
-								
-								<div class="home-product-item__favorite">
-									<i class="home-product-item__favorite-icon fas fa-check"></i>
-									<span>Yêu thích</span>
-								</div>
-								<div class="home-product-item__sale">
-									<span class="home-product-item__sale-percent">25%</span>
-									<span class="home-product-item__sale-label">GIẢM
-									</span>
-								</div>
-							</a>
-						</div>';
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['StockQuantity'] > 0) {
+                    echo '<div class="column l-2-4 me-4 s-6" >
+                    <a class="home-product-item" href="../pages/sanpham.php?id= '.$row['ProductID'].'">>
+                        <div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
+                        </div>
+                        <h4 class="home-product-item__name">'.$row['Name'].'</h4>
+                        <div class="home-product-item__price">
+                            <div class="home-product-item__price-old">'.number_format($row['Price'],3).'đ</div>
+                            <div class="home-product-item__price-new">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</div>
+                        </div>
+                        <div class="home-product-item__action">
+                            <span class="home-product-item__like home-product-item__liked">
+                                <i class="home-product-item__like-none far fa-heart"></i>
+                                <i class="home-product-item__like-fill fas fa-heart"></i>
+                            </span>
+                            <div class="home-product-item__rating">
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                            </div>
+                            <span class="home-product-item__sold">Số lượng: '.$row['StockQuantity'].'</span>
+                        </div>
+                        
+                        <div class="home-product-item__favorite">
+                            <i class="home-product-item__favorite-icon fas fa-check"></i>
+                            <span>Yêu thích</span>
+                        </div>
+                        <div class="home-product-item__sale">
+                            <span class="home-product-item__sale-percent">'.$row['Sale'].'%</span>
+                            <span class="home-product-item__sale-label">GIẢM
+                            </span>
+                        </div>
+                    </a>
+                </div>';	
+                } else {
+                    echo '<div class="column l-2-4 me-4 s-6" >
+                    <a class="home-product-item" href="../pages/sanpham.php?id= '.$row['ProductID'].'">>
+                        <div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
+                        </div>
+                        <h4 class="home-product-item__name">'.$row['tensp'].'</h4>
+                        <div class="home-product-item__price">
+                            <div class="home-product-item__price-old">'.number_format($row['Price'],3).'đ</div>
+                            <div class="home-product-item__price-new">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</div>
+                        </div>
+                        <div class="home-product-item__action">
+                            <span class="home-product-item__like home-product-item__liked">
+                                <i class="home-product-item__like-none far fa-heart"></i>
+                                <i class="home-product-item__like-fill fas fa-heart"></i>
+                            </span>
+                            <div class="home-product-item__rating">
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                            </div>
+                            <span class="home-product-item__sold">Số lượng: Hết hàng</span>
+                        </div>
+                        
+                        <div class="home-product-item__favorite">
+                            <i class="home-product-item__favorite-icon fas fa-check"></i>
+                            <span>Yêu thích</span>
+                        </div>
+                        <div class="home-product-item__sale">
+                            <span class="home-product-item__sale-percent">25%</span>
+                            <span class="home-product-item__sale-label">GIẢM
+                            </span>
+                        </div>
+                    </a>
+                </div>';	
+                  
+                }
             }
 
             ?>
-                  <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
             <!-- sản phẩm -->
 
 

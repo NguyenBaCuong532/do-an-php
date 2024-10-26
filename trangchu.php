@@ -26,7 +26,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <h1><img src="./img/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
+            <h1><img src="./img/trangchu/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
         </div>
         <div class="navbar navbar-expand-lg">
 
@@ -71,7 +71,7 @@
 
     <div class="container">
         <div class="elementor-widget ">
-                <img src="./img/anhnen1.jpg" alt="">
+                <img src="./img/trangchu/anhnen1.jpg" alt="">
             </div>
         </div>
     
@@ -82,10 +82,10 @@
 
     <div class="container">
         <div class="elementor-widget-container ">
-            <img src="./img/fashion-2309519_640.jpg" alt="">
+            <img src="./img/trangchu/fashion-2309519_640.jpg" alt="">
         </div>
         <div class="elementor-widget-container ">
-            <img src="./img/wrist-watch-2159351_640.jpg" alt="">
+            <img src="./img/trangchu/wrist-watch-2159351_640.jpg" alt="">
 
         </div>
        
@@ -96,7 +96,7 @@
     </div>
     <div class="container">
         <div class="elementor-widget ">
-                <img src="./img/anh4.jpg" alt="">
+                <img src="./img/trangchu/anh4.jpg" alt="">
             </div>
         </div>
 
@@ -105,14 +105,14 @@
         </div>
         <div class="container">
             <div class="elementor-widget-container animate__rotateInUpRight">
-                <img src="./img/anhbox1.png" alt="">
+                <img src="./img/trangchu/anhbox1.png" alt="">
             </div>
             <div class="elementor-widget-container animate__fadeInUp">
-                <img src="./img/anhbox1.png" alt="">
+                <img src="./img/trangchu/anhbox1.png" alt="">
 
             </div>
             <div class="elementor-widget-container animate__rotateInUpLeft">
-                <img src="./img/anhbox1.png" alt="">
+                <img src="./img/trangchu/anhbox1.png" alt="">
 
             </div>
         </div>
@@ -121,10 +121,10 @@
         </div>
         <div class="container-box animate__lightSpeedInRight">
             <div class="elementor-widget-container ">
-                <img src="./img/woman-8793611_640.jpg" alt="">
+                <img src="./img/trangchu/woman-8793611_640.jpg" alt="">
             </div>
             <div class="elementor-widget-container">
-                <img src="./img/anhbox1.png" alt="">
+                <img src="./img/trangchu/box1.jpg" alt="">
 
             </div>
           
