@@ -45,7 +45,7 @@ window.onscroll = function() {
 		tag.classList.remove('animate__backInRight');
 
 	}
-	if(window.scrollY > 650){
+	if(window.scrollY > 1050){
 		tag2.classList.add('animate__backInRight');
 
 
@@ -54,7 +54,7 @@ window.onscroll = function() {
 		tag2.classList.remove('animate__backInRight');
 
 	}
-	if(window.scrollY > 1050){
+	if(window.scrollY > 3350){
 		tag3.classList.add('animate__backInRight');
 
 
@@ -63,7 +63,7 @@ window.onscroll = function() {
 		tag3.classList.remove('animate__backInRight');
 
 	}
-	if(window.scrollY > 1550){
+	if(window.scrollY > 4050){
 		tag4.classList.add('animate__backInRight');
 
 

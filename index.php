@@ -197,7 +197,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($row['StockQuantity'] > 0) {
                     echo '<div class="column l-2-4 me-4 s-6" >
-                    <a class="home-product-item" href="../pages/sanpham.php?id= '.$row['ProductID'].'">>
+                    <a class="home-product-item" href="./sanpham.php?id= '.$row['ProductID'].'">>
                         <div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
                         </div>
                         <h4 class="home-product-item__name">'.$row['Name'].'</h4>

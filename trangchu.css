@@ -78,7 +78,11 @@ body {
 .navbar .navbar-brand {
     font-size: 30px;
     z-index: 1000;
+    
 
+}
+.container-fluid .navbar-brand:hover {
+    color: #aa1e1e;
 }
 
 .navbar-nav .nav-item a:hover {
