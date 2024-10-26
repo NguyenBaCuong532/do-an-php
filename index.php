@@ -163,20 +163,20 @@
         // BƯỚC 1: KẾT NỐI CSDL
         $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
 
-        // BƯỚC 2: TÌM TỔNG SỐ RECORDS
+        // BƯỚC 2: TÌM TỔNG SỐ sản phẩm
         $result = mysqli_query($conn, 'select count(ProductID) as total from product');
         $row = mysqli_fetch_assoc($result);
         $total_records = $row['total'];
 
-        // BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
+        // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 10;
+        $limit = 4;
 
-        // BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
+        // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
         // tổng số trang
         $total_page = ceil($total_records / $limit);
 
-        // Giới hạn current_page trong khoảng 1 đến total_page
+        // Giới hạn current_page trong khoảng 1 đến tổng trang
         if ($current_page > $total_page) {
             $current_page = $total_page;
         } else if ($current_page < 1) {
@@ -186,8 +186,8 @@
         // Tìm Start
         $start = ($current_page - 1) * $limit;
 
-        // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
-        // Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
+        // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
+        // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
         $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
 
         ?>
