@@ -28,6 +28,9 @@ body {
     animation-duration: .5s; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+  .container-fluid .navbar-brand:hover {
+    color: #aa1e1e;
+}
   @keyframes example {
     from {background-color: rgba(255, 255, 255, 0);}
     to {    background-color: #fff;

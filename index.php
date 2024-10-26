@@ -52,7 +52,7 @@
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tài Khoản</a>
+                            <a class="nav-link" href="./auth/dangnhap.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giỏ Hàng</a>

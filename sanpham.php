@@ -20,7 +20,10 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="sanpham.css">
 
-    <script src="./script.js"></script>
+    <script src="./script.js">
+        
+    </script>
+    
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -30,6 +33,8 @@ if (!isset($_SESSION['username'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    
     <script>
         window.onscroll = function() {
             var navbar = document.querySelector('.header');
@@ -40,6 +45,25 @@ if (!isset($_SESSION['username'])) {
             }
         };
     </script>
+     <script>
+    function toggleHeart(button) {
+      // Thêm hoặc xóa class 'active' để đổi màu nút
+      button.classList.toggle("active");
+
+      // Tạo phần tử trái tim và thêm vào DOM
+      const heart = document.createElement("span");
+      heart.classList.add("heart-animation");
+      heart.innerText = "❤️";
+
+      // Thêm hiệu ứng vào nút
+      button.appendChild(heart);
+
+      // Xóa phần tử trái tim sau khi hiệu ứng kết thúc
+      heart.addEventListener("animationend", () => {
+        heart.remove();
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -179,9 +203,11 @@ if (!isset($_SESSION['username'])) {
             <div class="product-detail-item-img">
                 <img src="./img/tuixach.jpg" style="width:510px;height:550px" alt="">
                 <div class="product-detail-favorite">
-                    Yêu thích
+               Yêu thích   <button class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i></button>
+                   
+                    
                 </div>
-                <span class="product-detail-price-sale">' . $row['Sale'] . '% GIẢM</span>
+                <div class="home-product-item__sale">-' . $row['Sale'] . '% GIẢM</div>
 
             </div>
             <div class="product-detail-title">
@@ -195,34 +221,29 @@ if (!isset($_SESSION['username'])) {
                         <div class="product-detail-appreciate__space product-detail-appreciate__rating">
                             <span style="text-decoration: underline;">4.9</span>
                             <i class="home-product-item__star-gold fas fa-star"></i>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
+                          
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__appre">
-                            <span>1k</span>
-                            <div class="product-detail-label-lb">Đánh giá</div>
+                         
+                            <div class="product-detail-label-lb">1k Đánh giá</div>
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__sold">
-                            <span>2,6k</span>
-                            <div class="product-detail-label-lb">Đã bán</div>
+                            <div class="product-detail-label-lb">2,6k Đã bán</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="product-detail-title-1">
                     <div class="product-detail-price">
+                    <label>Giá :</label>
                         <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
                         <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
-                        <span class="product-detail-price-sale">' . $row['Sale'] . '% GIẢM</span>
+                        <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
                     </div>
                 </div>
+                
                 <div class="product-detail-title-1">
-                    <h2>232434</h2>
-                </div>
-                <div class="product-detail-title-1">
-                    <h2>232434</h2>
+                  <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
                 </div>
                 <div class="product-detail-title-1">
                     <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>

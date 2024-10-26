@@ -35,6 +35,11 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+.input-group{
+    width:100%;
+   margin-left: 40px;
+
+}
 
 .wrapper .title-text {
     display: flex;
@@ -148,11 +153,7 @@ input[type="radio"] {
   transition: all 0.3s ease;
 } */
 
-.input-group {
-    position: relative;
-    width: 320px;
-    margin: 30px 0;
-}
+
 
 .input-group label {
     position: absolute;

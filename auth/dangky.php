@@ -45,7 +45,7 @@
 			  }
 	}
 	?>
-    <div class="wrapper">
+    <div class="wrapper" style="width:500px">
         <div class="title-text">
             
             <div class="title signup">
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <form action="" method="POST" class="signup">
+        <form action="" method="POST" class="signup" style="margin-left: 61px;">
             <div class="input-group">
                 <input type="text" name="name" id="name" required>
                 <label htmlFor=''>Tên người dùng</label>

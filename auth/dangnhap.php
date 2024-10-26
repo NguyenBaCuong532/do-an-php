@@ -58,7 +58,7 @@ session_start();
    }
    ?>
 
-   <div class="wrapper">
+   <div class="wrapper" style="width:500px">
       <div class="title-text">
          <div class="title login">
             Đăng Nhập
