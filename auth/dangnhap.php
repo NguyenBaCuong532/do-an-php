@@ -63,9 +63,7 @@ session_start();
          <div class="title login">
             Đăng Nhập
          </div>
-         <div class="title signup">
-            Đăng Ký
-         </div>
+         
       </div>
       <div class="form-container">
         
