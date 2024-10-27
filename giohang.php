@@ -78,11 +78,11 @@ if (isset($_POST['submit'])) {
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>
+                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Liên Hệ</a>
+                            <a class="nav-link" href="./lienhe.php">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container">
+    <div class="container" style="min-height: 487px;">
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>

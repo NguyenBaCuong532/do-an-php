@@ -19,8 +19,9 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
-        
         window.onscroll = function() {
             var navbar = document.querySelector('.header');
             if (window.scrollY > 20) {
@@ -29,7 +30,6 @@ session_start();
                 navbar.classList.remove('scrolled');
             }
         };
-
     </script>
 </head>
 
@@ -57,22 +57,17 @@ session_start();
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
-
-                
-                       
-                       
-                       
+                            <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>                 
-                      
+                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Liên Hệ</a>
+                            <a class="nav-link" href="./lienhe.php">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>
@@ -87,134 +82,101 @@ session_start();
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container">
+    <div class="container" style="min-height: 687px;">
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
+
+                <?php
+										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+										$sql = "SELECT * From category";
+										$ketqua = mysqli_query($conn,$sql);
+										while($row=mysqli_fetch_array($ketqua)){
+                                            if ($row['CategoryID'] < 2)
+                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                                        else
+                                            echo "";
+                                    }
+										
+									?>
+                                       <?php
+										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+										$sql = "SELECT * From category";
+										$ketqua = mysqli_query($conn,$sql);
+										while($row=mysqli_fetch_array($ketqua)){
+                                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
+                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                                        else
+                                            echo "";
+                                    }
+										
+									?>
+                                       <?php
+										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+										$sql = "SELECT * From category";
+										$ketqua = mysqli_query($conn,$sql);
+										while($row=mysqli_fetch_array($ketqua)){
+                                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
+                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                                        else
+                                            echo "";
+                                    }
+										
+									?>
             </h3>
-            <div class="scoll">
-
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Giày
-                    </a>
-
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample0" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ Kiện Dép
-
-                    </a>
-
-                </p>
-                <div class="collapse" id="collapseExample0">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-                           
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ Kiện Trang Sức
-
-                    </a>
-                </p>
-                <div class="collapse" id="collapseExample1">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </nav>
+           
+    </nav>
 
 
-        <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
-        <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
+    <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
+    <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
+    <?php
+    // PHẦN XỬ LÝ PHP
+    // BƯỚC 1: KẾT NỐI CSDL
+    $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
+
+    // BƯỚC 2: TÌM TỔNG SỐ sản phẩm
+    $result = mysqli_query($conn, 'select count(ProductID) as total from product');
+    $row = mysqli_fetch_assoc($result);
+    $total_records = $row['total'];
+
+    // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $limit = 4;
+
+    // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
+    // tổng số trang
+    $total_page = ceil($total_records / $limit);
+
+    // Giới hạn current_page trong khoảng 1 đến tổng trang
+    if ($current_page > $total_page) {
+        $current_page = $total_page;
+    } else if ($current_page < 1) {
+        $current_page = 1;
+    }
+
+    // Tìm Start
+    $start = ($current_page - 1) * $limit;
+
+    // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
+    // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
+    $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
+
+    ?>
+    <div class="home-product">
+
         <?php
-        // PHẦN XỬ LÝ PHP
-        // BƯỚC 1: KẾT NỐI CSDL
-        $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
-
-        // BƯỚC 2: TÌM TỔNG SỐ sản phẩm
-        $result = mysqli_query($conn, 'select count(ProductID) as total from product');
-        $row = mysqli_fetch_assoc($result);
-        $total_records = $row['total'];
-
-        // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 4;
-
-        // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
-        // tổng số trang
-        $total_page = ceil($total_records / $limit);
-
-        // Giới hạn current_page trong khoảng 1 đến tổng trang
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
-        }
-
-        // Tìm Start
-        $start = ($current_page - 1) * $limit;
-
-        // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
-        // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
-        $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
-
-        ?>
-        <div class="home-product">
-
-            <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['StockQuantity'] > 0) {
-                    echo '<div class="column l-2-4 me-4 s-6" >
-                    <a class="home-product-item" href="./sanpham.php?id= '.$row['ProductID'].'">>
-                        <div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['StockQuantity'] > 0) {
+                echo '<div class="column l-2-4 me-4 s-6" style="min-height: 687px;" >
+                    <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
+                        <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
                         </div>
-                        <h4 class="home-product-item__name">'.$row['Name'].'</h4>
+                        <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
                         <div class="home-product-item__price">
-                            <div class="home-product-item__price-old">'.number_format($row['Price'],3).'đ</div>
-                            <div class="home-product-item__price-new">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</div>
+                            <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
                         </div>
                         <div class="home-product-item__action">
                             <span class="home-product-item__like home-product-item__liked">
@@ -228,7 +190,7 @@ session_start();
                                 <i class="home-product-item__star-gold fas fa-star"></i>
                                 <i class="home-product-item__star-gold fas fa-star"></i>
                             </div>
-                            <span class="home-product-item__sold">Số lượng: '.$row['StockQuantity'].'</span>
+                            <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
                         </div>
                         
                         <div class="home-product-item__favorite">
@@ -236,21 +198,21 @@ session_start();
                             <span>Yêu thích</span>
                         </div>
                         <div class="home-product-item__sale">
-                            <span class="home-product-item__sale-percent">'.$row['Sale'].'%</span>
+                            <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
                             <span class="home-product-item__sale-label">GIẢM
                             </span>
                         </div>
                     </a>
-                </div>';	
-                } else {
-                    echo '<div class="column l-2-4 me-4 s-6" >
-                    <a class="home-product-item" href="../pages/sanpham.php?id= '.$row['ProductID'].'">>
-                        <div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
+                </div>';
+            } else {
+                echo '<div class="column l-2-4 me-4 s-6" >
+                    <a class="home-product-item" href="../pages/sanpham.php?id= ' . $row['ProductID'] . '">>
+                        <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
                         </div>
-                        <h4 class="home-product-item__name">'.$row['tensp'].'</h4>
+                        <h4 class="home-product-item__name">' . $row['tensp'] . '</h4>
                         <div class="home-product-item__price">
-                            <div class="home-product-item__price-old">'.number_format($row['Price'],3).'đ</div>
-                            <div class="home-product-item__price-new">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</div>
+                            <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
                         </div>
                         <div class="home-product-item__action">
                             <span class="home-product-item__like home-product-item__liked">
@@ -277,55 +239,54 @@ session_start();
                             </span>
                         </div>
                     </a>
-                </div>';	
-                  
-                }
+                </div>';
             }
+        }
 
-            ?>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-            <!-- sản phẩm -->
+        ?>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        <!-- sản phẩm -->
 
-
-        </div>
 
     </div>
 
-    
+    </div>
+
+
     <div class="footer" style="height: 251px;">
 
 
-<div class="column l-2-4 me-4 s-6">
-    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-    <div class="footer-list">
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Cấn Đình Duy</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Phạm Quang Huy</a>
-        </li>
+        <div class="column l-2-4 me-4 s-6">
+            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+            <div class="footer-list">
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                </li>
+            </div>
+        </div>
+
+
+        <div class="column l-2-4 me-4 s-6">
+            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
+            <input class="footer__input" type="text" placeholder="Email address">
+            <input type="submit" value="Gửi">
+        </div>
+
     </div>
-</div>
-
-
-<div class="column l-2-4 me-4 s-6">
-    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-    <input class="footer__input" type="text" placeholder="Email address">
-    <input type="submit" value="Gửi">
-</div>
-
-</div>
 
 
 

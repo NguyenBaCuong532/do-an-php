@@ -16,7 +16,6 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="sanpham.css">
 
     <script src="./script.js">
@@ -89,16 +88,16 @@ session_start();
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tài Khoản</a>
+                            <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>
+                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Liên Hệ</a>
+                            <a class="nav-link" href="./lienhe.php">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>
@@ -113,7 +112,7 @@ session_start();
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container" style="height: 459px;">
+    <div class="container" style="min-height: 487px;">
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>

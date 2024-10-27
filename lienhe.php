@@ -1,12 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
-    header('Location: ./auth/dangnhap.php');
 
-    exit();
-}
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			$noidung = $_POST['noidung'];
+			$thoigian = date('Y-m-d');
+			$conn =	mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+			$sql= "INSERT INTO phanhoi (username,noidung,thoigian) VALUES ('$_SESSION[username]','$noidung','$thoigian')";
+			$ketqua = mysqli_query($conn, $sql);
+			header("location: ./lienhe.php");
+	}
+
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,55 +92,25 @@ if (!isset($_SESSION['username'])) {
     </div>
 
 
-    <div class="page">
-<table class="layout display responsive-table">
-<img class="anh" src="./img/username.png" alt="">
 
-<thead>
-<tr>
-	<th>Tên tài khoản</th>
-	<th >Họ và tên</th>
-	<th >Số điện thoại</th>
-	<th >Địa chỉ</th>
-	<th>Hóa đơn</th>
-	<th></th>
-</tr>
-</thead>
-<tbody>
-<?php
-		echo "<tr>";
-		echo "<td>".$_SESSION['username']."</td>";
-		echo "<td >".$_SESSION['hoten']."</td>";
-		echo "<td >0".$_SESSION['sdt']."</td>";
-		echo "<td> ".$_SESSION['diachi']."</td><hr width='40%'>";
-		echo '<td><a href=" ./hoadon.php?id= '.$_SESSION['id'].'">Hóa đơn</a></td>';
-		echo '<td><a href=" ./pages/doimk.php?id= '.$_SESSION['id'].'">Đổi mật khẩu</a></td>';
-		echo "</tr>";
+    <!-- ----------------------------------------------end Header------------------------------------------- -->
+        <form class="content" method="post">
+            <h1>Liên hệ Website bán phụ kiện trang sức online</h1>
+            <h4>Facebook: Cửa hàng giày TT Shoes</h4>
+            <h4>Hotline :<a href="tel:0975242481"> 0975242481</a></h4>
+
+            <h4>Email:<a href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h4>
+            <h4>Mọi thắc mắc hay đóng góp ý kiến xin khách hàng hãy liên hệ với cửa hàng chúng tôi!</h4>
+            <h4>Tin nhắn phản hồi ý kiến : <input type="text" name="noidung" id="noidung" required /> 
+            
+            <input type="submit" value="Gửi"></h4>
 
 
-?>
-</tbody>
-</table>
-</div>
-						<div >
-							<style>
-								.admin{
-									text-align: center;
-									font-size: 20px;
-									color: #2c2c2c;
-									letter-spacing: .05em;
-									text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
-									padding-top: 40px;
-									font-weight: bold;
-								}
-							</style>
-						
-								
-						</div>
-					</div>	
-				</div>
-				
-    
+            
+            <h4>Cảm ơn quý khách đã tin tưởng cửa hàng!</h4>
+        </form>
+
+
     
     <div class="footer" style="height: 251px;">
 

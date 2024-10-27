@@ -54,13 +54,13 @@ session_start();
                             <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ Hàng</a>
+                            <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>
+                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Liên Hệ</a>
+                            <a class="nav-link" href="./lienhe.php">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>
