@@ -197,10 +197,11 @@ session_start();
         <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
         <?php
         $row = mysqli_fetch_array($ketqua);
+
         echo '
         <div class="product-detail">
             <div class="product-detail-item-img">
-                <img src="./img/tuixach.jpg" style="width:510px;height:550px" alt="">
+                <img src="./img/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
                 <div class="product-detail-favorite">
                Yêu thích   <button class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i></button>
                    

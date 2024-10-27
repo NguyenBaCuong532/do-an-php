@@ -299,7 +299,8 @@ session_start();
 
     </div>
 
-    <<div class="footer">
+    
+    <div class="footer" style="height: 251px;">
 
 
 <div class="column l-2-4 me-4 s-6">

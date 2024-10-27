@@ -401,6 +401,12 @@ span{
     justify-content: space-around;
     background: #333;
     color: #f1f1f1;
+    padding-bottom: 120px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
 
 }
 
