@@ -113,7 +113,7 @@ session_start();
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container">
+    <div class="container" style="height: 459px;">
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>
