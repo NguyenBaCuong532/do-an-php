@@ -1,14 +1,21 @@
 <?php
 session_start();
-
-?><?php
-
-    $id = $_GET['id'];
-    $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-    $sql = "SELECT * FROM product where ProductID = $id";
-    $ketqua = mysqli_query($conn, $sql);
-    ?>
-
+if(isset($_POST['submit']))
+{       $total = $_POST["total"];
+        foreach($_POST['qty'] as $key=>$value)
+    {
+        if( ($value == 0) and (is_numeric($value)))
+            {
+                unset ($_SESSION['cart'][$key]);
+            }
+        else if(($value > 0) and (is_numeric($value)))
+            {
+                $_SESSION['cart'][$key]=$value;
+            }
+    }
+        header("location:./giohang.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +24,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="sanpham.css">
-
-    <script src="./script.js">
-        
-    </script>
-    
+    <script src="./script.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -30,11 +32,11 @@ session_start();
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    
     <script>
+        
         window.onscroll = function() {
             var navbar = document.querySelector('.header');
             if (window.scrollY > 20) {
@@ -43,26 +45,8 @@ session_start();
                 navbar.classList.remove('scrolled');
             }
         };
+
     </script>
-     <script>
-    function toggleHeart(button) {
-      // Thêm hoặc xóa class 'active' để đổi màu nút
-      button.classList.toggle("active");
-
-      // Tạo phần tử trái tim và thêm vào DOM
-      const heart = document.createElement("span");
-      heart.classList.add("heart-animation");
-      heart.innerText = "❤️";
-
-      // Thêm hiệu ứng vào nút
-      button.appendChild(heart);
-
-      // Xóa phần tử trái tim sau khi hiệu ứng kết thúc
-      heart.addEventListener("animationend", () => {
-        heart.remove();
-      });
-    }
-  </script>
 </head>
 
 <body>
@@ -74,7 +58,7 @@ session_start();
         </div>
         <div class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="trangchu.php">Trang Chủ</a>
+                <a class="navbar-brand" href="./trangchu.php">Trang Chủ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -89,13 +73,19 @@ session_start();
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tài Khoản</a>
+                        <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
+
+                
+                       
+                       
+                       
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>
+                            <a class="nav-link" href="#">Thanh Toán</a>                 
+                      
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên Hệ</a>
@@ -139,13 +129,13 @@ session_start();
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-
+                            
                         </ul>
                     </div>
                 </div>
                 <p>
                     <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample0" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Dép
+                    Phụ Kiện Dép
 
                     </a>
 
@@ -162,13 +152,13 @@ session_start();
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-
+                           
                         </ul>
                     </div>
                 </div>
                 <p>
                     <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Trang Sức
+                    Phụ Kiện Trang Sức
 
                     </a>
                 </p>
@@ -184,7 +174,7 @@ session_start();
                             <li class="category-item category-item--active">
                                 Ví
                             </li>
-
+                            
                         </ul>
                     </div>
                 </div>
@@ -194,107 +184,167 @@ session_start();
 
 
         <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
+
         <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
-        <?php
-        $row = mysqli_fetch_array($ketqua);
-        echo '
-        <div class="product-detail">
-            <div class="product-detail-item-img">
-                <img src="./img/tuixach.jpg" style="width:510px;height:550px" alt="">
-                <div class="product-detail-favorite">
-               Yêu thích   <button class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i></button>
-                   
-                    
-                </div>
-                <div class="home-product-item__sale">-' . $row['Sale'] . '% GIẢM</div>
-
-            </div>
-            <div class="product-detail-title">
-
-                <div class="product-detail-title-1">
-                    ' . $row['Name'] . '
-                    <span class="product-detail-label"></span>
-                </div>
-                <div class="product-detail-title-1">
-                    <div class="product-detail-appreciate">
-                        <div class="product-detail-appreciate__space product-detail-appreciate__rating">
-                            <span style="text-decoration: underline;">4.9</span>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
-                          
-                        </div>
-                        <div class="product-detail-appreciate__space product-detail-appreciate__appre">
-                         
-                            <div class="product-detail-label-lb">1k Đánh giá</div>
-                        </div>
-                        <div class="product-detail-appreciate__space product-detail-appreciate__sold">
-                            <div class="product-detail-label-lb">2,6k Đã bán</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-detail-title-1">
-                    <div class="product-detail-price">
-                    <label>Giá :</label>
-                        <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
-                        <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
-                        <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
-                    </div>
-                </div>
-                
-                <div class="product-detail-title-1">
-                  <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
-                </div>
-                <div class="product-detail-title-1">
-                    <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
-                </div>
-
-                <div class="product-detail-title-1">
-                    <div class="product-detail-shopping">
-
-                        <div class="wrap">
-                            <a href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
-                            </a>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-                ';
-        ?>  
-
-
-
-
+        <div class="grid wide">
+						<?php
+					$total=0;
+					$ok=1;
+					if(isset($_SESSION['cart']))
+					{
+							foreach($_SESSION['cart'] as $k => $v)
+						{
+							if(isset($k))
+							{
+							$ok=2;
+							}
+						}
+								}
+							if($ok == 2)
+					{
+							echo "<form action='./giohang.php' method='post'>";
+							foreach($_SESSION['cart'] as $key=>$value)
+							{
+								$item[]=$key;
+							}
+							$str=implode(",",$item);
+							$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+							$sql ="SELECT * from product where ProductID in ($str)";
+							$query=mysqli_query($conn,$sql);
+							while($row=mysqli_fetch_array($query))
+						{
+							echo 
+							'
+							<div class="container"> 
+						<table id="cart" class="table table-hover table-condensed"> 
+						<thead> 
+						<tr> 
+							<th style="width:50%">Tên sản phẩm</th> 
+							<th style="width:10%">Giá</th> 
+							<th style="width:8%">Số lượng</th> 
+							<th style="width:22%" class="text-center">Thành tiền</th> 
+							<th style="width:10%"> </th> 
+							
+						</tr> 
+						</thead> 
+						<tbody><tr> 
+						<td data-th="Product"> 
+							<div class="row"> 
+							<div class="col-sm-2 hidden-xs"><img src="../'.$row['Image'].'" alt="Sản phẩm 1" class="img-responsive" width="100">
+							</div> 
+							
+							<div class="col-sm-10"> 
+							<h4 class="nomargin">'.$row['Name'].'</h4> 
+							<p>'.$row['Description'].'</p> 
+							</div> 
+							</div> 
+						</td> 
+						<td data-th="Price">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</td> 
+						<td data-th="Quantity">
+						<input class="form-control text-center" type="number" min="1" name="qty['.$row['ProductID'].']" value="'.$_SESSION['cart'][$row['ProductID']].'">
+						</td> 
+						<td data-th="Subtotal" class="text-center">'.number_format($_SESSION['cart'][$row['ProductID']]*($row['Price']-($row['Price']* ($row['Sale']* 0.01))),3).' đ</td> 
+						<td class="actions" data-th="">
+							<button class="btn btn-info btn-sm" name="submit"><i class="fa fa-edit"></i>
+							</button> 
+							<a class="btn btn-danger btn-sm" href="./xoa.php?productid='.$row['ProductID'].'"> <img src="./img/thungrac.jpg" width="15px" height="15px"> </a>
+							
+						</td> 
+						</tr> 
+						</tbody><tfoot> 
+						<tr class="visible-xs"> 
+							<td class="text-center"><strong></strong>
+							</td> 
+						</tr> 
+						<tr> 
+						';
+						$total += $_SESSION['cart'][$row['ProductID']]*($row['Price']-($row['Price']* ($row['Sale']* 0.01))); 
+					
+							$_SESSION['total']= $total;   
+						}
+					?>
+					<?php
+							echo '
+							<td><a href="./index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Mua tiếp</a>
+							</td> 
+							<td colspan="2" class="hidden-xs"> </td> 
+							<td class="hidden-xs text-center"><strong>Tổng tiền: '.number_format($total,3). 'đ</strong>
+							</td> 
+							<td><a href="../pages/thanhtoan.php" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+							</td> 
+						</tr> 
+						</tfoot> 
+						</table>
+						</div>
+							';  
+					?>
+						<br/>
+							<?php							
+							echo "<div class='pro' align='center'>";
+							echo " 	<b>
+							<div align='center'>
+							<img src='../img/reload.png' width='20px'  height='20px'>
+							<input type='submit' name='submit' value='Cập nhật giỏ hàng'>
+						</div><br/>
+						<a href='../pages/xoa.php?productid=0'><img src='../img/thungrac.jpg' width='20px' height='20px'>Xóa bỏ giỏ hàng</a>
+									</b>";
+					}
+					else
+					{
+							echo "<div class='pro'>";
+							echo "	<p align='center'>
+										Bạn không có món hàng nào trong giỏ hàng <br/>
+										<a href='./index.php'>
+											<img src='./img/giohang.png' width='40px' height='40px'>
+											Mua giày mới nào!
+										</a>
+									</p>";
+							echo "</div>";
+					}
+					?>
+					
+						
+								</div>
+								</div>
+    
+    
+    
+    
+    
     </div>
+
+
+      
+
+
+
 
     <div class="footer">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </div>
-        </div>
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
     </div>
+</div>
 
+
+<div class="column l-2-4 me-4 s-6">
+    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
+    <input class="footer__input" type="text" placeholder="Email address">
+    <input type="submit" value="Gửi">
+</div>
+
+</div>
 
 
 

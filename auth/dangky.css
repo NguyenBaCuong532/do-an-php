@@ -35,11 +35,7 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
-.input-group{
-    width:100%;
-   margin-left: 40px;
 
-}
 
 .wrapper .title-text {
     display: flex;

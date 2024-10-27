@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    z-index: 1000;
+}
+.header.scrolled {
+    width: 100%;
+    background-color: #fff;
+    animation-name: example;
+    animation-duration: .5s; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .header.scrolled_font {
+    width: 100%;
+    background-color: #fff;
+    animation-name: example;
+    animation-duration: .5s; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .container-fluid .navbar-brand:hover {
+    color: #aa1e1e;
+}
+  @keyframes example {
+    from {background-color: rgba(255, 255, 255, 0);}
+    to {    background-color: #fff;
+    }
+  }
+
+.navbar {
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f1f1;
+    transition: 3s ease;
+    
+}
+
+li:hover {
+    color: #F63D30;
+    cursor: pointer;
+
+}
+
+.navbar .navbar-brand {
+    font-size: 30px;
+
+}
+
+.navbar .container-fluid {
+    margin-left: 20px;
+
+}
+
+.navbar .container-fluid li {
+    padding: 20px;
+
+}
+.navbar-nav .nav-item a:hover{
+    color: #771616;
+}
+
+
+.header .logo {
+    padding: 15px 0 0 15px;
+    position: relative;
+    width: 30%;
+    z-index: 600;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+
+.container .category {
+    margin-top: 30px;
+    width: 30%;
+    margin-left: -140px;
+    padding: 20px 0;
+    border-right: 1px solid #f1f1f1;
+
+}
+.container .category .category-item{
+    font-size: 18px;
+    list-style-type: none;
+    padding: 5px 0;
+
+}
+.scoll{
+    font-size: 30px;
+    margin-left: 20px;
+}
+.scoll p{
+}
+.slideshow {
+    z-index: 1;
+}
+
+
+
+
+
+
+/* footer */
+.footer {
+    border-top: 4px solid #ffc90e;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-around;
+    background: #333;
+    color: #f1f1f1;
+
+}
+
+.footer__heading {
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.footer-list {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.footer-list li{
+    padding-left: 30px;
+   
+}
+.footer-item-link {
+    text-decoration: none;
+    color: #f1f1f1;
+    padding: 6px 0;
+    display: block;
+}
+
+.footer-item-link:hover {
+    color: #ffc90e;
+}
+
+.footer__input {
+    margin: 6px 0;
+    width: 230px;
+}
+
+.footer__bottom {
+    background-color: #f5f5f5;
+    text-align: center;
+}

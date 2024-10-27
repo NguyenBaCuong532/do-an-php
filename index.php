@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +18,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+        
         window.onscroll = function() {
             var navbar = document.querySelector('.header');
             if (window.scrollY > 20) {
@@ -25,6 +29,7 @@
                 navbar.classList.remove('scrolled');
             }
         };
+
     </script>
 </head>
 
@@ -37,7 +42,7 @@
         </div>
         <div class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="trangchu.php">Trang Chủ</a>
+                <a class="navbar-brand" href="./trangchu.php">Trang Chủ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,13 +57,19 @@
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./auth/dangnhap.php">Tài Khoản</a>
+                        <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
+
+                
+                       
+                       
+                       
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ Hàng</a>
+                            <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Thanh Toán</a>
+                            <a class="nav-link" href="#">Thanh Toán</a>                 
+                      
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên Hệ</a>
@@ -288,62 +299,32 @@
 
     </div>
 
-    <div class="footer">
+    <<div class="footer">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </ul>
-        </div>
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Ngày Sinh</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">01/03/2003</a>
-                </li>
-            </ul>
-        </div>
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Mã Sinh Viên</h3>
-            <ul class="footer-list">
-                <li class="footer-item">
-                    <a class="footer-item-link">1111111</a>
-                </li>
-                <li class="footer-item">
-                    <a class="footer-item-link">111111</a>
-                </li>
-                <li class="footer-item">
-                    <a class="footer-item-link">11111111</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
     </div>
+</div>
 
-    </div>
 
+<div class="column l-2-4 me-4 s-6">
+    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
+    <input class="footer__input" type="text" placeholder="Email address">
+    <input type="submit" value="Gửi">
+</div>
+
+</div>
 
 
 

@@ -1,10 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
-    header('Location: ./auth/dangnhap.php');
 
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +51,7 @@ if (!isset($_SESSION['username'])) {
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tài Khoản</a>
+                            <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giỏ Hàng</a>

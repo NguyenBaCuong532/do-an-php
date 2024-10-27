@@ -35,7 +35,7 @@ session_start();
          echo "<p>username hoặc password bạn không được để trống!</p>";
       } else {
          $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-         $sql = "SELECT * from user where Username = '$username' AND Password = '$password' ";
+         $sql = "SELECT * from user where Username = '$username' AND Password = '$password'";
          $query = mysqli_query($conn, $sql);
          $row = mysqli_fetch_array($query);
          if ($row == 0) {
@@ -51,8 +51,18 @@ session_start();
 
             // Thực thi hành động sau khi lưu thông tin vào session
             // ở đây tiến hành chuyển hướng trang web tới một trang gọi là index.php
-            header('Location: ../trangchu.php');
+         $role = "SELECT * from user where Role=1 ";
+
+
+            if($row['Role']==1){
+               header('Location: ../admin.php');
+               mysqli_close($conn);
+            }
+            else{
+               header('Location: ../trangchu.php');
             mysqli_close($conn);
+            }
+            
          }
       }
    }

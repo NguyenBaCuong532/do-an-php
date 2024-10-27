@@ -1,12 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header('Location: ./auth/dangnhap.php');
-
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +6,6 @@ if (!isset($_SESSION['username'])) {
     <title>Document</title>
 </head>
 <body>
-    bla bla
+    Đây là trang ADMIN
 </body>
 </html>
