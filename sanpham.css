@@ -85,6 +85,8 @@ li:hover {
 .container {
     width: 100%;
     display: flex;
+    max-height: 650px;
+
 }
 
 
@@ -120,7 +122,6 @@ li:hover {
 .product-detail{
     width: 100%;
     display: flex;
-
 }
 
 
@@ -402,9 +403,7 @@ span{
     background: #333;
     color: #f1f1f1;
     padding-bottom: 120px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    
 
 
 
