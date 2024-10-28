@@ -250,12 +250,12 @@ if (isset($_POST['submit'])) {
             ?>
                 <?php
                 echo '
-							<td><a href="./index.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Mua tiếp</a>
+							<td><a href="./index.php" class="btn btn-outline-warning" style="font-weight:600"><i class="fa fa-angle-left"></i> Mua tiếp</a>
 							</td> 
 							<td colspan="2" class="hidden-xs"> </td> 
 							<td class="hidden-xs text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total,3) . 'đ</strong>
 							</td> 
-							<td><a href="../pages/thanhtoan.php" class="btn btn-success btn-block" style="padding:8px 10px;width:160px;margin-left:35px">Thanh toán <i class="fa fa-angle-right"></i></a>
+							<td><a href="./thanhtoan.php" class="btn btn-outline-success" style="padding:8px 10px;width:160px;margin-left:35px;font-weight:600">Thanh toán <i class="fa fa-angle-right"></i></a>
 							</td> 
 						</tr> 
 						</tfoot> 
@@ -268,10 +268,10 @@ if (isset($_POST['submit'])) {
                 echo "<div class='pro' align='center'>";
                 echo " 	<b>
 							<div align='center'>
-							<img src='../img/reload.png' width='20px'  height='20px'>
-							<input type='submit' name='submit' value='Cập nhật giỏ hàng'>
+							<img src='./img/trangchu/edit.webp' width='30px'  height='30px'>
+							<input type='submit' name='submit' class='btn btn-outline-primary' value='Cập nhật giỏ hàng'>
 						</div><br/>
-						<a href='../pages/xoa.php?productid=0'><img src='./img/logo.jpg' width='20px' height='20px'>Xóa bỏ giỏ hàng</a>
+			<img src='./img/trangchu/thungracall.jpg' width='40px' height='40px'><a class='btn btn-outline-secondary' href='./xoa.php?productid=0'>Xóa bỏ giỏ hàng</a>
 									</b>";
             } else {
                 echo "<div class='pro' style='margin-left:300px'>";

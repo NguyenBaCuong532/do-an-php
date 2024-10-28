@@ -15,7 +15,8 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="lienhe.css">
+    <link rel="stylesheet" href="taikhoan.css">
+
 
     <script src="./script.js"></script>
 
@@ -26,10 +27,9 @@ if (!isset($_SESSION['username'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        
         window.onscroll = function() {
             var navbar = document.querySelector('.header');
             if (window.scrollY > 20) {
@@ -38,7 +38,6 @@ if (!isset($_SESSION['username'])) {
                 navbar.classList.remove('scrolled');
             }
         };
-
     </script>
 </head>
 
@@ -66,14 +65,14 @@ if (!isset($_SESSION['username'])) {
                             <a class="nav-link" href="index.php">Cửa Hàng</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>                                                         
+                            <a class="nav-link" href="./taikhoan.php">Tài Khoản</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>                 
-                      
+                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./lienhe.php">Liên Hệ</a>
@@ -83,87 +82,67 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
 
-        <div class="header1">
-        </div>
     </div>
 
 
-    <div class="page">
-<table class="layout display responsive-table">
-<img class="anh" src="./img/username.png" alt="">
-
-<thead>
-<tr>
-	<th>Tên tài khoản</th>
-	<th >Họ và tên</th>
-	<th >Số điện thoại</th>
-	<th >Địa chỉ</th>
-	<th>Hóa đơn</th>
-	<th></th>
-</tr>
-</thead>
-<tbody>
-<?php
-		echo "<tr>";
-		echo "<td>".$_SESSION['username']."</td>";
-		echo "<td >".$_SESSION['hoten']."</td>";
-		echo "<td >0".$_SESSION['sdt']."</td>";
-		echo "<td> ".$_SESSION['diachi']."</td><hr width='40%'>";
-		echo '<td><a href=" ./hoadon.php?id= '.$_SESSION['id'].'">Hóa đơn</a></td>';
-		echo '<td><a href=" ./pages/doimk.php?id= '.$_SESSION['id'].'">Đổi mật khẩu</a></td>';
-		echo "</tr>";
+    <div class="page" style="min-height: 470px;">
+        <table class="layout display responsive-table">
+            <thead>
+                <tr>
+                    <th>Tên tài khoản</th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Hóa đơn</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                echo "<tr>";
+                echo "<td>" . $_SESSION['username'] . "</td>";
+                echo "<td >" . $_SESSION['hoten'] . "</td>";
+                echo "<td >0" . $_SESSION['sdt'] . "</td>";
+                echo "<td> " . $_SESSION['diachi'] . "</td>";
+                echo '<td><a href=" ./hoadon.php?id= ' . $_SESSION['id'] . '">Hóa đơn</a></td>';
+                echo '<td><a href="./doimk.php?id= ' . $_SESSION['id'] . '">Đổi mật khẩu</a></td>';
+                echo "</tr>";
 
 
-?>
-</tbody>
-</table>
-</div>
-						<div >
-							<style>
-								.admin{
-									text-align: center;
-									font-size: 20px;
-									color: #2c2c2c;
-									letter-spacing: .05em;
-									text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
-									padding-top: 40px;
-									font-weight: bold;
-								}
-							</style>
-						
-								
-						</div>
-					</div>	
-				</div>
-				
-    
-    
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
     <div class="footer" style="height: 251px;">
 
 
-<div class="column l-2-4 me-4 s-6">
-    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-    <div class="footer-list">
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Cấn Đình Duy</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Phạm Quang Huy</a>
-        </li>
+        <div class="column l-2-4 me-4 s-6">
+            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+            <div class="footer-list">
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                </li>
+            </div>
+        </div>
+
+
+        <div class="column l-2-4 me-4 s-6">
+            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
+            <input class="footer__input" type="text" placeholder="Email address">
+            <input type="submit" value="Gửi">
+        </div>
+
     </div>
-</div>
-
-
-<div class="column l-2-4 me-4 s-6">
-    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-    <input class="footer__input" type="text" placeholder="Email address">
-    <input type="submit" value="Gửi">
-</div>
-
-</div>
 
 
 

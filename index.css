@@ -318,6 +318,27 @@ i.home-product-item__like-fill {
     font-weight: 450;
 }
 
+
+/*Pagination*/
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+    margin-top: 100px;
+}
+
+
+.pagination-item-link {
+	display: block;
+	text-decoration: none;
+	color: #939393;
+	min-width: 40px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
 /* footer */
 .footer {
     border-top: 4px solid #ffc90e;
@@ -326,9 +347,7 @@ i.home-product-item__like-fill {
     justify-content: space-around;
     background: #333;
     color: #f1f1f1;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    
 
 
 

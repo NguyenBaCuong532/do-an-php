@@ -176,7 +176,7 @@ session_start();
                     <div class="product-detail-shopping">
 
                         <div class="wrap">
-                            <a href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
+                            <a style="text-decoration: none;" href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
                             </a>
                         </div>
                         </a>

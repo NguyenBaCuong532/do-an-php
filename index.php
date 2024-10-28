@@ -92,95 +92,95 @@ session_start();
 
                 <h4>
 
-<?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
-                            if ($row['CategoryID'] < 2)
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                    $sql = "SELECT * From category";
+                    $ketqua = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_array($ketqua)) {
+                        if ($row['CategoryID'] < 2)
                             echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                         else
                             echo "";
                     }
-                        
-                    ?>
-</h4>
-<h4>
 
-                       <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
-                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-                        
                     ?>
-</h4>
-<h4>
+                </h4>
+                <h4>
 
-                       <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
-                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                    $sql = "SELECT * From category";
+                    $ketqua = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_array($ketqua)) {
+                        if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
                             echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                         else
                             echo "";
                     }
-                        
+
                     ?>
-</h4>
+                </h4>
+                <h4>
+
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                    $sql = "SELECT * From category";
+                    $ketqua = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_array($ketqua)) {
+                        if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+
+                    ?>
+                </h4>
             </h3>
-           
-    </nav>
+
+        </nav>
 
 
-    <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
-    <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
-    <?php
-    // PHẦN XỬ LÝ PHP
-    // BƯỚC 1: KẾT NỐI CSDL
-    $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
-
-    // BƯỚC 2: TÌM TỔNG SỐ sản phẩm
-    $result = mysqli_query($conn, 'select count(ProductID) as total from product');
-    $row = mysqli_fetch_assoc($result);
-    $total_records = $row['total'];
-
-    // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
-    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $limit = 4;
-
-    // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
-    // tổng số trang
-    $total_page = ceil($total_records / $limit);
-
-    // Giới hạn current_page trong khoảng 1 đến tổng trang
-    if ($current_page > $total_page) {
-        $current_page = $total_page;
-    } else if ($current_page < 1) {
-        $current_page = 1;
-    }
-
-    // Tìm Start
-    $start = ($current_page - 1) * $limit;
-
-    // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
-    // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
-    $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
-
-    ?>
-    <div class="home-product">
-
+        <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
+        <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
         <?php
-        while ($row = mysqli_fetch_assoc($result)) {
-            if ($row['StockQuantity'] > 0) {
-                echo '<div class="column l-2-4 me-4 s-6" style="min-height: 687px;" >
+        // PHẦN XỬ LÝ PHP
+        // BƯỚC 1: KẾT NỐI CSDL
+        $conn = mysqli_connect('localhost', 'root', '', 'dawtmdt_phukienthoitrang');
+
+        // BƯỚC 2: TÌM TỔNG SỐ sản phẩm
+        $result = mysqli_query($conn, 'select count(ProductID) as total from product');
+        $row = mysqli_fetch_assoc($result);
+        $total_records = $row['total'];
+
+        // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 6;
+
+        // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
+        // tổng số trang
+        $total_page = ceil($total_records / $limit);
+
+        // Giới hạn current_page trong khoảng 1 đến tổng trang
+        if ($current_page > $total_page) {
+            $current_page = $total_page;
+        } else if ($current_page < 1) {
+            $current_page = 1;
+        }
+
+        // Tìm Start
+        $start = ($current_page - 1) * $limit;
+
+        // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
+        // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
+        $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
+
+        ?>
+        <div class="home-product">
+
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['StockQuantity'] > 0) {
+                    echo '<div class="column l-2-4 me-4 s-6" style="min-height: 687px;" >
                     <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
                         <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
                         </div>
@@ -215,8 +215,8 @@ session_start();
                         </div>
                     </a>
                 </div>';
-            } else {
-                echo '<div class="column l-2-4 me-4 s-6" >
+                } else {
+                    echo '<div class="column l-2-4 me-4 s-6" >
                     <a class="home-product-item" href="../pages/sanpham.php?id= ' . $row['ProductID'] . '">>
                         <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
                         </div>
@@ -251,20 +251,57 @@ session_start();
                         </div>
                     </a>
                 </div>';
+                }
             }
-        }
 
-        ?>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            ?>
+
+            <div class="pagination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        
+                            <?php
+                            // PHẦN HIỂN THỊ PHÂN TRANG
+                            // BƯỚC 7: HIỂN THỊ PHÂN TRANG
+
+                            // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                            if ($current_page > 1 && $total_page > 1) {
+    
+                                echo '<li class="page-item "><a class="page-link" href="./index.php?page=' . ($current_page - 1) .'">Prev</a> </li>';
+                          
+          
+
+                            }
+
+                            // Lặp khoảng giữa
+                            for ($i = 1; $i <= $total_page; $i++) {
+                                // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a
+                                if ($i == $current_page) {
+                                    echo ' <li class="page-item"><a class="page-link">' . $i . '</a> </li>';
+                                } else {
+                                    echo ' <li class="page-item"><a class="page-link" href="./index.php?page=  ' . $i . '  "> ' . $i . '</a> </li> ';
+                                }
+                            }
+
+                            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                            if ($current_page < $total_page && $total_page > 1) {
+                                echo '<li class="page-link" > <a href="./index.php?page=' . ($current_page + 1) . '"> Next</a></li>';
+                            }
+                            ?>
             </ul>
-        </nav>
-        <!-- sản phẩm -->
+ </nav>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- sản phẩm -->
 
 
     </div>
