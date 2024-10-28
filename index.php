@@ -10,6 +10,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="danhmuc.css">
+
     <script src="./script.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -88,42 +90,51 @@ session_start();
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
 
-                <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 2)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
-                                       <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
-                                       <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
+                <h4>
+
+<?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 2)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
+<h4>
+
+                       <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
+<h4>
+
+                       <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
             </h3>
            
     </nav>

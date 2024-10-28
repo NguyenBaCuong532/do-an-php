@@ -20,6 +20,8 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
     <link rel="stylesheet" href="giohang.css">
+    <link rel="stylesheet" href="danhmuc.css">
+
     <script src="./script.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -103,77 +105,51 @@ if (isset($_POST['submit'])) {
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
             </h3>
-            <div class="scoll">
+            <h4>
 
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Giày
-                    </a>
+<?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 2)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
+<h4>
 
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
+                       <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
+<h4>
 
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample0" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Dép
-
-                    </a>
-
-                </p>
-                <div class="collapse" id="collapseExample0">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Trang Sức
-
-                    </a>
-                </p>
-                <div class="collapse" id="collapseExample1">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+                       <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn,$sql);
+                        while($row=mysqli_fetch_array($ketqua)){
+                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
+                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                        else
+                            echo "";
+                    }
+                        
+                    ?>
+</h4>
         </nav>
 
 
@@ -298,11 +274,11 @@ if (isset($_POST['submit'])) {
 						<a href='../pages/xoa.php?productid=0'><img src='./img/logo.jpg' width='20px' height='20px'>Xóa bỏ giỏ hàng</a>
 									</b>";
             } else {
-                echo "<div class='pro'>";
-                echo "	<p align='center'>
+                echo "<div class='pro' style='margin-left:300px'>";
+                echo "	<p align='center' style='font-size:24px'>
 										Bạn không có món hàng nào trong giỏ hàng <br/>
-										<a href='./index.php'>
-											<img src='./img/giohang.png' width='40px' height='40px'>
+										<a href='./index.php' style='font-weight:600' class='pro-text'>
+											<img src='./img/icon-page-cart.png' width='60px' height='50px' style='margin-right:11px'>
 											Mua giày mới nào!
 										</a>
 									</p>";

@@ -17,6 +17,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
     <link rel="stylesheet" href="sanpham.css">
+    <link rel="stylesheet" href="danhmuc.css">
+
 
     <script src="./script.js">
         
@@ -113,83 +115,7 @@ session_start();
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
     <div class="container" style="min-height: 487px;">
-        <nav class="category">
-            <h3 class="category-heading">
-                <i class="category-heading-icon fas fa-bars"></i>
-                Danh Mục Sản Phẩm
-            </h3>
-            <div class="scoll">
-
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Giày
-                    </a>
-
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample0" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Dép
-
-                    </a>
-
-                </p>
-                <div class="collapse" id="collapseExample0">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <p>
-                    <a class="btn btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Phụ Kiện Trang Sức
-
-                    </a>
-                </p>
-                <div class="collapse" id="collapseExample1">
-                    <div class="card card-body">
-                        <ul class="category-list">
-                            <li class="category-item category-item--active">
-                                Giày
-                            </li>
-                            <li class="category-item category-item--active">
-                                Khuyên tai
-                            </li>
-                            <li class="category-item category-item--active">
-                                Ví
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </nav>
+      
 
 
         <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
@@ -212,7 +138,7 @@ session_start();
             <div class="product-detail-title">
 
                 <div class="product-detail-title-1">
-                    ' . $row['Name'] . '
+                   <h3>' . $row['Name'] . '</h3> 
                     <span class="product-detail-label"></span>
                 </div>
                 <div class="product-detail-title-1">
@@ -224,10 +150,10 @@ session_start();
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__appre">
                          
-                            <div class="product-detail-label-lb">1k Đánh giá</div>
+                            <div class="product-detail-label-lb">Hãng : '.$row['Company'].'</div>
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__sold">
-                            <div class="product-detail-label-lb">2,6k Đã bán</div>
+                            <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
                         </div>
                     </div>
                 </div>
@@ -242,11 +168,9 @@ session_start();
                 </div>
                 
                 <div class="product-detail-title-1">
-                  <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
+                  <div class="product-detail-label-lb">' . $row['Description'] . '</div>
                 </div>
-                <div class="product-detail-title-1">
-                    <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
-                </div>
+                
 
                 <div class="product-detail-title-1">
                     <div class="product-detail-shopping">
