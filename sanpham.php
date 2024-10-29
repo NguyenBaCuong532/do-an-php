@@ -123,6 +123,7 @@ session_start();
     
     <?php
         $row = mysqli_fetch_array($ketqua);
+        $_SESSION['Quantity']= $row['StockQuantity'] ;
 
         echo '
         <div class="product-detail">

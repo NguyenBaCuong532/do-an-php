@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Trang chủ</title>
-    <link rel="stylesheet" href="trangchu.css">
+    <link rel="stylesheet" href="./trangchu.css">
     <script src="./script.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -20,10 +20,177 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    
+
+    <style>
+        /* Căn chỉnh cho container */
+        .text-overlay {
+            position: absolute;
+            width: fit-content;
+            padding: 20px;
+            /* background-color: rgba(0, 0, 0, 0.4); */
+            background: transparent;
+            color: white;
+            letter-spacing: 3px;
+            text-align: center;
+            font-size: 23px;
+            top: 1040px;
+            left: 670px;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .text-overlay1 {
+            position: relative;
+            width: fit-content;
+            padding: 20px;
+            /* background-color: rgba(0, 0, 0, 0.4); */
+            background: transparent;
+            color: white;
+            letter-spacing: 3px;
+            text-align: center;
+            font-size: 23px;
+            top: -340px;
+            left: 670px;
+
+            font-family: Arial, sans-serif;
+        }
+
+ 
+ .elementor-widget-container1 {
+  position: relative;
+    transition:0.7s ease;
+    width: 200px; 
+} 
+
+
+.elementor-widget-container1 img {
+  width: 100%;
+  display: block;
+  padding: 20px 20px;
+
+}
+
+
+.elementor-widget-container1 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0) ; 
+  transition: background-color 0.7s ease-in-out; 
+  width: 262px;
+  height: 270px;
+  margin-top: 10px;
+  margin-left: 18px;
+
+
+}
+
+
+.elementor-widget-container1:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+
+
+}   
+  
+     .text-overlay2 {
+            position: relative;
+            width: fit-content;
+            padding: 20px;
+            /* background-color: rgba(0, 0, 0, 0.4); */
+            background: transparent;
+            color: white;
+            letter-spacing: 3px;
+            text-align: center;
+            font-size: 23px;
+            top: -230px;
+            left: 170px;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .text-overlay2 a {
+            /* background-color: rgba(0, 0, 0, 0.6); */
+            padding: 18px 23px;
+            border: 3px solid #fefcfc;
+            font-size: 1em;
+            background: transparent;
+            backdrop-filter: blur(20px);
+
+            font-weight: normal;
+            color: #fefefe;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            /* Thiết lập hiệu ứng chuyển tiếp */
+
+        }
+
+        /* Phong cách cho tiêu đề */
+        .text-overlay h1,
+        .text-overlay1 h1 {
+            font-size: 2em;
+            font-weight: bold;
+            font-family: Garamond, serif;
+            letter-spacing: 5px;
+            margin: 20px 0;
+        }
+
+        /* Phong cách cho dòng phụ */
+        .text-overlay a,
+        .text-overlay1 a {
+            /* background-color: rgba(0, 0, 0, 0.6); */
+            padding: 18px 23px;
+            border: 3px solid #fefcfc;
+            font-size: 1em;
+            font-weight: normal;
+            color: #fefefe;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            /* Thiết lập hiệu ứng chuyển tiếp */
+
+        }
+
+        .text-overlay a:hover,
+        .text-overlay1 a:hover {
+            background-color: rgba(250, 247, 247, 0.7);
+            padding: 18px 23px;
+            border: 3px solid #fefcfc;
+            font-size: 20px;
+            transition: 0.3s ease;
+            /* Thiết lập hiệu ứng chuyển tiếp */
+            font-weight: normal;
+            color: #000;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .text-overlay2 a:hover {
+            padding: 18px 23px;
+            border: 3px solid #fefcfc;
+            font-size: 20px;
+            transition: 0.3s ease;
+            /* Thiết lập hiệu ứng chuyển tiếp */
+            font-weight: normal;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+
+        .elementor-widget-container {
+            padding: 15px;
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -74,29 +241,73 @@ session_start();
 
     <div class="container">
         <div class="elementor-widget">
-                <img src="./img/trangchu/woman-2593366_1280.jpg" alt="">
-                <div class="text-overlay">
-    <h1>Fashion hiện diện</h1>
-    <a href="./index.php">Thiên đường phụ kiện</a>
-</div>
+            <img src="./img/trangchu/woman-2593366_1280.jpg" alt="">
+            <div class="text-overlay">
+                <h1>Fashion hiện diện</h1>
+                <a href="./index.php">Thiên đường phụ kiện</a>
             </div>
-            
         </div>
-    
+
+    </div>
+
 
     <!-- <div class="elementor-divider1 animate__backInRight">
         <h2>SANG TRỌNG QUÝ PHÁI</h2>
     </div> -->
 
-    <div class="container">
+    <?php
+    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+    $sql = "SELECT * From category";
+    $ketqua = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($ketqua)) {
+        if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
+            echo '
+                            
+                            <div class="container">
         <div class="elementor-widget-container ">
             <img src="./img/trangchu/toa-heftiba-KQ1n6HzSahY-unsplash.jpg" alt="" width="799px" height="699px">
-        </div>
-        <div class="elementor-widget-container ">
-            <img src="./img/trangchu/wrist-watch-2159351_640.jpg" alt="" width="799px" height="699px">
+            <div class="text-overlay2">
+    <h1>Giày thể thao cá tính</h1>
+    <a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '">Sắm ngay thôi</a>
+</div>
+        </div></br>';
 
-        </div>
-       
+
+        else
+            echo "";
+    }
+
+    ?>
+
+
+    <?php
+    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+    $sql = "SELECT * From category";
+    $ketqua = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($ketqua)) {
+        if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
+            echo '
+                            
+                           
+        <div class="elementor-widget-container " >
+            <img src="./img/trangchu/wrist-watch-2159351_640.jpg" alt="" width="799px" height="699px">
+            <div class="text-overlay2">
+    <h1>Đồng hồ lịch lãm</h1>
+    <a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '">Sắm ngay thôi</a>
+</div>
+        </div></br>';
+
+
+        else
+            echo "";
+    }
+
+    ?>
+
+
+
+
+
     </div>
 
     <!-- <div class="elementor-divider2 ">
@@ -104,73 +315,83 @@ session_start();
     </div> -->
     <div class="container">
         <div class="elementor-widget">
-                <img src="./img/trangchu/freestocks-_3Q3tsJ01nc-unsplash.jpg" alt="">
+            <img style='height:1270px;margin-top:-170px' src="./img/trangchu/freestocks-_3Q3tsJ01nc-unsplash.jpg" alt="">
+            <div class="text-overlay1">
+                <h1>Xóa tan cái nóng</h1>
+                <a href="./index.php">Cần gì phải mong</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="elementor-divider3 " style="text-align: center;margin-top:-150px">
+        <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
+    </div>
+    <div class="container">
+        <a href="./index.php" class="elementor-widget-container1" style=" position: relative; width: 300px;">
+            <img src="./img/trangchu/anhbox1.png" alt="">
+            <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
+        </a>
+        <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+            <img src="./img/trangchu/anhbox1.png" alt="" >
+            <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
+
+        </a>
+        <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+            <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;">
+            <div class="overlay"></div>
+
+
+        </a>
+    </div>
+
+    <div class="container-box animate__lightSpeedInRight">
+        <div class="elementor-widget-container ">
+            <img src="./img/trangchu/woman-8793611_640.jpg" alt="">
+        </div>
+        <div style="font-size: 25px;letter-spacing: 5px;text-align:center" class="elementor-widget-container">
+            <p>
+            <h4 style="font-size: 55px;padding:10px 0">Shop phụ kiện thời trang</h4>tôn vinh phong cách đương</br>
+            đại với những thiết kế tinh tế, sang trọng từ các thương</br>
+            hiệu hàng đầu. Mỗi sản phẩm là sự kết hợp hoàn hảo giữa</br>
+            chất liệu cao cấp và đường nét tinh xảo. Hãy đến và khám phá </br>
+            bộ sưu tập phụ kiện mới nhất! <h4 style="font-size: 35px;padding:10px 0">nơi thời trang và đẳng cấp hội tụ!</h4>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer" style="height: 251px;">
+
+
+        <div class="column l-2-4 me-4 s-6">
+            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+            <div class="footer-list">
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                </li>
             </div>
         </div>
 
-        <div class="elementor-divider3 ">
-            <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
-        </div>
-        <div class="container">
-            <div class="elementor-widget-container ">
-                <img src="./img/trangchu/anhbox1.png" alt="">
-            </div>
-            <div class="elementor-widget-container ">
-                <img src="./img/trangchu/anhbox1.png" alt="">
 
-            </div>
-            <div class="elementor-widget-container ">
-                <img src="./img/trangchu/anhbox1.png" alt="">
+        <div class="">
+            <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
 
-            </div>
-        </div>
-        
-        <div class="container-box animate__lightSpeedInRight">
-            <div class="elementor-widget-container ">
-                <img src="./img/trangchu/woman-8793611_640.jpg" alt="">
-            </div>
-            <div style="font-size: 25px;letter-spacing: 5px;text-align:center" class="elementor-widget-container">
-               <p > <h4 style="font-size: 55px;padding:10px 0">Shop phụ kiện thời trang</h4 >tôn vinh phong cách đương</br>
-                 đại với những thiết kế tinh tế, sang trọng từ các thương</br>
-                  hiệu hàng đầu. Mỗi sản phẩm là sự kết hợp hoàn hảo giữa</br>
-                   chất liệu cao cấp và đường nét tinh xảo. Hãy đến và khám phá </br>
-                    bộ sưu tập phụ kiện mới nhất! <h4 style="font-size: 35px;padding:10px 0">nơi thời trang và đẳng cấp hội tụ!</h4></p>
-
-            </div>
-          
-        </div>
-
-
-
-        <div class="footer" style="height: 251px;">
-
-
-            <div class="column l-2-4 me-4 s-6">
-                <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-                <div class="footer-list">
-                    <li class="footer-item">
-                        <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                    </li>
-                    <li class="footer-item">
-                        <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                    </li>
-                    <li class="footer-item">
-                        <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                    </li>
-                </div>
-            </div>
-            
-
-            <div class="">
-                <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
-   
-                <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+            <h5>Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
 
             <h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
-                <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
-            </div>
-
+            <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
         </div>
+
+    </div>
 
 
 
@@ -180,10 +401,3 @@ session_start();
 </body>
 
 </html>
-
-
-
-
-
-
-

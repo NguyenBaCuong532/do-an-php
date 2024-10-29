@@ -102,8 +102,6 @@ body {
 
 
 
-
-
 /* Phần thân */
 .container {
     display: flex;
@@ -111,8 +109,6 @@ body {
 }
 
 
-
-.container,
 .container-box {
     display: flex;
     justify-content: center;
@@ -195,27 +191,6 @@ body {
 
 
 
-
-
-
-.container {
-    display: flex;
-    padding:10px;
-
-}
-
-.elementor-divider1,.elementor-divider2,.elementor-divider3,.elementor-divider4 {
-    width: 100%;
-    font-family: serif;
-    text-align: center;
-    margin-top: 40px;
-    color: #54595f;
-    font-family: "Rokkitt", Sans-serif;
-    display: inline-block;
-    animation: bounce;
-    /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 2s;
-}
 
 
 

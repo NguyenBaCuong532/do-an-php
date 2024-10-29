@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+      
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,48 +192,95 @@ session_start();
         $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
 
         ?>
-        <div class="home-product">
+        <div class="home-product" style="display: flex;">
+ <form method="post" style="display: flex;"><input type="submit" name="submit1" value="Được yêu thích nhất">
+ <input type="submit" name="submit1" value="Được yêu thích nhất">
+ <input type="submit" name="submit1" value="Được yêu thích nhất">
+</form>
 
+        
+       
+        <div class="home-product">
             <?php
             
             while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['StockQuantity'] > 0) {
-                    echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" >
-                    <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
-                        <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
-                        </div>
-                        <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
-                        <div class="home-product-item__price">
-                            <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
-                        </div>
-                        <div class="home-product-item__action">
-                            <span class="home-product-item__like home-product-item__liked">
-                                <i class="home-product-item__like-none far fa-heart"></i>
-                                <i class="home-product-item__like-fill fas fa-heart"></i>
-                            </span>
-                            <div class="home-product-item__rating">
-                                <i class="home-product-item__star-gold fas fa-star"></i>
-                                <i class="home-product-item__star-gold fas fa-star"></i>
-                                <i class="home-product-item__star-gold fas fa-star"></i>
-                                <i class="home-product-item__star-gold fas fa-star"></i>
-                                <i class="home-product-item__star-gold fas fa-star"></i>
+                if( $row['StockQuantity'] > 0){
+                    if (strcmp($row['Favorite'],'Yêu thích') == 0) {
+                        echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" > 
+                        <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
+                            <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                             </div>
-                            <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                            <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
+                            <div class="home-product-item__price">
+                                <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                                <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__liked">
+                                    <i class="home-product-item__like-none far fa-heart"></i>
+                                    <i class="home-product-item__like-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star-gold fas fa-star"></i>
+                                    <i class="home-product-item__star-gold fas fa-star"></i>
+                                    <i class="home-product-item__star-gold fas fa-star"></i>
+                                    <i class="home-product-item__star-gold fas fa-star"></i>
+                                    <i class="home-product-item__star-gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                            </div>
+                              <div class="home-product-item__favorite">
+                            <span class="home-product-item__like home-product-item__liked">
+                                    <i class="home-product-item__like-none far fa-heart"></i>
+                                    <i class="home-product-item__like-fill fas fa-heart"></i>
+                                </span>
+                             <span>' . $row['Favorite'] . '</span>
                         </div>
-                        
-                        <div class="home-product-item__favorite">
-                            <i class="home-product-item__favorite-icon fas fa-check"></i>
-                            <span>Yêu thích</span>
+                      
+                            <div class="home-product-item__sale">
+                                <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
+                                <span class="home-product-item__sale-label">GIẢM
+                                </span>
+                            </div>
+                        </a>
+                    </div>';
+                }
+           
+            else{
+
+                echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" >
+                <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
+                    <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
+                    </div>
+                    <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
+                    <div class="home-product-item__price">
+                        <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                        <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                    </div>
+                    <div class="home-product-item__action">
+                      
+                        <div class="home-product-item__rating">
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
                         </div>
-                        <div class="home-product-item__sale">
-                            <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
-                            <span class="home-product-item__sale-label">GIẢM
-                            </span>
-                        </div>
-                    </a>
-                </div>';
-                } else {
+                        <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                    </div>
+                    
+              
+                    <div class="home-product-item__sale">
+                        <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
+                        <span class="home-product-item__sale-label">GIẢM
+                        </span>
+                    </div>
+                </a>
+            </div>';
+            }        
+ }
+                else {
+                    if( $row['StockQuantity']!= 0){
                     echo '<div class="column l-2-4 me-4 s-6" >
                     <a class="home-product-item" href="../pages/sanpham.php?id= ' . $row['ProductID'] . '">>
                         <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
@@ -258,7 +307,7 @@ session_start();
                         
                         <div class="home-product-item__favorite">
                             <i class="home-product-item__favorite-icon fas fa-check"></i>
-                            <span>Yêu thích</span>
+                             <span>' . $row['Favorite'] . '</span>
                         </div>
                         <div class="home-product-item__sale">
                             <span class="home-product-item__sale-percent">25%</span>
@@ -268,14 +317,23 @@ session_start();
                     </a>
                 </div>';
                 }
+                else{
+                    
+
+                    echo '<div class="stamp">HẾT HÀNG</div>';
+                }
             }
+        }
 
             ?>
 
-
+        </div>
         </div>
 
     </div>
+
+
+
     <!-- sản phẩm -->
 
 

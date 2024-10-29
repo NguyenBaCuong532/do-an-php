@@ -99,7 +99,8 @@ if (!isset($_SESSION['cart'])) {
    
     <div class="text-center">
     <h4>Chúc mừng bạn đã mua hàng thành công</h4>   
-    <h5>Đơn hàng sẽ được giao sớm tới bạn. <img style="border-radius: 50%;" src="./img/trangchu/heart.png" alt="" width="200px" height="200px"></h5>   
+    <h5>Chúng tôi sẽ XÁC NHẬN đơn hàng bằng EMAIL hoặc ĐIỆN THOẠI.</br>
+         Bạn vui lòng kiểm tra EMAIL hoặc NGHE MÁY ngay khi đặt hàng thành công và CHỜ NHẬN HÀNG.</h5> <img style="border-radius: 50%;" src="./img/trangchu/heart.png" alt="" width="200px" height="200px">   
 
 </div>
 <div class="text-center">
@@ -109,15 +110,15 @@ if (!isset($_SESSION['cart'])) {
 
     <?php
         $ngaymua = date('Y-m-d h:i:sa');
-        $_SESSION['ngaymua']= date('Y-m-d');
-
+        
+      
 
         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
         $sql ="INSERT INTO `order`(Id,OrderDate,Address,Phone,TotalAmount) VALUES( $_SESSION[id],'$ngaymua','$_SESSION[diachi]', $_SESSION[sdt], $_SESSION[total])";
         $ketqua=mysqli_query($conn,$sql);
+
         $id =  mysqli_insert_id($conn);
        
-
      foreach ($_SESSION['cart'] as $key => $value)
 
         {
@@ -125,7 +126,7 @@ if (!isset($_SESSION['cart'])) {
             $sql = "INSERT INTO orderdetail(OrderID, ProductID, Quantity) VALUES ($id, $key, $value)";
             $ketqua1 = mysqli_query($conn, $sql);
 
-            $sql = "UPDATE product SET StockQuantity = StockQuantity - $value Where ProductId =1";
+            $sql = "UPDATE product SET StockQuantity = StockQuantity - $value Where ProductId =$key";
             $ketqua2 = mysqli_query($conn, $sql);
 
         }
@@ -133,7 +134,7 @@ if (!isset($_SESSION['cart'])) {
 
        
         
-        unset($_SESSION['cart']);
+        // unset($_SESSION['cart']);
     ?>
   </div>
 								

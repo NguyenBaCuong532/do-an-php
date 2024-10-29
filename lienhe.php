@@ -3,7 +3,7 @@ session_start();
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$noidung = $_POST['noidung'];
-			$thoigian = date('Y-m-d');
+			$thoigian = date('Y-m-d h:i:sa');
 			$conn =	mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
 			$sql= "INSERT INTO phanhoi (username,noidung,thoigian) VALUES ('$_SESSION[username]','$noidung','$thoigian')";
 			$ketqua = mysqli_query($conn, $sql);

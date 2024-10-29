@@ -294,7 +294,7 @@ if (isset($_POST['submit'])) {
                 echo "	<p align='center' style='font-size:24px'>
 										Bạn không có món hàng nào trong giỏ hàng <br/>
 										<a href='./index.php' style='font-weight:600' class='pro-text'>
-											<img src='./img/icon-page-cart.png' width='60px' height='50px' style='margin-right:11px'>
+											<img src='./img/icon/icon-page-cart.png' width='60px' height='50px' style='margin-right:11px'>
 											Mua giày mới nào!
 										</a>
 									</p>";

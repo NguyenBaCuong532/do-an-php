@@ -173,7 +173,6 @@ if (isset($_POST['submit'])) {
         <div class="addcart" style="margin-left: 200px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.2) inset; ">
             <?php
             if($_SESSION['check']==$_SESSION['thanhtoan']){
-
                 $total = 0;
                 $ok = 1;
                 if (isset($_SESSION['cart'])) {
@@ -219,7 +218,7 @@ if (isset($_POST['submit'])) {
                                 <div class="row product-name"> 
     
                                 <div class="col-sm-2 hidden-xs">
-                                <img style="border-radius:10px" src="./img/' . $row['Image'] . '" alt="Sản phẩm 1" class="img-responsive" width="100">			
+                                <img style="border-radius:10px" src="./img/sanpham/' . $row['Image'] . '" alt="Sản phẩm 1" class="img-responsive" width="100">			
                                 </div> 
                                  
                                 </div> 
@@ -278,7 +277,7 @@ if (isset($_POST['submit'])) {
                 <?php
                   
                 } 
-                  echo' <div class="stamp">ĐÃ THANH TOÁN</div>';
+                  echo' <div class="stamp">ĐÃ ĐẶT HÀNG</div>';
             }
             else{
                 echo '<h2 style="color:red;line-height:350px;width:800px;text-align:center ">Bạn chưa có đơn thanh toán nào.</h2>';
