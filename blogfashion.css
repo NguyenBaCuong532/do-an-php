@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+.container1 {
+  display: flex;
+
+  padding: 0 40px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Product section */
+.products {
+  width: 75%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+ 
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.product-card img {
+  margin: 0 auto;
+  width: 320px;
+  height: 320px;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.loyalty-badge {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ /* Responsive adjustments */
+ @media (max-width: 768px) {
+  .sidebar {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .products {
+      width: 100%;
+  }
+
+  .product-card {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+      width: 100%;
+  }
+}

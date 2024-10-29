@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Cửa Hàng</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="danhmuc.css">
 
@@ -51,7 +51,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -89,53 +89,69 @@ session_start();
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
-
-                <h4>
-
-                    <?php
-                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                    $sql = "SELECT * From category";
-                    $ketqua = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_array($ketqua)) {
-                        if ($row['CategoryID'] < 2)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-
-                    ?>
-                </h4>
-                <h4>
-
-                    <?php
-                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                    $sql = "SELECT * From category";
-                    $ketqua = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_array($ketqua)) {
-                        if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-
-                    ?>
-                </h4>
-                <h4>
-
-                    <?php
-                    $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                    $sql = "SELECT * From category";
-                    $ketqua = mysqli_query($conn, $sql);
-                    while ($row = mysqli_fetch_array($ketqua)) {
-                        if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-
-                    ?>
-                </h4>
             </h3>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 2)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
+
+
+
 
         </nav>
 
@@ -151,7 +167,6 @@ session_start();
         $result = mysqli_query($conn, 'select count(ProductID) as total from product');
         $row = mysqli_fetch_assoc($result);
         $total_records = $row['total'];
-
         // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
         $limit = 6;
@@ -178,11 +193,12 @@ session_start();
         <div class="home-product">
 
             <?php
+            
             while ($row = mysqli_fetch_assoc($result)) {
                 if ($row['StockQuantity'] > 0) {
-                    echo '<div class="column l-2-4 me-4 s-6" style="min-height: 687px;" >
+                    echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" >
                     <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
-                        <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
+                        <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                         </div>
                         <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
                         <div class="home-product-item__price">
@@ -256,54 +272,46 @@ session_start();
 
             ?>
 
-            <div class="pagination">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end">
-                        
-                            <?php
-                            // PHẦN HIỂN THỊ PHÂN TRANG
-                            // BƯỚC 7: HIỂN THỊ PHÂN TRANG
-
-                            // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
-                            if ($current_page > 1 && $total_page > 1) {
-    
-                                echo '<li class="page-item "><a class="page-link" href="./index.php?page=' . ($current_page - 1) .'">Prev</a> </li>';
-                          
-          
-
-                            }
-
-                            // Lặp khoảng giữa
-                            for ($i = 1; $i <= $total_page; $i++) {
-                                // Nếu là trang hiện tại thì hiển thị thẻ span
-                                // ngược lại hiển thị thẻ a
-                                if ($i == $current_page) {
-                                    echo ' <li class="page-item"><a class="page-link">' . $i . '</a> </li>';
-                                } else {
-                                    echo ' <li class="page-item"><a class="page-link" href="./index.php?page=  ' . $i . '  "> ' . $i . '</a> </li> ';
-                                }
-                            }
-
-                            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-                            if ($current_page < $total_page && $total_page > 1) {
-                                echo '<li class="page-link" > <a href="./index.php?page=' . ($current_page + 1) . '"> Next</a></li>';
-                            }
-                            ?>
-            </ul>
- </nav>
-            </div>
 
         </div>
 
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
     <!-- sản phẩm -->
 
 
+            <div class="pagination" style="margin-top:-50px" >
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+
+                        <?php
+                        // PHẦN HIỂN THỊ PHÂN TRANG
+                        // BƯỚC 7: HIỂN THỊ PHÂN TRANG
+
+                        // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                        if ($current_page > 1 && $total_page > 1) {
+
+                            echo '<li class="page-item "><a class="page-link" href="./index.php?page=' . ($current_page - 1) . '">Prev</a> </li>';
+                        }
+
+                        // Lặp khoảng giữa
+                        for ($i = 1; $i <= $total_page; $i++) {
+                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                            // ngược lại hiển thị thẻ a
+                            if ($i == $current_page) {
+                                echo ' <li class="page-item"><a class="page-link">' . $i . '</a> </li>';
+                            } else {
+                                echo ' <li class="page-item"><a class="page-link" href="./index.php?page=  ' . $i . '  "> ' . $i . '</a> </li> ';
+                            }
+                        }
+
+                        // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                        if ($current_page < $total_page && $total_page > 1) {
+                            echo '<li class="page-link" > <a href="./index.php?page=' . ($current_page + 1) . '"> Next</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </nav>
+            </div>
     </div>
 
     </div>
@@ -312,29 +320,32 @@ session_start();
     <div class="footer" style="height: 251px;">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </div>
-        </div>
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
     </div>
+</div>
+
+
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+</div>
+
+</div>
 
 
 

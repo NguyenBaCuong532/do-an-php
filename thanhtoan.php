@@ -1,7 +1,13 @@
 <?php
 session_start();
+$_SESSION['thanhtoan']=1;
 if (!isset($_SESSION['username'])) {
     header('Location: ./auth/dangnhap.php');
+
+    exit();
+}
+if (!isset($_SESSION['cart'])) {
+    header('Location: ./index.php');
 
     exit();
 }
@@ -12,7 +18,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Thanh Toán</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="thanhtoan.css">
 
@@ -57,7 +63,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -93,6 +99,8 @@ if (!isset($_SESSION['username'])) {
    
     <div class="text-center">
     <h4>Chúc mừng bạn đã mua hàng thành công</h4>   
+    <h5>Đơn hàng sẽ được giao sớm tới bạn. <img style="border-radius: 50%;" src="./img/trangchu/heart.png" alt="" width="200px" height="200px"></h5>   
+
 </div>
 <div class="text-center">
 
@@ -100,24 +108,30 @@ if (!isset($_SESSION['username'])) {
  </div>
 
     <?php
-        $ngaymua = date('Y-m-d');
+        $ngaymua = date('Y-m-d h:i:sa');
+        $_SESSION['ngaymua']= date('Y-m-d');
+
 
         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-        $sql ="INSERT INTO `order`(Id,OrderDate,Address,Phone) VALUES( $_SESSION[id],'$ngaymua','$_SESSION[diachi]', $_SESSION[sdt])";
+        $sql ="INSERT INTO `order`(Id,OrderDate,Address,Phone,TotalAmount) VALUES( $_SESSION[id],'$ngaymua','$_SESSION[diachi]', $_SESSION[sdt], $_SESSION[total])";
         $ketqua=mysqli_query($conn,$sql);
         $id =  mysqli_insert_id($conn);
        
 
+     foreach ($_SESSION['cart'] as $key => $value)
 
-        foreach ($_SESSION['cart'] as $key => $value)
         {
-            $sql = "INSERT INTO orderdetail(OrderID, ProductID, Quantity,TotalAmount) VALUES ($id, $key, $value, $_SESSION[total])";
+            $_SESSION['Order'] =$id;
+            $sql = "INSERT INTO orderdetail(OrderID, ProductID, Quantity) VALUES ($id, $key, $value)";
             $ketqua1 = mysqli_query($conn, $sql);
 
-            $sql = "UPDATE product SET StockQuantity = StockQuantity - $value Where ProductId = $key";
+            $sql = "UPDATE product SET StockQuantity = StockQuantity - $value Where ProductId =1";
             $ketqua2 = mysqli_query($conn, $sql);
 
         }
+
+
+       
         
         unset($_SESSION['cart']);
     ?>
@@ -128,7 +142,7 @@ if (!isset($_SESSION['username'])) {
 					
 
     
-    <div class="footer" style="height: 251px;">
+  <div class="footer" style="height: 251px;">
 
 
 <div class="column l-2-4 me-4 s-6">
@@ -147,10 +161,13 @@ if (!isset($_SESSION['username'])) {
 </div>
 
 
-<div class="column l-2-4 me-4 s-6">
-    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-    <input class="footer__input" type="text" placeholder="Email address">
-    <input type="submit" value="Gửi">
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
 </div>
 
 </div>

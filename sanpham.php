@@ -15,7 +15,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Sản Phẩm</title>
     <link rel="stylesheet" href="sanpham.css">
     <link rel="stylesheet" href="danhmuc.css">
 
@@ -82,7 +82,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -120,13 +120,14 @@ session_start();
 
         <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
         <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
-        <?php
+    
+    <?php
         $row = mysqli_fetch_array($ketqua);
 
         echo '
         <div class="product-detail">
             <div class="product-detail-item-img">
-                <img src="./img/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
+                <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
                 <div class="product-detail-favorite">
                Yêu thích   <button class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i></button>
                    
@@ -142,20 +143,19 @@ session_start();
                     <span class="product-detail-label"></span>
                 </div>
                 <div class="product-detail-title-1">
-                    <div class="product-detail-appreciate">
+                   
                         <div class="product-detail-appreciate__space product-detail-appreciate__rating">
                             <span style="text-decoration: underline;">4.9</span>
                             <i class="home-product-item__star-gold fas fa-star"></i>
-                          
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__appre">
                          
-                            <div class="product-detail-label-lb">Hãng : '.$row['Company'].'</div>
+                          <div style="font-size:20px;">Hãng : </div> <div class="product-detail-label-lb"><p style="font-size:20px;color:red;line-height:21px"> '.$row['Company'].'</p></div>
                         </div>
                         <div class="product-detail-appreciate__space product-detail-appreciate__sold">
                             <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
                         </div>
-                    </div>
+                 
                 </div>
 
                 <div class="product-detail-title-1">
@@ -190,37 +190,40 @@ session_start();
 
 
 
-    </div>
-
-    <div class="footer">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </div>
-        </div>
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
 
     </div>
 
+    <div class="footer" style="height: 251px;">
 
 
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
+    </div>
+</div>
+
+
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+</div>
+
+</div>
 
 </body>
 

@@ -17,7 +17,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Liên Hệ</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="lienhe.css">
 
@@ -62,7 +62,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -103,16 +103,18 @@ session_start();
             <h4>Mọi thắc mắc hay đóng góp ý kiến xin khách hàng hãy liên hệ với cửa hàng chúng tôi!</h4>
             <h4>Tin nhắn phản hồi ý kiến : <input type="text" name="noidung" id="noidung" required /> 
             
+            
             <input type="submit" value="Gửi"></h4>
 
 
+            
             
             <h4>Cảm ơn quý khách đã tin tưởng cửa hàng!</h4>
         </form>
 
 
     
-    <div class="footer" style="height: 251px;">
+        <div class="footer" style="height: 251px;">
 
 
 <div class="column l-2-4 me-4 s-6">
@@ -131,15 +133,16 @@ session_start();
 </div>
 
 
-<div class="column l-2-4 me-4 s-6">
-    <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-    <input class="footer__input" type="text" placeholder="Email address">
-    <input type="submit" value="Gửi">
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
 </div>
 
 </div>
-
-
 
 </body>
 

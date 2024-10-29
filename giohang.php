@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+$_SESSION['check']==0;
+$_SESSION['thanhtoan']=0;
+
 if (isset($_POST['submit'])) {
     $total = $_POST["total"];
     foreach ($_POST['qty'] as $key => $value) {
@@ -18,7 +22,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Giỏ Hàng</title>
     <link rel="stylesheet" href="giohang.css">
     <link rel="stylesheet" href="danhmuc.css">
 
@@ -61,7 +65,7 @@ if (isset($_POST['submit'])) {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -105,51 +109,61 @@ if (isset($_POST['submit'])) {
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
             </h3>
-            <h4>
 
-<?php
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <h5>
+                        <?php
                         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
                         $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
                             if ($row['CategoryID'] < 2)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-                        
-                    ?>
-</h4>
-<h4>
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
 
-                       <?php
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
                         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
                         $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
-                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-                        
-                    ?>
-</h4>
-<h4>
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
 
-                       <?php
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
                         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
                         $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn,$sql);
-                        while($row=mysqli_fetch_array($ketqua)){
-                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
-                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                        else
-                            echo "";
-                    }
-                        
-                    ?>
-</h4>
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
         </nav>
 
 
@@ -177,6 +191,7 @@ if (isset($_POST['submit'])) {
                 $sql = "SELECT * from product where ProductID in ($str)";
                 $query = mysqli_query($conn, $sql);
 
+
                 echo '
                 <div class="cart"> 
 						<table id="cart" class="table table-hover table-condensed"> 
@@ -193,6 +208,7 @@ if (isset($_POST['submit'])) {
 						</thead> 
                 ';
                 while ($row = mysqli_fetch_array($query)) {
+                  
                     echo
                     '
 							
@@ -201,7 +217,7 @@ if (isset($_POST['submit'])) {
 							<div class="row product-name"> 
 
 							<div class="col-sm-2 hidden-xs">
-                            <img style="border-radius:10px" src="./img/' . $row['Image'] . '" alt="Sản phẩm 1" class="img-responsive" width="100">			
+                            <img style="border-radius:10px" src="./img/sanpham/' . $row['Image'] . '" alt="Sản phẩm 1" class="img-responsive" width="100">			
 	                    	</div> 
 							 
 							</div> 
@@ -232,7 +248,7 @@ if (isset($_POST['submit'])) {
 						<td class="actions" class="">
 							<button class="btn btn-info btn-sm" <img style="border-radius:10px;font-size:17px;margin-left:8px;margin-top:7px" name="submit"><i class="fa fa-edit"></i>
 							</button> 
-							<a class="btn btn-sm" href="./xoa.php?productid=' . $row['ProductID'] . '"> <img style="border-radius:10px;margin-top:7px" src="./img/logo.png" width="35px" height="35px"> </a>
+							<a class="btn btn-sm" href="./xoa.php?productid=' . $row['ProductID'] . '"> <img style="border-radius:10px;margin-top:7px" src="./img/icon/logo.png" width="35px" height="35px"> </a>
 							
 						</td> 
 						</tr> 
@@ -253,7 +269,7 @@ if (isset($_POST['submit'])) {
 							<td><a href="./index.php" class="btn btn-outline-warning" style="font-weight:600"><i class="fa fa-angle-left"></i> Mua tiếp</a>
 							</td> 
 							<td colspan="2" class="hidden-xs"> </td> 
-							<td class="hidden-xs text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total,3) . 'đ</strong>
+							<td class="hidden-xs text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total, 3) . 'đ</strong>
 							</td> 
 							<td><a href="./thanhtoan.php" class="btn btn-outline-success" style="padding:8px 10px;width:160px;margin-left:35px;font-weight:600">Thanh toán <i class="fa fa-angle-right"></i></a>
 							</td> 
@@ -301,34 +317,35 @@ if (isset($_POST['submit'])) {
 
 
 
-
-    <div class="footer">
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </div>
-        </div>
+    <div class="footer" style="height: 251px;">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
     </div>
+</div>
 
+
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+</div>
+
+</div>
 
 
 </body>

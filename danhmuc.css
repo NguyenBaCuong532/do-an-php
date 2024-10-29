@@ -1,14 +1,51 @@
-h4{
+h5{
     padding: 5px 0;
     margin-left: 35px;
 }
-h4 a{
+h5 a{
     color: #000;
     text-decoration: none;
     transform: .5s;
+    font-weight: 300;
 }
-h4 a:hover{
+h5 a:hover{
     color: #cd0606;
     transform: .5s;
     text-decoration: none;
+}
+
+.paid-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #28a745; /* Màu xanh lá thể hiện thanh toán thành công */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.paid-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+}
+
+.paid-badge:hover::before {
+    left: 100%;
+}
+
+.paid-badge:hover {
+    transform: scale(1.05);
 }

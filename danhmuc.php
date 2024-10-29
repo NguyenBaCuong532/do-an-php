@@ -3,10 +3,10 @@ session_start();
 
 ?>
 <?php
-	$iddanhmuc =$_GET['iddanhmuc'];
-	$conn =	mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-	$sql= "SELECT * FROM category where CategoryName=$iddanhmuc";
-	$ketqua = mysqli_query($conn, $sql);
+$iddanhmuc = $_GET['iddanhmuc'];
+$conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+$sql = "SELECT * FROM category where CategoryName=$iddanhmuc";
+$ketqua = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời Trang | Trang chủ</title>
+    <title>Thời Trang | Danh Mục</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="danhmuc.css">
 
@@ -57,7 +57,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -94,73 +94,88 @@ session_start();
         <nav class="category">
             <h3 class="category-heading">
                 <i class="category-heading-icon fas fa-bars"> </i>
-               Danh Mục Sản Phẩm
-                <h4>
-
-                <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 2)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
-                </h4>
-                <h4>
-
-                                       <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 3 && $row['CategoryID'] >1)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
-                </h4>
-                <h4>
-
-                                       <?php
-										$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-										$sql = "SELECT * From category";
-										$ketqua = mysqli_query($conn,$sql);
-										while($row=mysqli_fetch_array($ketqua)){
-                                            if ($row['CategoryID'] < 4&&$row['CategoryID'] >2)
-                                            echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                                        else
-                                            echo "";
-                                    }
-										
-									?>
-                </h4>
+                Danh Mục Sản Phẩm
             </h3>
-           
-    </nav>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 2)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
 
 
-    <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
-    <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
-    <?php
-			$conn =	mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-			$sql= "SELECT * FROM product where ProductID=$iddanhmuc ";
-			$ketqua = mysqli_query($conn, $sql);
-			while ($row = mysqli_fetch_array($ketqua)) {
-				echo '<div class="column l-2-4 me-4 s-6" >
-							<a class="home-product-item" href="./pages/sanpham.php?id= '.$row['ProductID'].'">>
-								<div class="home-product-item__img" style="background-image:url(./img/'.$row['Image'] .')">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 3 && $row['CategoryID'] > 1)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+
+                    </h5>
+
+                    <h5>
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] < 4 && $row['CategoryID'] > 2)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                </div>
+            </div>
+
+
+        </nav>
+
+
+        <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
+        <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
+        <div class="home-product">
+       <?php
+        $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+        $sql = "SELECT * FROM product where CategoryID=$iddanhmuc ";
+        $ketqua = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($ketqua)) {
+            echo '<div class="column l-2-4 me-4 s-6" >
+							<a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
+								<div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                                 
 								</div>
-								<h4 class="home-product-item__name">'.$row['Name'].'</h4>
+								<h4 class="home-product-item__name">' . $row['Name'] . '</h4>
 								<div class="home-product-item__price">
-									<div class="home-product-item__price-old">'.number_format($row['Price'],3).'đ</div>
-									<div class="home-product-item__price-new">'.number_format($row['Price']-($row['Price']* ($row['Sale']* 0.01)),3).'đ</div>
+									<div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+									<div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
 								</div>
 								<div class="home-product-item__action">
 									<span class="home-product-item__like home-product-item__liked">
@@ -174,7 +189,7 @@ session_start();
 										<i class="home-product-item__star-gold fas fa-star"></i>
 										<i class="home-product-item__star-gold fas fa-star"></i>
 									</div>
-									<span class="home-product-item__sold">Số lượng:'.$row['StockQuantity'].'</span>
+									<span class="home-product-item__sold">Số lượng:' . $row['StockQuantity'] . '</span>
 								</div>
 								
 								<div class="home-product-item__favorite">
@@ -182,19 +197,20 @@ session_start();
 									<span>Yêu thích</span>
 								</div>
 								<div class="home-product-item__sale">
-									<span class="home-product-item__sale-percent">'.$row['Sale'].'%</span>
+									<span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
 									<span class="home-product-item__sale-label">GIẢM
 									</span>
 								</div>
 							</a>
 						</div>';
-			}
+        }
 
-			mysqli_close($conn);
-		?>
-       
+        mysqli_close($conn);
+        ?>
+
         <!-- sản phẩm -->
 
+        </div>
 
     </div>
 
@@ -204,29 +220,32 @@ session_start();
     <div class="footer" style="height: 251px;">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
+            <div class="column l-2-4 me-4 s-6">
+                <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+                <div class="footer-list">
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                    </li>
+                </div>
             </div>
+            
+
+            <div class="">
+                <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+   
+                <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+            <h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+                <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+            </div>
+
         </div>
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
-    </div>
 
 
 

@@ -41,7 +41,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Blog Fashion</a>
+                            <a class="nav-link active" aria-current="page" href="./blogfashion.php">Blog Fashion</a>
                         </li>
 
 
@@ -73,33 +73,38 @@ session_start();
     </div>
 
     <div class="container">
-        <div class="elementor-widget ">
-                <img src="./img/trangchu/anhnen1.jpg" alt="">
+        <div class="elementor-widget">
+                <img src="./img/trangchu/woman-2593366_1280.jpg" alt="">
+                <div class="text-overlay">
+    <h1>Fashion hiện diện</h1>
+    <a href="./index.php">Thiên đường phụ kiện</a>
+</div>
             </div>
+            
         </div>
     
 
-    <div class="elementor-divider1 animate__backInRight">
+    <!-- <div class="elementor-divider1 animate__backInRight">
         <h2>SANG TRỌNG QUÝ PHÁI</h2>
-    </div>
+    </div> -->
 
     <div class="container">
         <div class="elementor-widget-container ">
-            <img src="./img/trangchu/fashion-2309519_640.jpg" alt="">
+            <img src="./img/trangchu/toa-heftiba-KQ1n6HzSahY-unsplash.jpg" alt="" width="799px" height="699px">
         </div>
         <div class="elementor-widget-container ">
-            <img src="./img/trangchu/wrist-watch-2159351_640.jpg" alt="">
+            <img src="./img/trangchu/wrist-watch-2159351_640.jpg" alt="" width="799px" height="699px">
 
         </div>
        
     </div>
 
-    <div class="elementor-divider2 ">
+    <!-- <div class="elementor-divider2 ">
         <h2>STYLE CỦA BẠN</h2>
-    </div>
+    </div> -->
     <div class="container">
-        <div class="elementor-widget ">
-                <img src="./img/trangchu/anh4.jpg" alt="">
+        <div class="elementor-widget">
+                <img src="./img/trangchu/freestocks-_3Q3tsJ01nc-unsplash.jpg" alt="">
             </div>
         </div>
 
@@ -107,27 +112,29 @@ session_start();
             <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
         </div>
         <div class="container">
-            <div class="elementor-widget-container animate__rotateInUpRight">
+            <div class="elementor-widget-container ">
                 <img src="./img/trangchu/anhbox1.png" alt="">
             </div>
-            <div class="elementor-widget-container animate__fadeInUp">
+            <div class="elementor-widget-container ">
                 <img src="./img/trangchu/anhbox1.png" alt="">
 
             </div>
-            <div class="elementor-widget-container animate__rotateInUpLeft">
+            <div class="elementor-widget-container ">
                 <img src="./img/trangchu/anhbox1.png" alt="">
 
             </div>
         </div>
-        <div class="elementor-divider4 animate__backInRight">
-            <h2>BÀI VIẾT MỚI</h2>
-        </div>
+        
         <div class="container-box animate__lightSpeedInRight">
             <div class="elementor-widget-container ">
                 <img src="./img/trangchu/woman-8793611_640.jpg" alt="">
             </div>
-            <div class="elementor-widget-container">
-                <img src="./img/trangchu/box1.jpg" alt="">
+            <div style="font-size: 25px;letter-spacing: 5px;text-align:center" class="elementor-widget-container">
+               <p > <h4 style="font-size: 55px;padding:10px 0">Shop phụ kiện thời trang</h4 >tôn vinh phong cách đương</br>
+                 đại với những thiết kế tinh tế, sang trọng từ các thương</br>
+                  hiệu hàng đầu. Mỗi sản phẩm là sự kết hợp hoàn hảo giữa</br>
+                   chất liệu cao cấp và đường nét tinh xảo. Hãy đến và khám phá </br>
+                    bộ sưu tập phụ kiện mới nhất! <h4 style="font-size: 35px;padding:10px 0">nơi thời trang và đẳng cấp hội tụ!</h4></p>
 
             </div>
           
@@ -154,10 +161,13 @@ session_start();
             </div>
             
 
-            <div class="column l-2-4 me-4 s-6">
-                <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-                <input class="footer__input" type="text" placeholder="Email address">
-                <input type="submit" value="Gửi">
+            <div class="">
+                <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+   
+                <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+            <h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+                <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
             </div>
 
         </div>

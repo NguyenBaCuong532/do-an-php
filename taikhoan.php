@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['check']=0;
 if (!isset($_SESSION['username'])) {
     header('Location: ./auth/dangnhap.php');
 
@@ -102,7 +103,7 @@ if (!isset($_SESSION['username'])) {
                 echo "<tr>";
                 echo "<td>" . $_SESSION['username'] . "</td>";
                 echo "<td >" . $_SESSION['hoten'] . "</td>";
-                echo "<td >0" . $_SESSION['sdt'] . "</td>";
+                echo "<td >" . $_SESSION['sdt'] . "</td>";
                 echo "<td> " . $_SESSION['diachi'] . "</td>";
                 echo '<td><a href=" ./hoadon.php?id= ' . $_SESSION['id'] . '">Hóa đơn</a></td>';
                 echo '<td><a href="./doimk.php?id= ' . $_SESSION['id'] . '">Đổi mật khẩu</a></td>';
@@ -116,33 +117,35 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
     <div class="footer" style="height: 251px;">
 
 
-        <div class="column l-2-4 me-4 s-6">
-            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-            <div class="footer-list">
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
-                </li>
-                <li class="footer-item">
-                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
-                </li>
-            </div>
-        </div>
-
-
-        <div class="column l-2-4 me-4 s-6">
-            <h3 class="footer__heading">Liên hệ với chúng tôi</h3>
-            <input class="footer__input" type="text" placeholder="Email address">
-            <input type="submit" value="Gửi">
-        </div>
-
+<div class="column l-2-4 me-4 s-6">
+    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+    <div class="footer-list">
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Cấn Đình Duy</a>
+        </li>
+        <li class="footer-item">
+            <a href="" class="footer-item-link">Phạm Quang Huy</a>
+        </li>
     </div>
+</div>
+
+
+<div class="">
+    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+</div>
+
+</div>
 
 
 
