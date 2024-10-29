@@ -192,11 +192,11 @@ session_start();
         $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
 
         ?>
-        <div class="home-product" style="display: flex;">
+ <!--        <div class="home-product" style="display: flex;">
  <form method="post" style="display: flex;"><input type="submit" name="submit1" value="Được yêu thích nhất">
  <input type="submit" name="submit1" value="Được yêu thích nhất">
  <input type="submit" name="submit1" value="Được yêu thích nhất">
-</form>
+</form> -->
 
         
        

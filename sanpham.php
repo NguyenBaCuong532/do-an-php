@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['thanhtoan']=0;
 ?><?php
 
     $id = $_GET['id'];
@@ -123,7 +123,6 @@ session_start();
     
     <?php
         $row = mysqli_fetch_array($ketqua);
-        $_SESSION['Quantity']= $row['StockQuantity'] ;
 
         echo '
         <div class="product-detail">

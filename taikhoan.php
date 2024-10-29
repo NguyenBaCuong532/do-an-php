@@ -100,10 +100,14 @@ if (!isset($_SESSION['username'])) {
             </thead>
             <tbody>
                 <?php
+                 $phone = $_SESSION['sdt'];
+
+                 // Ẩn ba số đầu tiên
+                 $hiddenPhone = '*******' . substr($phone, 7);
                 echo "<tr>";
                 echo "<td>" . $_SESSION['username'] . "</td>";
                 echo "<td >" . $_SESSION['hoten'] . "</td>";
-                echo "<td >" . $_SESSION['sdt'] . "</td>";
+                echo "<td >" . $hiddenPhone . "</td>";
                 echo "<td> " . $_SESSION['diachi'] . "</td>";
                 echo '<td><a href=" ./hoadon.php?id= ' . $_SESSION['id'] . '">Hóa đơn</a></td>';
                 echo '<td><a href="./doimk.php?id= ' . $_SESSION['id'] . '">Đổi mật khẩu</a></td>';
