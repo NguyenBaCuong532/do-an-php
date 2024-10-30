@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>Shop | Admin</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -73,19 +73,7 @@ session_start();
                 </li>
 
             </ul>
-            <!-- <div class="sidebar-footer">
-                <form action="" method="POST">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-exit"></i><span>
-
-
-                            <input type="submit" name="submit" value="Đăng xuất ">
-
-                        </span>
-
-                    </a>
-                </form>
-            </div> -->
+          
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">

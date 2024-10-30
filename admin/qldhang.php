@@ -1,5 +1,36 @@
 <?php
 session_start();
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+    header('Location: ../auth/dangnhap.php');
+
+}
+
+$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+$sql = "SELECT 
+    u.Name,
+    u.Email,
+    u.Phone,
+    u.Address,
+   
+    o.TotalAmount,
+    o.OrderDate
+FROM 
+    user u
+JOIN 
+    `order` o ON u.Id = o.Id
+";
+
+$ketqua = mysqli_query($conn, $sql);
+if (isset($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
+    $delete_sql = "DELETE FROM user WHERE id = '$delete_id'";
+    mysqli_query($conn, $delete_sql);
+
+    header('Location: ./qltkhoan.php');
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -9,7 +40,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>Shop | Admin</title>
+
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -75,6 +107,7 @@ session_start();
                 
             </ul>
             
+            
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
@@ -109,20 +142,21 @@ session_start();
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
-                        <!-- // -->
-                        <h3 class="fw-bold fs-4 my-3">Avg. Agent Earnings
-                        </h3>
                         <div class="row"> 
                              <div class="col-12">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr class="highlight">
                                             <th scope="col">STT</th>
-                                            <th scope="col">Tên tài khoản</th>
-                                            <th scope="col">Nội dung</th>
+                                            <th scope="col">Tên người đặt hàng</th>
+                                            <th scope="col">Điện thoại</th>
 
-                                            <th scope="col">Thời gian</th>
+                                            <th scope="col">Địa chỉ</th>
+                                            <th scope="col">Ngày đặt</th>
+                                            <th scope="col">Tổng tiền</th>
+                                            <th scope="col"></th>
+
+
 
 
 
@@ -130,23 +164,52 @@ session_start();
                                     </thead> 
                                     <tbody >
                      <?php
-                            $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                            $sql = "SELECT * FROM phanhoi ";
-                            $ketqua = mysqli_query($conn, $sql);
+                           
                             $stt = 1;
+
+                    
+
                             while ($row = mysqli_fetch_array($ketqua)) {
+
                                 echo "<tr>";
                                 echo "<td>" . $stt . "</td>";
-                                echo "<td>" . $row['username'] . "</td>";
-                                echo "<td>" . $row['noidung'] . "</td>";
+                                echo "<td>" . $row['Name'] . "</td>";
 
-                                echo "<td>" . $row['thoigian'] . "</td>";
+                                echo "<td>" . $row['Phone'] . "</td>";
+                                echo "<td>" . $row['Address'] . "</td>";
+                                // echo "<td>" . $row['Name'] . "</td>";
+                                // echo "<td>" . $row['StockQuantity'] . "</td>";
+                                // echo "<td>" . $row['CategoryName'] . "</td>";
+                                echo "<td>" . $row['OrderDate'] . "</td>";
+                                echo "<td>" .number_format($row['TotalAmount'],3 ) . "</td>";
 
 
-                                echo '<td><a href=" xoatk.php?id= ' . $row['phanhoi_id'] . '"><img src="../img/icon/logo.png" alt="" width="40px" height="40px"></a></td>';
-                                echo "</tr>";
+
+                                echo '<td>
+                                            <div style="display:flex">
+
+                                <form action="edituser.php" method="GET" style="display:inline-block; margin-bottom:10px">
+                                    <input type="hidden" name="edit_id" value="' . $row['Name'] . '">
+                                    <button type="submit" name="submit2" style="border:none; background:none;">
+                                        <img src="../img/trangchu/edit.webp" alt="Sửa" width="40px" height="40px">
+                                    </button>
+                                </form>
+
+
+                                
+
+                                <form action="" method="POST">
+                                    <input type="hidden" name="delete_id" value="' . $row['Name'] . '">
+                                    <button type="submit" name="submit1" style="border:none; background:none;">
+                                        <img src="../img/icon/logo.png" alt="" width="40px" height="40px">
+                                    </button>
+                                </form>
+                                </div>
+                              </td>';
+                        echo "</tr>";
                                 $stt++;
                             }
+                       
 
                             mysqli_close($conn);
                             ?>

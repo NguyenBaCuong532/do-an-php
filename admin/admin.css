@@ -155,9 +155,7 @@ a.sidebar-link:hover {
     width: 100%;
     opacity: 1;
 }
-ul{
-    width:300px;
-}
+
 
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
     border: solid;

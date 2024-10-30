@@ -1,6 +1,22 @@
 <?php
 session_start();
+$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+$sql = "SELECT product.ProductID, product.Name, product.Price, product.Image, product.StockQuantity,product.Sale,product.Company, category.CategoryName
+FROM product
+JOIN category ON product.CategoryID = category.CategoryID;";
+$ketqua = mysqli_query($conn, $sql);
+if (isset($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
 
+// Xóa các bản ghi liên quan trong bảng orderdetail
+$sqlOrderDetail = "DELETE FROM orderdetail WHERE ProductID = $delete_id";
+if (mysqli_query($conn, $sqlOrderDetail)) {
+    $delete_sql = "DELETE FROM product WHERE ProductID = '$delete_id'";
+    mysqli_query($conn, $delete_sql);
+
+    header('Location: ./qlspham.php');
+}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +25,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>Shop | Admin</title>
+
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -72,9 +89,9 @@ session_start();
                         <span>Quản lý phản hồi</span>
                     </a>
                 </li>
-                
+
             </ul>
-            
+           
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
@@ -109,50 +126,74 @@ session_start();
             <main class="content px-3 py-4">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
-                        <!-- // -->
-                        <h3 class="fw-bold fs-4 my-3">Avg. Agent Earnings
-                        </h3>
-                        <div class="row"> 
-                             <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr class="highlight">
                                             <th scope="col">STT</th>
-                                            <th scope="col">Tên tài khoản</th>
-                                            <th scope="col">Nội dung</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Giá tiền</th>
+                                            <th scope="col">Số lượng</th>
 
-                                            <th scope="col">Thời gian</th>
+                                            <th scope="col">Loại</th>
+                                            <th scope="col">Giảm giá</th>
+                                            <th scope="col">Nhãn hiệu</th>
+
 
 
 
                                         </tr>
-                                    </thead> 
-                                    <tbody >
-                     <?php
-                            $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                            $sql = "SELECT * FROM phanhoi ";
-                            $ketqua = mysqli_query($conn, $sql);
-                            $stt = 1;
-                            while ($row = mysqli_fetch_array($ketqua)) {
-                                echo "<tr>";
-                                echo "<td>" . $stt . "</td>";
-                                echo "<td>" . $row['username'] . "</td>";
-                                echo "<td>" . $row['noidung'] . "</td>";
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                       
+                                        $stt = 1;
+                                        while ($row = mysqli_fetch_array($ketqua)) {
+                                            echo "<tr>";
+                                            echo "<td>" . $stt . "</td>";
+                                            echo "<td>" . $row['Image'] . "</td>";
+                                            echo "<td>" . $row['Name'] . "</td>";
 
-                                echo "<td>" . $row['thoigian'] . "</td>";
+                                            echo "<td>" . number_format($row['Price'],3) . " đ</td>";
+                                            echo "<td>" . $row['StockQuantity'] . "</td>";
+                                            echo "<td>" . $row['CategoryName'] . "</td>";
+                                            echo "<td>" . $row['Sale'] . "%</td>";
+                                            echo "<td>" . $row['Company'] . "</td>";
 
 
-                                echo '<td><a href=" xoatk.php?id= ' . $row['phanhoi_id'] . '"><img src="../img/icon/logo.png" alt="" width="40px" height="40px"></a></td>';
-                                echo "</tr>";
-                                $stt++;
-                            }
 
-                            mysqli_close($conn);
-                            ?>
-                          
-                                   
-                                    
+
+                                            echo '<td>
+                                            <div style="display:flex">
+                                           
+                                            <form action="editsp.php" method="GET" style="display:inline-block; margin-bottom:10px">
+                                                <input type="hidden" name="edit_id" value="' . $row['ProductID'] . '">
+                                                <button type="submit" name="submit2" style="border:none; background:none;">
+                                                    <img src="../img/trangchu/edit.webp" alt="Sửa" width="40px" height="40px">
+                                                </button>
+                                            </form>
+            
+            
+                                            
+            
+                                            <form action="" method="POST">
+                                                <input type="hidden" name="delete_id" value="' . $row['ProductID'] . '">
+                                                <button type="submit" name="submit1" style="border:none; background:none;">
+                                                    <img src="../img/icon/logo.png" alt="" width="40px" height="40px">
+                                                </button>
+                                            </form> </div>
+                                          </td>';
+                                    echo "</tr>";
+                                            $stt++;
+                                        }
+
+                                        mysqli_close($conn);
+                                        ?>
+
+
+
                                     </tbody>
                                 </table>
                             </div>

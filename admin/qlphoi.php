@@ -1,6 +1,16 @@
 <?php
 session_start();
+$conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+$sql = "SELECT * FROM phanhoi";
+$ketqua = mysqli_query($conn, $sql);
+if (isset($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
+    $delete_sql = "DELETE FROM phanhoi WHERE phanhoi_id = '$delete_id'";
+    mysqli_query($conn, $delete_sql);
 
+    header('Location: ./qlphoi.php');
+
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +19,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>Shop | Admin</title>
+
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -126,9 +137,7 @@ session_start();
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                                        $sql = "SELECT * FROM phanhoi ";
-                                        $ketqua = mysqli_query($conn, $sql);
+                                       
                                         $stt = 1;
                                         while ($row = mysqli_fetch_array($ketqua)) {
                                             echo "<tr>";
@@ -142,7 +151,7 @@ session_start();
                                             echo '<td>
                                             <div style="display:flex">
                                            
-                                            <form action="edituser.php" method="GET" style="display:inline-block; margin-bottom:10px">
+                                            <form action="editphoi.php" method="GET" style="display:inline-block; margin-bottom:10px">
                                                 <input type="hidden" name="edit_id" value="' . $row['phanhoi_id'] . '">
                                                 <button type="submit" name="submit2" style="border:none; background:none;">
                                                     <img src="../img/trangchu/edit.webp" alt="Sửa" width="40px" height="40px">

@@ -123,71 +123,136 @@ if (isset($_POST['submit'])) {
 
         <!-- -----------------------------------------end-menu trái-------------------------------------------------- -->
         <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
-    
+      <!-- <div class="product-detail-appreciate__space product-detail-appreciate__rating">
+                                <span style="text-decoration: underline;">4.9</span>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                            </div> -->
     <?php
         $row = mysqli_fetch_array($ketqua);
+        if($row['Favorite']){
 
-        echo '
-        <div class="product-detail">
-            <div class="product-detail-item-img">
-                <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
-                <div class="product-detail-favorite">
-               Yêu thích   <button class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i></button>
-                   
-                    
-                </div>
-                <div class="home-product-item__sale">-' . $row['Sale'] . '% GIẢM</div>
-
-            </div>
-            <div class="product-detail-title">
-
-                <div class="product-detail-title-1">
-                   <h3>' . $row['Name'] . '</h3> 
-                    <span class="product-detail-label"></span>
-                </div>
-                <div class="product-detail-title-1">
-                   
-                        <div class="product-detail-appreciate__space product-detail-appreciate__rating">
-                            <span style="text-decoration: underline;">4.9</span>
-                            <i class="home-product-item__star-gold fas fa-star"></i>
-                        </div>
-                        <div class="product-detail-appreciate__space product-detail-appreciate__appre">
-                         
-                          <div style="font-size:20px;">Hãng : </div> <div class="product-detail-label-lb"><p style="font-size:20px;color:red;line-height:21px"> '.$row['Company'].'</p></div>
-                        </div>
-                        <div class="product-detail-appreciate__space product-detail-appreciate__sold">
-                            <div class="product-detail-label-lb">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
-                        </div>
-                 
-                </div>
-
-                <div class="product-detail-title-1">
-                    <div class="product-detail-price">
-                    <label>Giá :</label>
-                        <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
-                        <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
-                        <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
+            echo '
+            <div class="product-detail">
+                <div class="product-detail-item-img">
+                    <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
+                    <div class="product-detail-favorite" style="background:#efd903;border-radius:10px;padding: 2px 5px">
+                   '.$row['Favorite'].'<span class="home-product-item__like home-product-item__liked">
+                                <i class="home-product-item__like-fill fas fa-heart"></i>
+                            </span>
+                       
+                        
                     </div>
+                    <div class="home-product-item__sale">-' . $row['Sale'] . '% GIẢM</div>
+    
                 </div>
-                
-                <div class="product-detail-title-1">
-                  <div class="product-detail-label-lb">' . $row['Description'] . '</div>
-                </div>
-                
+                <div class="product-detail-title">
+    
+                    <div class="product-detail-title-1">
+                       <h3>' . $row['Name'] . '</h3> 
+                        <span class="product-detail-label"></span>
+                    </div>
+                    <div class="product-detail-title-1">
+                       
+                          
+                            <div class="product-detail-appreciate__space product-detail-appreciate__appre" style="display:flex;font-size:30px: justify-content: space-between;">
+                             
+                               <div class="product-detail-label-lb" style="  padding: 0 100px;">Hãng :'.$row['Company'].'</div>
 
-                <div class="product-detail-title-1">
-                    <div class="product-detail-shopping">
-
-                        <div class="wrap">
-                            <a style="text-decoration: none;" href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
+                     
+                                <div class="product-detail-label-lb" style="  padding: 0 100px;">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
+                            </div>
+                     
+                    </div>
+    
+                    <div class="product-detail-title-1">
+                        <div class="product-detail-price">
+                        <label>Giá :</label>
+                            <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-title-1">
+                      <div class="product-detail-label-lb">' . $row['Description'] . '</div>
+                    </div>
+                    
+    
+                    <div class="product-detail-title-1">
+                        <div class="product-detail-shopping">
+    
+                            <div class="wrap">
+                                <a style="text-decoration: none;" href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
+                                </a>
+                            </div>
                             </a>
                         </div>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-                ';
+                    ';
+        }
+        else{
+            echo '
+            <div class="product-detail">
+                <div class="product-detail-item-img">
+                    <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
+                    <div class="product-detail-favorite">
+                    <button type="submit" class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i> </button>
+                       
+                        
+                    </div>
+                    <div class="home-product-item__sale">-' . $row['Sale'] . '% GIẢM</div>
+    
+                </div>
+                <div class="product-detail-title">
+    
+                    <div class="product-detail-title-1">
+                       <h3>' . $row['Name'] . '</h3> 
+                        <span class="product-detail-label"></span>
+                    </div>
+                    <div class="product-detail-title-1">
+                       
+                           
+                            <div class="product-detail-appreciate__space product-detail-appreciate__appre" style="display:flex;font-size:30px: justify-content: space-between;">
+                             
+                               <div class="product-detail-label-lb" style="  padding: 0 100px;">Hãng :'.$row['Company'].'</div>
+
+                     
+                                <div class="product-detail-label-lb" style="  padding: 0 100px;">' . $row['StockQuantity'] . ' sản phẩm có sẵn</div>
+                            </div>
+                     
+                    </div>
+    
+                    <div class="product-detail-title-1">
+                        <div class="product-detail-price">
+                        <label>Giá :</label>
+                            <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-detail-title-1">
+                      <div class="product-detail-label-lb">' . $row['Description'] . '</div>
+                    </div>
+                    
+    
+                    <div class="product-detail-title-1">
+                        <div class="product-detail-shopping">
+    
+                            <div class="wrap">
+                                <a style="text-decoration: none;" href="./themhang.php?item=' . $row['ProductID'] . '" class="button"> <i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng
+                                </a>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    ';
+        }
+
         ?>  
 
 

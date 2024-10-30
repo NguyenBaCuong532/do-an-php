@@ -153,7 +153,9 @@ li:hover {
 
     
 }
-
+.product-detail-label-lb{
+    padding: 0 30px;
+}
 
 .product-detail-title .product-detail-title-1{
     width: 100%;
