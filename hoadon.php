@@ -1,18 +1,14 @@
 <?php
 session_start();
-
-$_SESSION['check']=1;
+ $_SESSION['check']=1;
 if (isset($_POST['submit'])) {
-    $total = $_POST["total"];
-    foreach ($_POST['qty'] as $key => $value) {
-        if (($value == 0) and (is_numeric($value))) {
-            unset($_SESSION['cart'][$key]);
-        } else if (($value > 0) and (is_numeric($value))) {
-            $_SESSION['cart'][$key] = $value;
-        }
-    }
-    header("location:./giohang.php");
+
+    unset($_SESSION['username']); // xóa session login
+
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,10 +89,23 @@ if (isset($_POST['submit'])) {
                     </ul>
                 </div>
             </div>
+
+            <?php
+
+if (isset($_SESSION['username'])) {
+
+    echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+} else {
+    echo "";
+}
+
+?>
         </div>
 
-        <div class="header1">
-        </div>
+      
     </div>
 
 
@@ -175,8 +184,8 @@ if (isset($_POST['submit'])) {
             if($_SESSION['check']==$_SESSION['thanhtoan']){
                 $total = 0;
                 $ok = 1;
-                if (isset($_SESSION['cart'])) {
-                    foreach ($_SESSION['cart'] as $k => $v) {
+                if (isset($_SESSION['hoadon'])) {
+                    foreach ($_SESSION['hoadon'] as $k => $v) {
                         if (isset($k)) {
                             $ok = 2;
                         }
@@ -184,7 +193,7 @@ if (isset($_POST['submit'])) {
                 }
                 if ($ok == 2) {
                     echo "<form action='./giohang.php' method='post'>";
-                    foreach ($_SESSION['cart'] as $key => $value) {
+                    foreach ($_SESSION['hoadon'] as $key => $value) {
                         $item[] = $key;
                     }
                     $str = implode(",", $item);
@@ -238,11 +247,11 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </td> 
                             <td class="Quantity">
-                            <p style="line-height:123px;margin-left:20px">' . $_SESSION['cart'][$row['ProductID']] .' </p>
+                            <p style="line-height:123px;margin-left:20px">' . $_SESSION['hoadon'][$row['ProductID']] .' </p>
                             </td> 
                             <td class="Subtotal" style="text-align: center;margin-top:50px">
                             <div style="margin-top:50px"> 
-                                 ' . number_format($_SESSION['cart'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))), 3) . ' đ
+                                 ' . number_format($_SESSION['hoadon'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))), 3) . ' đ
                             </div>
                             
                            </td> 
@@ -254,15 +263,17 @@ if (isset($_POST['submit'])) {
                             </tr> 
                             <tr> 
                             ';
-                        $total += $_SESSION['cart'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)));
+                        $total += $_SESSION['hoadon'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)));
     
                     }
                 ?>
+        
+
                     <?php
                     echo '
                                 
                                 <td colspan="2" class="hidden-xs"> </td> 
-                                <td colspan="2" class="hidden-xs"> </td> 
+                                <td colspan="2" class="hidden-xs"><input class="btn btn-outline-info" type="submit" name="submit1" value="Xóa Hóa Đơn"/> </td> 
     
                                 <td  text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total, 3) . 'đ</strong>
                                 </td> 
@@ -272,6 +283,14 @@ if (isset($_POST['submit'])) {
                             </table>
                             </div>
                                 ';
+
+                                if (isset($_POST['submit1'])) {
+
+                                    unset($_SESSION['cart']); 
+                                    header('Location: ./giohang.php');
+                                
+                                }
+                                  
                     ?>
                     <br />
                 <?php
@@ -282,6 +301,9 @@ if (isset($_POST['submit'])) {
             else{
                 echo '<h2 style="color:red;line-height:350px;width:800px;text-align:center ">Bạn chưa có đơn thanh toán nào.</h2>';
             }
+
+
+   
             ?>
            
 

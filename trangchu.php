@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +27,10 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style>
+        .navbar{
+            width: 100%;
+        }
+
         /* Căn chỉnh cho container */
         .text-overlay {
             position: absolute;
@@ -55,46 +64,46 @@ session_start();
             font-family: Arial, sans-serif;
         }
 
- 
- .elementor-widget-container1 {
-  position: relative;
-    transition:0.7s ease;
-    width: 200px; 
-} 
+
+        .elementor-widget-container1 {
+            position: relative;
+            transition: 0.7s ease;
+            width: 200px;
+        }
 
 
-.elementor-widget-container1 img {
-  width: 100%;
-  display: block;
-  padding: 20px 20px;
+        .elementor-widget-container1 img {
+            width: 100%;
+            display: block;
+            padding: 20px 20px;
 
-}
-
-
-.elementor-widget-container1 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0) ; 
-  transition: background-color 0.7s ease-in-out; 
-  width: 262px;
-  height: 270px;
-  margin-top: 10px;
-  margin-left: 18px;
+        }
 
 
-}
+        .elementor-widget-container1 .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.7s ease-in-out;
+            width: 262px;
+            height: 270px;
+            margin-top: 10px;
+            margin-left: 18px;
 
 
-.elementor-widget-container1:hover .overlay {
-  background-color: rgba(0, 0, 0, 0.2);
+        }
 
 
-}   
-  
-     .text-overlay2 {
+        .elementor-widget-container1:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.2);
+
+
+        }
+
+        .text-overlay2 {
             position: relative;
             width: fit-content;
             padding: 20px;
@@ -231,6 +240,28 @@ session_start();
                     </ul>
                 </div>
             </div>
+
+
+
+            <?php
+
+            if (isset($_SESSION['username'])) {
+
+                echo '
+                    <form action="" method="POST">
+                 Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+               </form>  ';
+            } else {
+                echo "";
+            }
+
+            ?>
+
+
+
+
+
+
         </div>
 
 
@@ -326,92 +357,93 @@ session_start();
     <div class="elementor-divider3 " style="text-align: center;margin-top:-150px">
         <h2>BỘ SƯU TẬP MỚI NHẤT</h2>
     </div>
-   
+
 
 
     <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-    <div style="width:100%;display: flex; justify-content: center;">
-
-  
-<a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
-      <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt=""  class="d-block w-100">
-      <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
-
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
-      <div class="overlay"></div>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div style="width:100%;display: flex; justify-content: center;">
 
 
-  </a>
+                    <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
 
-</div>
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <div class="overlay"></div>
+
+
+                    </a>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div style="width:100%;display: flex; justify-content: center;">
+
+
+                    <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
+
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <div class="overlay"></div>
+
+
+                    </a>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div style="width:100%;display: flex; justify-content: center;">
+
+
+                    <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
+
+                    </a>
+                    <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
+                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <div class="overlay"></div>
+
+
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span aria-hidden="true" style="font-size:50px;font-weight:700;color: #000;">
+                << /span>
+                    <span class="visually-hidden">Prev</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span aria-hidden="true" style="font-size:50px;font-weight:700;color: #000;">></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="carousel-item">
-    <div style="width:100%;display: flex; justify-content: center;">
-
-  
-<a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
-      <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt=""  class="d-block w-100">
-      <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
-
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
-      <div class="overlay"></div>
-
-
-  </a>
-
-</div>
-    </div>
-    <div class="carousel-item">
-    <div style="width:100%;display: flex; justify-content: center;">
-
-  
-<a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
-      <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt=""  class="d-block w-100">
-      <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
-
-  </a>
-  <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-      <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
-      <div class="overlay"></div>
-
-
-  </a>
-
-</div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span aria-hidden="true" style="font-size:50px;font-weight:700;color: #000;"><</span>
-    <span class="visually-hidden">Prev</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span  aria-hidden="true" style="font-size:50px;font-weight:700;color: #000;">></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
 
 

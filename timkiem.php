@@ -180,10 +180,10 @@ if (isset($_SESSION['username'])) {
         <!-- ----------------------------------------------start sản phẩm------------------------------------------- -->
         <div class="home-product">
        <?php
-       $iddanhmuc = $_GET['iddanhmuc'];
-        $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-        $sql = "SELECT * FROM product where CategoryID=$iddanhmuc ";
-        $ketqua = mysqli_query($conn, $sql);
+       $search = $_GET['search'];
+       $conn =    mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+       $sql = "SELECT * From product WHERE Name LIKE '%$search%'";
+       $ketqua = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($ketqua)) {
             echo '<div class="column l-2-4 me-4 s-6" >
 							<a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>

@@ -39,6 +39,7 @@ body {
 .navbar {
     font-size: 20px;
     font-weight: 600;
+    width: 100%;
     border-bottom: 1px solid #f1f1f1;
     transition: 3s ease;
     

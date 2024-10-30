@@ -1,8 +1,11 @@
 <?php
 session_start();
-
-$_SESSION['check']==0;
 $_SESSION['thanhtoan']=0;
+$_SESSION['check']=1;
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
 
 if (isset($_POST['submit'])) {
     $total = $_POST["total"];
@@ -93,10 +96,22 @@ if (isset($_POST['submit'])) {
                     </ul>
                 </div>
             </div>
+            <?php
+
+if (isset($_SESSION['username'])) {
+
+    echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+} else {
+    echo "";
+}
+
+?>
         </div>
 
-        <div class="header1">
-        </div>
+       
     </div>
 
 

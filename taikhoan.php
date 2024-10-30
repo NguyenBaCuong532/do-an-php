@@ -1,6 +1,10 @@
 <?php
 session_start();
-$_SESSION['check']=0;
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
+$_SESSION['check'] = 0;
 if (!isset($_SESSION['username'])) {
     header('Location: ./auth/dangnhap.php');
 
@@ -40,6 +44,11 @@ if (!isset($_SESSION['username'])) {
             }
         };
     </script>
+       <style>
+         .navbar{
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -81,6 +90,20 @@ if (!isset($_SESSION['username'])) {
                     </ul>
                 </div>
             </div>
+
+            <?php
+
+            if (isset($_SESSION['username'])) {
+
+                echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] . '</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+            } else {
+                echo "";
+            }
+
+            ?>
         </div>
 
     </div>
@@ -100,10 +123,10 @@ if (!isset($_SESSION['username'])) {
             </thead>
             <tbody>
                 <?php
-                 $phone = $_SESSION['sdt'];
+                $phone = $_SESSION['sdt'];
 
-                 // Ẩn ba số đầu tiên
-                 $hiddenPhone = '*******' . substr($phone, 7);
+                // Ẩn ba số đầu tiên
+                $hiddenPhone = '*******' . substr($phone, 7);
                 echo "<tr>";
                 echo "<td>" . $_SESSION['username'] . "</td>";
                 echo "<td >" . $_SESSION['hoten'] . "</td>";
@@ -124,32 +147,32 @@ if (!isset($_SESSION['username'])) {
     <div class="footer" style="height: 251px;">
 
 
-<div class="column l-2-4 me-4 s-6">
-    <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
-    <div class="footer-list">
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Cấn Đình Duy</a>
-        </li>
-        <li class="footer-item">
-            <a href="" class="footer-item-link">Phạm Quang Huy</a>
-        </li>
+        <div class="column l-2-4 me-4 s-6">
+            <h3 style="text-align: center;" class="footer__heading">Thành Viên Trong Nhóm</h3>
+            <div class="footer-list">
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Nguyễn Bá Cương</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Cấn Đình Duy</a>
+                </li>
+                <li class="footer-item">
+                    <a href="" class="footer-item-link">Phạm Quang Huy</a>
+                </li>
+            </div>
+        </div>
+
+
+        <div class="">
+            <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
+
+            <h5>Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
+
+            <h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
+            <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
+        </div>
+
     </div>
-</div>
-
-
-<div class="">
-    <h3 style="margin-left:-16px" class="footer__heading">Liên hệ với chúng tôi</h3>
-
-    <h5 >Hotline :<a style="color: #28d0d0;" href="tel:0975242481"> 0975242481</a></h5>
-
-<h5>Email:<a style="color: #28d0d0;" href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h5>
-    <p style="font-size:18px">Hân hạnh được phục vụ quý khách.</p>
-</div>
-
-</div>
 
 
 

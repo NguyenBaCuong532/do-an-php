@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
 $_SESSION['thanhtoan']=1;
 if (!isset($_SESSION['username'])) {
     header('Location: ./auth/dangnhap.php');
@@ -45,6 +50,12 @@ if (!isset($_SESSION['cart'])) {
         };
 
     </script>
+    <style>
+         .navbar{
+            width: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -77,7 +88,7 @@ if (!isset($_SESSION['cart'])) {
                             <a class="nav-link" href="./giohang.php">Giỏ Hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./thanhtoan.php">Thanh Toán</a>                 
+                            <a class="nav-link" href="./giohang.php">Thanh Toán</a>                 
                       
                         </li>
                         <li class="nav-item">
@@ -86,10 +97,24 @@ if (!isset($_SESSION['cart'])) {
                     </ul>
                 </div>
             </div>
+
+            <?php
+
+if (isset($_SESSION['username'])) {
+
+    echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+} else {
+    echo "";
+}
+
+?>
+
         </div>
 
-        <div class="header1">
-        </div>
+      
     </div>
 
 
@@ -105,7 +130,7 @@ if (!isset($_SESSION['cart'])) {
 </div>
 <div class="text-center">
 
- <a href="./index.php" class="btn btn-info">Quay lại trang chủ</a>
+ <a href="./trangchu.php" class="btn btn-info">Quay lại trang chủ</a>
  </div>
 
     <?php
@@ -130,11 +155,10 @@ if (!isset($_SESSION['cart'])) {
             $ketqua2 = mysqli_query($conn, $sql);
 
         }
-
-
+        $_SESSION['hoadon']=$_SESSION['cart'];
+        unset($_SESSION['cart']); 
        
         
-        // unset($_SESSION['cart']);
     ?>
   </div>
 								

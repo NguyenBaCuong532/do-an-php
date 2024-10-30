@@ -1,5 +1,13 @@
 <?php
 session_start();
+$_SESSION['thanhtoan']=0;
+$_SESSION['check']=1;
+
+
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
 
 
       
@@ -35,6 +43,11 @@ session_start();
             }
         };
     </script>
+    <style>
+         .navbar{
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -76,10 +89,23 @@ session_start();
                     </ul>
                 </div>
             </div>
+
+            <?php
+
+if (isset($_SESSION['username'])) {
+
+    echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+} else {
+    echo "";
+}
+
+?>
         </div>
 
-        <div class="header1">
-        </div>
+       
     </div>
 
 
@@ -190,19 +216,34 @@ session_start();
         // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
         // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
         $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID DESC  LIMIT $start, $limit");
-
         ?>
- <!--        <div class="home-product" style="display: flex;">
- <form method="post" style="display: flex;"><input type="submit" name="submit1" value="Được yêu thích nhất">
- <input type="submit" name="submit1" value="Được yêu thích nhất">
- <input type="submit" name="submit1" value="Được yêu thích nhất">
-</form> -->
+
+<!-- tìm kiếm theo tên -->
+<?php
+if (isset($_POST['submit1'])) {
+    $search = $_POST['search'];
+    $sort = $_POST['sort']; // asc or desc
+    // Implement search and sorting logic here
+}
+?>
+
+        <div class="home-product" style="display: flex;">
+ <form action="./timkiem.php?search=<?php echo isset($search)?$search:''?>" method="get" style="display: flex;">
+ <select class="form-select" aria-label="Default select example">
+  <option selected>Lọc theo giá</option>
+  <option value="1">Từ thấp đến cao</option>
+  <option value="2">Từ cao đến thấp</option>
+</select>
+ 
+ <input type="text" name="search" required><input class="btn btn-outline-info" type="submit" name="submit1" value="Tìm nào">
+</form>
 
         
        
+
+
         <div class="home-product">
-            <?php
-            
+            <?php 
             while ($row = mysqli_fetch_assoc($result)) {
                 if( $row['StockQuantity'] > 0){
                     if (strcmp($row['Favorite'],'Yêu thích') == 0) {

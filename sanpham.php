@@ -1,6 +1,9 @@
 <?php
 session_start();
-$_SESSION['thanhtoan']=0;
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
 ?><?php
 
     $id = $_GET['id'];

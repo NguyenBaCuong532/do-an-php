@@ -37,6 +37,7 @@ body {
 .navbar {
     font-size: 20px;
     font-weight: 600;
+    width: 100%;
     border-bottom: 1px solid #f1f1f1;
     transition: .5s ;
     z-index: 1000;
@@ -90,12 +91,13 @@ body {
 }
 
 .navbar .container-fluid {
-    margin-left: 20px;
+    margin-left: -20px;
 
 }
 
 .navbar .container-fluid li {
     padding: 20px;
+
 
 }
 

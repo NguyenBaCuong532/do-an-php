@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_POST['submit'])) {
+
+    unset($_SESSION['username']); // xóa session login
+}
 
 
 ?>
@@ -37,6 +41,11 @@ session_start();
         };
 
     </script>
+       <style>
+         .navbar{
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,10 +87,22 @@ session_start();
                     </ul>
                 </div>
             </div>
+            <?php
+
+if (isset($_SESSION['username'])) {
+
+    echo '
+        <form action="" method="POST">
+     Xin chào !  <p style="width:250px;color:red"> ' . $_SESSION['hoten'] .'</p> <input type="submit" name="submit" class="btn btn-outline-primary" value="Đăng xuất"> 
+   </form>  ';
+} else {
+    echo "";
+}
+
+?>
         </div>
 
-        <div class="header1">
-        </div>
+      
     </div>
 
 
