@@ -41,7 +41,50 @@ if (isset($_POST['submit'])) {
        <style>
          .navbar{
             width: 100%;
+
         }
+        .input-group{
+  position: relative;
+  width: 320px;
+  margin: 30px 0;
+}
+.input-group label{
+  position: absolute;
+   top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #333;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: .5s;
+
+}
+.input-group input{
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: #333;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid #333;
+  outline: none;
+  border-radius: 5px;
+}
+.input-group input:focus~label,
+.input-group input:valid~label{
+  top: -5px;
+  left: -3px;
+  font-size: 14px;
+  background: #fff;
+  color: #fc83bb;
+
+}
+.form-inner form .input-group input:focus{
+  border-color: #fc83bb;
+  box-shadow: inset 0 0 3px #fb6aae;
+}
+
     </style>
 </head>
 

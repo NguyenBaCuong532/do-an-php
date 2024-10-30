@@ -272,7 +272,7 @@ if (isset($_SESSION['username'])) {
 
         // BƯỚC 5: TRUY VẤN LẤY DANH SÁCH  SẢN PHẨM
         // Có limit và start rồi thì truy vấn CSDL lấy danh sách sản phẩm
-        $result = mysqli_query($conn, "SELECT * FROM product ORDER BY ProductID  LIMIT $start, $limit");
+        $result = mysqli_query($conn, "SELECT * FROM product ORDER BY Price ASC  LIMIT $start, $limit");
         ?>
 
 <!-- tìm kiếm theo tên -->
@@ -286,9 +286,10 @@ if (isset($_POST['submit1'])) {
 
         <div class="home-product" style="display: flex;">
  <form action="./timkiem.php?search=<?php echo isset($search)?$search:''?>" method="get" style="display: flex;">
+
  <select style="width: 200px;border: 1px solid #0dcaf0; font-size: 17px; " class="form-select" aria-label="Default select example" onchange="handleSelectChange(this)">
     <option selected disabled>Lọc theo giá</option>
-    <option value="thap">Giá từ thấp đến cao</option>
+    <option selected value="thap"  >Giá từ thấp đến cao</option>
     <option value="cao">Giá từ cao đến thấp</option>
 </select>
 <div class="input-group">
@@ -449,7 +450,7 @@ if (isset($_POST['submit1'])) {
                         // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
                         if ($current_page > 1 && $total_page > 1) {
 
-                            echo '<li class="page-item "><a class="page-link" href="./index.php?page=' . ($current_page - 1) . '">Prev</a> </li>';
+                            echo '<li class="page-item "><a class="page-link" href="./thap.php?page=' . ($current_page - 1) . '">Prev</a> </li>';
                         }
 
                         // Lặp khoảng giữa
@@ -459,13 +460,13 @@ if (isset($_POST['submit1'])) {
                             if ($i == $current_page) {
                                 echo ' <li class="page-item"><a class="page-link">' . $i . '</a> </li>';
                             } else {
-                                echo ' <li class="page-item"><a class="page-link" href="./index.php?page=  ' . $i . '  "> ' . $i . '</a> </li> ';
+                                echo ' <li class="page-item"><a class="page-link" href="./thap.php?page=  ' . $i . '  "> ' . $i . '</a> </li> ';
                             }
                         }
 
                         // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
                         if ($current_page < $total_page && $total_page > 1) {
-                            echo '<li class="page-link" > <a href="./index.php?page=' . ($current_page + 1) . '"> Next</a></li>';
+                            echo '<li class="page-link" > <a href="./thap.php?page=' . ($current_page + 1) . '"> Next</a></li>';
                         }
                         ?>
                     </ul>
