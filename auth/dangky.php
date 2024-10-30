@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>Shop | Đăng ký</title>
-    <link rel="stylesheet" href="dangky.css">
+    <link rel="stylesheet" href="dangnhap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -53,6 +53,9 @@
             </div>
         </div>
 
+        <div class="form-container">
+        
+         <div class="form-inner">
         <form action="" method="POST" class="signup" style="margin-left: 61px;">
             <div class="input-group">
                 <input type="text" name="name" id="name" required>

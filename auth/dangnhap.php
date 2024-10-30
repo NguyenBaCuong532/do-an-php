@@ -55,7 +55,7 @@ session_start();
 
 
             if($row['Role']==1){
-               header('Location: ../admin.php');
+               header('Location: ../admin/admin.php');
                mysqli_close($conn);
             }
             else{
@@ -100,6 +100,10 @@ session_start();
                   Nhớ mật khẩu? <a href="./dangky.php">Đăng ký tại đây.</a>
                </div>
             </form>
+            </div>
+
+            </div>
+
 </body>
 
 </html>
