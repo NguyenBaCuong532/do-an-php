@@ -117,9 +117,10 @@ if (isset($_SESSION['username'])) {
                 Danh Mục Sản Phẩm
             </h3>
 
+           
             <p class="d-inline-flex gap-1">
-                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ kiện
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện trang sức
                 </a>
             </p>
             <div class="collapse" id="collapseExample">
@@ -175,6 +176,122 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
 
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Đồng hồ và kính mắt
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 4)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 5)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 6)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     Túi xách
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==7)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==8)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==9)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
 
 
 
@@ -186,17 +303,25 @@ if (isset($_SESSION['username'])) {
     <!-- Product Section -->
     <div class="products">
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <img  src="./img/Ảnh/Giày dép/Dép/Dép 1/sg-11134301-7rd6s-lvisaokp0o7qec.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <img  src="./img/Ảnh/Giày dép/Giày da/Giày da 1/vn-11134207-7ras8-m1wjjdgmir8300.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
 
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <img  src="./img/Ảnh/trang suc/Khuyên tai/Khuyên tai 2/vn-11134207-7r98o-lz7cqi7mxswx7a.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+        </div>
+        <div class="product-card">
+            <img  src="./img/Ảnh/trang suc/Vòng/Vòng 5/cn-11134207-7r98o-lvvtm9h05p2b14.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+        </div>
+        <div class="product-card">
+            <img  src="./img/Ảnh/trang suc/Nhẫn/Nhẫn 3/sg-11134201-7rd6v-lvwne3ofst8c87.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         <div class="product-card">
@@ -204,15 +329,7 @@ if (isset($_SESSION['username'])) {
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
-        </div>
-        <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
-        </div>
-        <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <img  src="./img/Ảnh/Giày dép/Dép/Dép 5/sg-11134201-7rbk3-lq1tmpcg5w7950.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         <div class="product-card">
@@ -224,7 +341,7 @@ if (isset($_SESSION['username'])) {
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <img  src="./img/Ảnh/Giày dép/Dép/Dép 5/cn-11134207-7r98o-lqbewc8f7ztk48.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
             <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
         </div>
         <div class="product-card">

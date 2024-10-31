@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
 }
@@ -42,6 +43,13 @@ if (isset($_POST['submit'])) {
          .navbar{
             width: 100%;
         }
+        .text-ellipsis {
+    width: 200px; /* Chiều rộng tối đa của phần tử */
+    white-space: nowrap; /* Không cho văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm */
+}
+
     </style>
 </head>
 
@@ -190,7 +198,7 @@ if (isset($_SESSION['username'])) {
 								<div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                                 
 								</div>
-								<h4 class="home-product-item__name">' . $row['Name'] . '</h4>
+								<h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
 								<div class="home-product-item__price">
 									<div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
 									<div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>

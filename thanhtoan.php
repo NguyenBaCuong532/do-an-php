@@ -2,6 +2,7 @@
 session_start();
 
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
 }
@@ -135,9 +136,9 @@ if (isset($_SESSION['username'])) {
 
     <?php
         $ngaymua = date('Y-m-d h:i:sa');
+
         
       
-
         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
         $sql ="INSERT INTO `order`(Id,OrderDate,Address,Phone,TotalAmount) VALUES( $_SESSION[id],'$ngaymua','$_SESSION[diachi]', $_SESSION[sdt], $_SESSION[total])";
         $ketqua=mysqli_query($conn,$sql);

@@ -1,8 +1,12 @@
 <?php
 session_start();
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
+}
+if (isset($_POST['submit1'])) {
+ 
 }
 ?><?php
 
@@ -117,7 +121,7 @@ if (isset($_POST['submit'])) {
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container" style="min-height: 487px;">
+    <div class="container" style="min-height: 487px;min-height:900px;">
       
 
 
@@ -132,9 +136,10 @@ if (isset($_POST['submit'])) {
         if($row['Favorite']){
 
             echo '
-            <div class="product-detail">
+            <div class="product-detail" ">
                 <div class="product-detail-item-img">
-                    <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
+                                        <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
+
                     <div class="product-detail-favorite" style="background:#efd903;border-radius:10px;padding: 2px 5px">
                    '.$row['Favorite'].'<span class="home-product-item__like home-product-item__liked">
                                 <i class="home-product-item__like-fill fas fa-heart"></i>
@@ -198,7 +203,7 @@ if (isset($_POST['submit'])) {
                 <div class="product-detail-item-img">
                     <img src="./img/sanpham/' . $row['Image'] . '" style="width:510px;height:550px" alt="">
                     <div class="product-detail-favorite">
-                    <button type="submit" class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i> </button>
+                    <button type="submit1" class="heart-button" onclick="toggleHeart(this)"><i class="home-product-item__like-none far fa-heart"></i> </button>
                        
                         
                     </div>

@@ -7,30 +7,50 @@ if (isset($_POST['submit'])) {
 
 }
 
+        
+      
 $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
 $sql = "SELECT 
-    u.Name,
+    u.Name AS UserName,
+    p.ProductID,
     u.Email,
     u.Phone,
     u.Address,
-   
+    p.Name AS ProductName,
+    od.Quantity,
+    p.Price,
+    p.Sale,
     o.TotalAmount,
     o.OrderDate
 FROM 
     user u
 JOIN 
     `order` o ON u.Id = o.Id
-";
+JOIN 
+    orderdetail od ON o.OrderID = od.OrderID
+JOIN 
+    product p ON od.ProductID = p.ProductID";
+
 
 $ketqua = mysqli_query($conn, $sql);
-if (isset($_POST['delete_id'])) {
-    $delete_id = $_POST['delete_id'];
-    $delete_sql = "DELETE FROM user WHERE id = '$delete_id'";
-    mysqli_query($conn, $delete_sql);
 
-    header('Location: ./qltkhoan.php');
+
+if (isset($_POST['delete_id'])) {
+
+
+    $delete_id = $_POST['delete_id']; // Giả sử bạn nhận được OrderID từ yêu cầu GET
+
+// Xóa từ orderdetail
+$deleteOrderDetail ="DELETE FROM orderdetail WHERE ProductID = $delete_id";
+if (mysqli_query($conn, $deleteOrderDetail)) {
+    $delete_sql = "DELETE FROM `order` WHERE ProductID = '$delete_id'";
+
+        header('Location: ./qldhang.php');
+    }
 
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +80,7 @@ if (isset($_POST['delete_id'])) {
                     <i class="lni lni-grid-alt"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Admin</a>
+                    <a href="./admin.php">Admin</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -152,7 +172,12 @@ if (isset($_POST['delete_id'])) {
                                             <th scope="col">Điện thoại</th>
 
                                             <th scope="col">Địa chỉ</th>
-                                            <th scope="col">Ngày đặt</th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Giá sản phẩm</th>
+
+
+                                            <th scope="col">Ngày đặt hàng</th>
                                             <th scope="col">Tổng tiền</th>
                                             <th scope="col"></th>
 
@@ -169,37 +194,35 @@ if (isset($_POST['delete_id'])) {
 
                     
 
+             
                             while ($row = mysqli_fetch_array($ketqua)) {
+                               
 
                                 echo "<tr>";
                                 echo "<td>" . $stt . "</td>";
-                                echo "<td>" . $row['Name'] . "</td>";
+                                echo "<td>" . $row['UserName'] . "</td>";
 
                                 echo "<td>" . $row['Phone'] . "</td>";
                                 echo "<td>" . $row['Address'] . "</td>";
-                                // echo "<td>" . $row['Name'] . "</td>";
-                                // echo "<td>" . $row['StockQuantity'] . "</td>";
-                                // echo "<td>" . $row['CategoryName'] . "</td>";
+                                echo "<td>" . $row['ProductName'] . "</td>";
+                                echo "<td>" . $row['Quantity'] . "</td>";
+                                echo "<td>" . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . " đ</td>";
+
                                 echo "<td>" . $row['OrderDate'] . "</td>";
-                                echo "<td>" .number_format($row['TotalAmount'],3 ) . "</td>";
+                                
+                                echo "<td>" . number_format($row['TotalAmount'], 3, '.', ',') . "</td>";
 
-
+                                 
+                                 
 
                                 echo '<td>
-                                            <div style="display:flex">
-
-                                <form action="edituser.php" method="GET" style="display:inline-block; margin-bottom:10px">
-                                    <input type="hidden" name="edit_id" value="' . $row['Name'] . '">
-                                    <button type="submit" name="submit2" style="border:none; background:none;">
-                                        <img src="../img/trangchu/edit.webp" alt="Sửa" width="40px" height="40px">
-                                    </button>
-                                </form>
+                                         
 
 
                                 
 
                                 <form action="" method="POST">
-                                    <input type="hidden" name="delete_id" value="' . $row['Name'] . '">
+                                    <input type="hidden" name="delete_id" value="' . $row['ProductID'] . '">
                                     <button type="submit" name="submit1" style="border:none; background:none;">
                                         <img src="../img/icon/logo.png" alt="" width="40px" height="40px">
                                     </button>
@@ -208,7 +231,8 @@ if (isset($_POST['delete_id'])) {
                               </td>';
                         echo "</tr>";
                                 $stt++;
-                            }
+                          
+                        }
                        
 
                             mysqli_close($conn);

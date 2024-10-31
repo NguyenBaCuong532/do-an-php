@@ -15,6 +15,13 @@ session_start();
 
 
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<script type="text/javascript" src="javascript.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
@@ -106,44 +113,39 @@ session_start();
                 </div>
             </nav>
             <main class="content px-3 py-4">
-                <div class="container-fluid">
-                    <div class="mb-3">
-                        <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
-                        <!-- // -->
-                        <h3 class="fw-bold fs-4 my-3">Avg. Agent Earnings
-                        </h3>
-                        <div class="row">
-                            <div class="col-12">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr class="highlight">
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+            <div class="slideshow">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  				<ol class="carousel-indicators">
+   					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+   					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+   					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+   					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  				</ol>
+  				<div class="carousel-inner">
+    				<div class="carousel-item active">
+    					 <img class="d-block w-100 h-50" src="../img/images (1).jpg" alt="First slide" width="100%" height="200px">
+   					</div>
+    				<div class="carousel-item">
+      					<img class="d-block w-100 h-50" src="../img/images.jpg" alt="Second slide" width="100%" height="200px">
+    				</div>
+    				<div class="carousel-item">
+     					<img class="d-block w-100 h-50" src="../img/pngtree-technology-line-business-geometric-image_23385.jpg" width="100%" height="200px" alt="Third slide">
+   					</div>
+   					<div class="carousel-item">
+     					<img class="d-block w-100 h-50" src="../img/images (2).jpg" alt="Fourth slide" width="100%" height="200px">
+   					</div>
+  				</div>
+  				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+   					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   					<span class="sr-only">Previous</span>
+  				</a>
+  				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+   					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+   					<span class="sr-only">Next</span>
+  				</a>
+			</div>
+			
+		</div>
                         </div>
                     </div>
                 </div>

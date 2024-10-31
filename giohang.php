@@ -3,6 +3,7 @@ session_start();
 $_SESSION['thanhtoan']=0;
 $_SESSION['check']=1;
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
 }
@@ -310,7 +311,7 @@ if (isset($_SESSION['username'])) {
 										Bạn không có món hàng nào trong giỏ hàng <br/>
 										<a href='./index.php' style='font-weight:600' class='pro-text'>
 											<img src='./img/icon/icon-page-cart.png' width='60px' height='50px' style='margin-right:11px'>
-											Mua giày mới nào!
+											Mua hàng mới nào!
 										</a>
 									</p>";
                 echo "</div>";

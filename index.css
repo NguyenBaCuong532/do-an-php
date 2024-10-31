@@ -88,7 +88,8 @@ li:hover {
 
 
 .container .category {
-   width: 35%;
+   width: 45%;
+   min-width: 370px;
   padding: 20px;
   margin-left: -170px;
   background-color: #fff;
@@ -118,11 +119,12 @@ li:hover {
 .home-product {
     margin-top: -10px;
     display: flex;
-    width: 100%;
     flex-wrap: wrap;
     margin-top: 30px;
-    margin-left: 60px;
+    margin-left: 30px;
     height: 50%;
+    width: 120%;
+    min-width: 900px;
 
 }
 
@@ -352,7 +354,12 @@ h5 a:hover{
     transform: .5s;
     text-decoration: none;
 }
-
+.text-ellipsis {
+    width: 100px; /* Chiều rộng tối đa của phần tử */
+    white-space: nowrap; /* Không cho văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm */
+}
 /* hết hàng */
 .stamp {
     display: inline-block;

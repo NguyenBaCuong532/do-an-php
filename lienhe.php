@@ -52,12 +52,15 @@ if (isset($_POST['submit'])) {
          .navbar{
             width: 100%;
         }
+        form{
+    min-height: 450px;
+}
     </style>
 </head>
 
 <body>
     <!-- ----------------------------------------------start Header------------------------------------------- -->
-    <div class="header">
+    <div class="header" style="max-height: 160px;">
         <div class="logo">
             <h1><img src="./img/trangchu/Screenshot 2024-10-21 193627.png" width="160" height="120"></h1>
 
@@ -118,9 +121,7 @@ if (isset($_SESSION['username'])) {
     <!-- ----------------------------------------------end Header------------------------------------------- -->
         <form class="content" method="post">
             <h1>Liên hệ Website bán phụ kiện trang sức online</h1>
-            <h4>Facebook: Cửa hàng giày TT Shoes</h4>
             <h4>Hotline :<a href="tel:0975242481"> 0975242481</a></h4>
-
             <h4>Email:<a href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h4>
             <h4>Mọi thắc mắc hay đóng góp ý kiến xin khách hàng hãy liên hệ với cửa hàng chúng tôi!</h4>
             <h4>Tin nhắn phản hồi ý kiến : <input type="text" name="noidung" id="noidung" required /> 
@@ -136,7 +137,7 @@ if (isset($_SESSION['username'])) {
 
 
     
-        <div class="footer" style="height: 251px;">
+        <div class="footer" style="height: 261px;">
 
 
 <div class="column l-2-4 me-4 s-6">

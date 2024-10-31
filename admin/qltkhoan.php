@@ -47,7 +47,7 @@ if (isset($_POST['delete_id'])) {
                     <i class="lni lni-grid-alt"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Admin</a>
+                    <a href="./admin.php">Admin</a>
                 </div>
             </div>
             <ul class="sidebar-nav">

@@ -5,6 +5,7 @@ $_SESSION['check']=1;
 
 
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
 }
@@ -103,6 +104,12 @@ function handleSelectChange(select) {
   border-color: #fc83bb;
   box-shadow: inset 0 0 4px #0698ef;
 }
+.text-ellipsis {
+    width: 200px; /* Chiều rộng tối đa của phần tử */
+    white-space: nowrap; /* Không cho văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm */
+}
 
     </style>
 </head>
@@ -176,9 +183,10 @@ if (isset($_SESSION['username'])) {
                 Danh Mục Sản Phẩm
             </h3>
 
+         
             <p class="d-inline-flex gap-1">
-                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ kiện
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện trang sức
                 </a>
             </p>
             <div class="collapse" id="collapseExample">
@@ -234,6 +242,122 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
 
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Đồng hồ và kính mắt
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 4)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 5)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 6)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     Túi xách
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==7)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==8)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==9)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
 
 
 
@@ -254,7 +378,7 @@ if (isset($_SESSION['username'])) {
         $total_records = $row['total'];
         // BƯỚC 3: TÌM giới hạn page VÀ trang hiện tại
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 6;
+        $limit = 8;
 
         // BƯỚC 4: TÍNH TOÁN tổng trang VÀ trang bắt đầu
         // tổng số trang
@@ -312,7 +436,7 @@ if (isset($_POST['submit1'])) {
                         <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
                             <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                             </div>
-                            <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
+                            <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
                             <div class="home-product-item__price">
                                 <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
                                 <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
@@ -354,7 +478,7 @@ if (isset($_POST['submit1'])) {
                 <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
                     <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                     </div>
-                    <h4 class="home-product-item__name">' . $row['Name'] . '</h4>
+                    <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
                     <div class="home-product-item__price">
                         <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
                         <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>

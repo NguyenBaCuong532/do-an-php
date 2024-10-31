@@ -2,6 +2,7 @@
 session_start();
  $_SESSION['check']=1;
 if (isset($_POST['submit'])) {
+    unset($_SESSION['cart']);
 
     unset($_SESSION['username']); // xóa session login
 

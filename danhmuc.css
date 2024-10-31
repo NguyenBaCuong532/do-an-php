@@ -49,3 +49,9 @@ h5 a:hover{
 .paid-badge:hover {
     transform: scale(1.05);
 }
+.text-ellipsis {
+    width: 200px; /* Chiều rộng tối đa của phần tử */
+    white-space: nowrap; /* Không cho văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm */
+}

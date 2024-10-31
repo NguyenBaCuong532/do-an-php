@@ -4,6 +4,7 @@ session_start();
 if (isset($_POST['submit'])) {
 
     unset($_SESSION['username']); // xóa session login
+    unset($_SESSION['cart']);
 }
 
 ?>

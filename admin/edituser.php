@@ -51,106 +51,256 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Chỉnh sửa người dùng</title>
 </head>
 <style>
-        /* Định dạng form */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
-            margin: 0;
-        }
+      @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: -webkit-linear-gradient(left, #4e91f5, #49df1d);
+}
+::selection{
+  background: #fa4299;
+  color: #fff;
+}
+.wrapper{
+  overflow: hidden;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.title.login{
+  background: -webkit-linear-gradient(left, #ff9a9e, #fad0c4);
+  -webkit-background-clip: text;
+  color: transparent;
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+}
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
+}
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.wrapper .slide-controls{
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
 
-        form {
-            background-color: #fff;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
+.slide-controls label.signup{
+  color: #000;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
 
-        label {
-            font-weight: bold;
-            color: #333;
-        }
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+/* .form-inner form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.form-inner form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+} */
 
-        input[type="text"],
-        input[type="email"],
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
+.input-group{
+  position: relative;
+  width: 320px;
+  margin: 30px 0;
+}
+.input-group label{
+  position: absolute;
+   top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #333;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: .5s;
 
-        button[type="submit"] {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
+}
+.input-group input{
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: #333;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid #333;
+  outline: none;
+  border-radius: 5px;
+}
+.input-group input:focus~label,
+.input-group input:valid~label{
+  top: -5px;
+  left: -3px;
+  font-size: 14px;
+  background: #fff;
+  color: #fc83bb;
 
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
+}
+.form-inner form .input-group input:focus{
+  border-color: #fc83bb;
+  box-shadow: inset 0 0 3px #fb6aae;
+}
 
-        /* Định dạng nút trở lại trang chính */
-        .back-button {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #333;
-            text-align: center;
-        }
 
-        .back-button a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .back-button a:hover {
-            text-decoration: underline;
-        }
+.form-inner form .pass-link{
+  margin-top: 5px;
+}
+.form-inner form .signup-link{
+  text-align: center;
+  margin-top: 30px;
+}
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #fa4299;
+  text-decoration: none;
+}
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
+  text-decoration: underline;
+}
+form .btn{
+  height: 50px;
+  width: 80%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+form .btn .btn-layer{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #dadc16, #6bfe40, #5448ed, #1de339);
+  border-radius: 5px;
+  transition: all 0.4s ease;;
+}
+form .btn:hover .btn-layer{
+  left: 0;
+}
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 90%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
     </style>
 <body>
+<div class="wrapper" style="width:590px">
+        <div class="title-text">
+            
+            <div class="title signup">
+            Chỉnh sửa thông tin người dùng
+            </div>
+        </div>
 
-    <form action="" method="POST">
-<h2>Chỉnh sửa thông tin người dùng</h2>
+        <div class="form-container">
+        
+         <div class="form-inner">
+        <form action="" method="POST" class="signup" style="margin-left: 61px;">
 
-    <label for="username">Username:</label><br>
+
+
+<div class="input-group">
+
     <input type="text" id="username" name="username" value="<?php echo $user['Username']; ?>" required><br><br>
+    <label for="username">Username:</label><br>
+</div>
+<div class="input-group">
 
-    <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" value="<?php echo $user['Name']; ?>" required><br><br>
+    <label for="name">Name:</label><br>
+    </div>
+<div class="input-group">
 
-    <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" value="<?php echo $user['Email']; ?>" required><br><br>
-
-    <label for="phone">Phone:</label><br>
-    <input type="text" id="phone" name="phone" value="<?php echo $user['Phone']; ?>" required><br><br>
-
-    <label for="address">Address:</label><br>
-    <input type="text" id="address" name="address" value="<?php echo $user['Address']; ?>" required><br><br>
-
-    <label for="role">Role:</label><br>
-    <input type="text" id="role" name="role" value="<?php echo $user['Role']; ?>" required><br><br>
-
-    <button type="submit">Lưu thay đổi</button>
+    <label for="email">Email:</label><br>
+    </div>
+    <div class="input-group">
+        <input type="text" id="phone" name="phone" value="<?php echo $user['Phone']; ?>" required><br><br>
+        <label for="phone">Phone:</label><br>
+        </div>
+        <div class="input-group">
+            <input type="text" id="address" name="address" value="<?php echo $user['Address']; ?>" required><br><br>
+            <label for="address">Address:</label><br>
+            </div>
+            <div class="input-group">
+                <input type="text" id="role" name="role" value="<?php echo $user['Role']; ?>" required><br><br>
+                <label for="role">Role:</label><br>
+                </div>
+                <div class="input-group btn">
+                <div class="btn-layer"></div>
+                <input type="submit" name="btn_submit" class="submit" value="Lưu thay đổi">
+            </div>
+   
 </form>
 
 </body>
