@@ -189,7 +189,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 4)
+                            if ($row['CategoryID'] == 7)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -205,7 +205,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 5)
+                            if ($row['CategoryID'] == 8)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -214,22 +214,7 @@ if (isset($_SESSION['username'])) {
                         ?>
                     </h5>
 
-                    <h5>
-
-
-                        <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 6)
-                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                            else
-                                echo "";
-                        }
-
-                        ?>
-                        </h5>
+                  
 
                 </div>
             </div>
@@ -247,7 +232,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==7)
+                            if ($row['CategoryID'] ==4)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -263,7 +248,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==8)
+                            if ($row['CategoryID'] ==5)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -280,7 +265,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==9)
+                            if ($row['CategoryID'] ==6)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -303,54 +288,54 @@ if (isset($_SESSION['username'])) {
     <!-- Product Section -->
     <div class="products">
         <div class="product-card">
-            <img  src="./img/Ảnh/Giày dép/Dép/Dép 1/sg-11134301-7rd6s-lvisaokp0o7qec.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/Ảnh/Đồng hồ, kính/kính/kinh2.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>ĐIỂM NỔI BẬT -❤️Chống tia cực tím ✅MÔ TẢ Hoa văn: Màu trơn Phong cách: Ngày thường....</h3>
         </div>
         
         <div class="product-card">
-            <img  src="./img/Ảnh/Giày dép/Giày da/Giày da 1/vn-11134207-7ras8-m1wjjdgmir8300.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/dior2_5.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Túi xách Dior tote cực đẹp được làm từ chất liệu vải cao cấp. Đường chỉ may sắc nét, túi có độ đằm chắc, chuẩn form full box....</h3>
         </div>
 
         <div class="product-card">
             <img  src="./img/Ảnh/trang suc/Khuyên tai/Khuyên tai 2/vn-11134207-7r98o-lz7cqi7mxswx7a.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <h3>NANOGRAM RINGS | LO UIS VUI TTON ® Được chạm khắc với họa tiết chữ lồng vào nhau mang tính biểu tượng và đặc điểm chữ Louis Vuitton duy nhất, chiếc vòng đeo tay này là  ....</h3>
         </div>
         <div class="product-card">
             <img  src="./img/Ảnh/trang suc/Vòng/Vòng 5/cn-11134207-7r98o-lvvtm9h05p2b14.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <h3>Chào mừng bạn đến với [Cửa hàng hàng hàng đầu được ủy quyền chính thức của Disney] Cửa hàng chính hãng 🆗  ....</h3>
         </div>
         <div class="product-card">
             <img  src="./img/Ảnh/trang suc/Nhẫn/Nhẫn 3/sg-11134201-7rd6v-lvwne3ofst8c87.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <h3>Chào mừng bạn đến với [Cửa hàng hàng hàng đầu được ủy quyền chính thức của Disney] Cửa hàng chính hãng 🆗  ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/dior2_1.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Túi Đeo Vai Gucci GG Shoulder Bag Thương hiệu Gucci Xuất xứ Trung quốc Kiểu  ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/Ảnh/Giày dép/Dép/Dép 5/sg-11134201-7rbk3-lq1tmpcg5w7950.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/gucci3_5.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Xin chào, chào mừng bạn đến với cửa hàng của chúng tôi Cửa hàng của chúng tôi bán các thương hiệu cao cấp lớn🎊  ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg"  alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/kinh3.webp"  alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>ĐIỂM NỔI BẬT -❤️Kim loại -❤️Phối viền tương phản -❤️Cổ điển -❤️Khung vàng ✅MÔ TẢ Hoa văn: Màu trơn ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/kinh4.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Thương hiệu: LouisWill - Chất liệu khung: Kim loại - Loại khung: Hình vuông - Ống kính: TAC Polarized - Tỷ lệ tia cực tím: UV 400 ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/Ảnh/Giày dép/Dép/Dép 5/cn-11134207-7r98o-lqbewc8f7ztk48.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/khuyen1.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Chào mừng đến với 💥Xin CHÀO CÔ GÁI TRANG SỨC ☄Mỗi sản phẩm đều được làm bằng công nghệ  ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/dongho3.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>Mô tả chi tiết JULIUS thương hiệu đăng ký đầu tiên tại Seoul Hàn Quốc, công nghệ Nhật Bản với máy ....</h3>
         </div>
         <div class="product-card">
-            <img  src="./img/tuixach.jpg" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
-            <h3>Mykonos Café Drops Extrait De Parfum ....</h3>
+            <img  src="./img/sanpham/nhan2.webp" width="20px" height="20px" alt="Mykonos Café Drops Extrait De Parfum">
+            <h3>💕Chào mừng đến với cửa hàng JOJO COCO! Chúng tôi cung cấp dịch vụ chất lượng với giá thấp nhất 💕 🌈  ....</h3>
         </div>
     </div>
 </div>

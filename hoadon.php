@@ -244,7 +244,7 @@ if (isset($_SESSION['username'])) {
     
                             <td class="Price" style="margin-top:50px">
                             <div style="margin-top:50px"> 
-                                ' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ
+                                ' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ
                                 </div>
                             </td> 
                             <td class="Quantity">
@@ -252,7 +252,7 @@ if (isset($_SESSION['username'])) {
                             </td> 
                             <td class="Subtotal" style="text-align: center;margin-top:50px">
                             <div style="margin-top:50px"> 
-                                 ' . number_format($_SESSION['hoadon'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))), 3) . ' đ
+                                 ' . number_format($_SESSION['hoadon'][$row['ProductID']] * ($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)))) . ' đ
                             </div>
                             
                            </td> 
@@ -276,7 +276,7 @@ if (isset($_SESSION['username'])) {
                                 <td colspan="2" class="hidden-xs"> </td> 
                                 <td colspan="2" class="hidden-xs"><input class="btn btn-outline-info" type="submit" name="submit1" value="Xóa Hóa Đơn"/> </td> 
     
-                                <td  text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total, 3) . 'đ</strong>
+                                <td  text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total) . 'đ</strong>
                                 </td> 
                                 
                             </tr> 

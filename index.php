@@ -186,7 +186,6 @@ if (isset($_SESSION['username'])) {
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
             </h3>
-
             <p class="d-inline-flex gap-1">
                 <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Phụ kiện trang sức
@@ -258,7 +257,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 4)
+                            if ($row['CategoryID'] == 7)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -274,7 +273,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 5)
+                            if ($row['CategoryID'] == 8)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -283,22 +282,7 @@ if (isset($_SESSION['username'])) {
                         ?>
                     </h5>
 
-                    <h5>
-
-
-                        <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 6)
-                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                            else
-                                echo "";
-                        }
-
-                        ?>
-                        </h5>
+                  
 
                 </div>
             </div>
@@ -316,7 +300,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==7)
+                            if ($row['CategoryID'] ==4)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -332,7 +316,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==8)
+                            if ($row['CategoryID'] ==5)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -349,7 +333,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==9)
+                            if ($row['CategoryID'] ==6)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -357,6 +341,7 @@ if (isset($_SESSION['username'])) {
 
                         ?>
                         </h5>
+
 
                 </div>
             </div>
@@ -439,8 +424,8 @@ if (isset($_POST['submit1'])) {
                             </div>
                             <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
                             <div class="home-product-item__price">
-                                <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-                                <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                                <div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+                                <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
                             </div>
                             <div class="home-product-item__action">
                                 <span class="home-product-item__like home-product-item__liked">
@@ -454,7 +439,10 @@ if (isset($_POST['submit1'])) {
                                     <i class="home-product-item__star-gold fas fa-star"></i>
                                     <i class="home-product-item__star-gold fas fa-star"></i>
                                 </div>
-                                <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                                  <div class="home-product-item__rating">
+
+                        <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                        </div>
                             </div>
                               <div class="home-product-item__favorite">
                             <span class="home-product-item__like home-product-item__liked">
@@ -517,8 +505,8 @@ if (isset($_POST['submit1'])) {
                         </div>
                         <h4 class="home-product-item__name">' . $row['tensp'] . '</h4>
                         <div class="home-product-item__price">
-                            <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            <div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
                         </div>
                         <div class="home-product-item__action">
                             <span class="home-product-item__like home-product-item__liked">

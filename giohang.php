@@ -120,7 +120,7 @@ if (isset($_SESSION['username'])) {
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
     <div class="container" style="min-height: 687px;" >
-        <nav class="category" style="max-width: 350px;">
+        <nav class="category" style="min-width: 370px;">
             <h3 class="category-heading" >
                 <i class="category-heading-icon fas fa-bars"></i>
                 Danh Mục Sản Phẩm
@@ -197,7 +197,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 4)
+                            if ($row['CategoryID'] == 7)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -213,7 +213,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 5)
+                            if ($row['CategoryID'] == 8)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -222,30 +222,11 @@ if (isset($_SESSION['username'])) {
                         ?>
                     </h5>
 
-                    <h5>
-
-
-                        <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 6)
-                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                            else
-                                echo "";
-                        }
-
-                        ?>
-                        </h5>
+                  
 
                 </div>
-                </div>
-        
+            </div>
 
-           
-
-              
             <p class="d-inline-flex gap-1">
                 <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
                      Túi xách
@@ -259,7 +240,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==7)
+                            if ($row['CategoryID'] ==4)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -275,7 +256,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==8)
+                            if ($row['CategoryID'] ==5)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -292,7 +273,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==9)
+                            if ($row['CategoryID'] ==6)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -300,6 +281,7 @@ if (isset($_SESSION['username'])) {
 
                         ?>
                         </h5>
+
 
     </div>
     </div>
@@ -409,7 +391,7 @@ if (isset($_SESSION['username'])) {
 							<td><a href="./index.php" class="btn btn-outline-warning" style="font-weight:600"><i class="fa fa-angle-left"></i> Mua tiếp</a>
 							</td> 
 							<td colspan="2" class="hidden-xs"> </td> 
-							<td class="hidden-xs text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total, 3) . 'đ</strong>
+							<td class="hidden-xs text-center" style="font-weight:700">Tổng tiền<strong style=" color:red"> ' . number_format($total) . 'đ</strong>
 							</td> 
 							<td><a href="./thanhtoan.php" class="btn btn-outline-success" style="padding:8px 10px;width:160px;margin-left:35px;font-weight:600">Thanh toán <i class="fa fa-angle-right"></i></a>
 							</td> 
