@@ -429,14 +429,13 @@ if (isset($_POST['submit1'])) {
        
 
 
-        <div class="home-product">
             <?php 
-            while ($row = mysqli_fetch_assoc($result)) {
+              while ($row = mysqli_fetch_assoc($result)) {
                 if( $row['StockQuantity'] > 0){
                     if (strcmp($row['Favorite'],'Yêu thích') == 0) {
                         echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" > 
                         <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
-                            <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ');">
+                            <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                             </div>
                             <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
                             <div class="home-product-item__price">
@@ -476,16 +475,16 @@ if (isset($_POST['submit1'])) {
            
             else{
 
-                echo '<div class="column l-2-4 me-4 s-6" " >
+                echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" >
                 <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
                     <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
                     </div>
                     <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
-                    <div class="home-product-item__price">
-                        <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-                        <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                    <div class="home-product-item__price" style="display:flex;justify-content:center;">
+                        <div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+                        <div class="home-product-item__price-new" style="font-size:23px" >' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
                     </div>
-                    <div class="home-product-item__action">
+                    <div class="home-product-item__action" style="display:flex;justify-content:space-around;width:100%">
                       
                         <div class="home-product-item__rating">
                             <i class="home-product-item__star-gold fas fa-star"></i>
@@ -494,7 +493,10 @@ if (isset($_POST['submit1'])) {
                             <i class="home-product-item__star-gold fas fa-star"></i>
                             <i class="home-product-item__star-gold fas fa-star"></i>
                         </div>
+                        <div class="home-product-item__rating">
+
                         <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                        </div>
                     </div>
                     
               
@@ -511,9 +513,9 @@ if (isset($_POST['submit1'])) {
                     if( $row['StockQuantity']!= 0){
                     echo '<div class="column l-2-4 me-4 s-6" >
                     <a class="home-product-item" href="../pages/sanpham.php?id= ' . $row['ProductID'] . '">>
-                        <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
+                        <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
                         </div>
-                        <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
+                        <h4 class="home-product-item__name">' . $row['tensp'] . '</h4>
                         <div class="home-product-item__price">
                             <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
                             <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
@@ -554,7 +556,6 @@ if (isset($_POST['submit1'])) {
         }
 
             ?>
-
         </div>
         </div>
 

@@ -121,10 +121,9 @@ if (isset($_SESSION['username'])) {
                 <i class="category-heading-icon fas fa-bars"> </i>
                 Danh Mục Sản Phẩm
             </h3>
-
             <p class="d-inline-flex gap-1">
-                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ kiện
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện trang sức
                 </a>
             </p>
             <div class="collapse" id="collapseExample">
@@ -158,10 +157,10 @@ if (isset($_SESSION['username'])) {
                         }
 
                         ?>
-
                     </h5>
 
                     <h5>
+
 
                         <?php
                         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
@@ -175,7 +174,123 @@ if (isset($_SESSION['username'])) {
                         }
 
                         ?>
+                        </h5>
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Đồng hồ và kính mắt
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 4)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
                     </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 5)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 6)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     Túi xách
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==7)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==8)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==9)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
 
                 </div>
             </div>
@@ -193,6 +308,7 @@ if (isset($_SESSION['username'])) {
         $sql = "SELECT * FROM product where CategoryID=$iddanhmuc ";
         $ketqua = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($ketqua)) {
+            if (strcmp($row['Favorite'],'Yêu thích') == 0) {
             echo '<div class="column l-2-4 me-4 s-6" >
 							<a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
 								<div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
@@ -200,8 +316,8 @@ if (isset($_SESSION['username'])) {
 								</div>
 								<h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
 								<div class="home-product-item__price">
-									<div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-									<div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+									<div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+									<div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
 								</div>
 								<div class="home-product-item__action">
 									<span class="home-product-item__like home-product-item__liked">
@@ -230,6 +346,42 @@ if (isset($_SESSION['username'])) {
 							</a>
 						</div>';
         }
+    
+        else{
+            echo '<div class="column l-2-4 me-4 s-6" >
+            <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
+                <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
+                
+                </div>
+                <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
+                <div class="home-product-item__price">
+                    <div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+                    <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
+                </div>
+                <div class="home-product-item__action">
+                   
+                    <div class="home-product-item__rating">
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                    </div>
+                    <span class="home-product-item__sold">Số lượng:' . $row['StockQuantity'] . '</span>
+                </div>
+                
+                <div class="home-product-item__favorite">
+                  
+                </div>
+                <div class="home-product-item__sale">
+                    <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
+                    <span class="home-product-item__sale-label">GIẢM
+                    </span>
+                </div>
+            </a>
+        </div>';
+        }
+    }
 
         mysqli_close($conn);
         ?>

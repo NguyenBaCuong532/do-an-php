@@ -373,16 +373,16 @@ if (isset($_POST['submit'])) {
 
 
                     <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/dongho1.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/dongho3.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
 
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <img src="./img/sanpham/dongho5.webp" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
                         <div class="overlay"></div>
 
 
@@ -395,16 +395,16 @@ if (isset($_POST['submit'])) {
 
 
                     <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/dior1_4.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/dior1_5.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
 
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <img src="./img/sanpham/dior1_2.webp" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
                         <div class="overlay"></div>
 
 
@@ -416,16 +416,16 @@ if (isset($_POST['submit'])) {
                 <div style="width:100%;display: flex; justify-content: center;">
 
                     <a href="./index.php" class="elementor-widget-container1" style=" width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/gucci3_5.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-regular fa-cart-shopping"></i></div>
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" class="d-block w-100">
+                        <img src="./img/sanpham/gucci3_2.webp" alt="" class="d-block w-100">
                         <div class="overlay"><i class="fa-thin fa-cart-shopping"></i></i></div>
 
                     </a>
                     <a href="./index.php" class="elementor-widget-container1 " style=" position: relative; width: 300px;">
-                        <img src="./img/trangchu/anhbox1.png" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
+                        <img src="./img/sanpham/gucci3_4.webp" alt="" style=" position: relative; width: 300px;" class="d-block w-100">
                         <div class="overlay"></div>
 
 

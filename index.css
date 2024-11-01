@@ -90,7 +90,6 @@ li:hover {
 .container .category {
    width: 45%;
    min-width: 370px;
-  padding: 20px;
   margin-left: -170px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -195,7 +194,7 @@ li:hover {
 }
 
 .home-product-item__price-new {
-    color: #ffc90e;
+    color: #f3040c;
     font-size: 18px;
     margin-left: 4px;
 }
@@ -204,7 +203,6 @@ li:hover {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin: 5px 10px 5px;
 }
 
 .home-product-item__like {

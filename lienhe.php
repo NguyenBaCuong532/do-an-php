@@ -121,7 +121,7 @@ if (isset($_SESSION['username'])) {
     <!-- ----------------------------------------------end Header------------------------------------------- -->
         <form class="content" method="post">
             <h1>Liên hệ Website bán phụ kiện trang sức online</h1>
-            <h4>Hotline :<a href="tel:0975242481"> 0975242481</a></h4>
+            <h4>Hotline :<a href="tel:0983275491"> 0983275491</a></h4>
             <h4>Email:<a href="mailto:cuongmja532@gmail.com"> cuongmja532@gmail.com</a></h4>
             <h4>Mọi thắc mắc hay đóng góp ý kiến xin khách hàng hãy liên hệ với cửa hàng chúng tôi!</h4>
             <h4>Tin nhắn phản hồi ý kiến : <input type="text" name="noidung" id="noidung" required /> 

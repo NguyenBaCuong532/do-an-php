@@ -121,7 +121,7 @@ if (isset($_POST['submit1'])) {
 
     <!-- ----------------------------------------------end Header------------------------------------------- -->
     <!-- ----------------------------------------------Start menu trái------------------------------------------- -->
-    <div class="container" style="min-height: 487px;min-height:900px;">
+    <div class="container" style="min-height:900px;">
       
 
 
@@ -172,8 +172,8 @@ if (isset($_POST['submit1'])) {
                     <div class="product-detail-title-1">
                         <div class="product-detail-price">
                         <label>Giá :</label>
-                            <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
-                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            <span class="product-detail-price__old">' . number_format($row['Price']) . 'đ</span>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
                             <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
                         </div>
                     </div>
@@ -232,8 +232,8 @@ if (isset($_POST['submit1'])) {
                     <div class="product-detail-title-1">
                         <div class="product-detail-price">
                         <label>Giá :</label>
-                            <span class="product-detail-price__old">' . number_format($row['Price'], 3) . 'đ</span>
-                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                            <span class="product-detail-price__old">' . number_format($row['Price']) . 'đ</span>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
                             <span class="product-detail-price-sale">Giảm ' . $row['Sale'] . '% đã tính thuế VAT</span>
                         </div>
                     </div>
