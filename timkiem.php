@@ -84,6 +84,12 @@ if (isset($_POST['submit'])) {
   border-color: #fc83bb;
   box-shadow: inset 0 0 3px #fb6aae;
 }
+.text-ellipsis {
+    width: 200px; /* Chiều rộng tối đa của phần tử */
+    white-space: nowrap; /* Không cho văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần vượt quá */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm */
+}
 
     </style>
 </head>
@@ -158,8 +164,8 @@ if (isset($_SESSION['username'])) {
             </h3>
 
             <p class="d-inline-flex gap-1">
-                <a class="btn" style="font-size: 30px;font-weight:600" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Phụ kiện
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Phụ kiện trang sức
                 </a>
             </p>
             <div class="collapse" id="collapseExample">
@@ -193,10 +199,10 @@ if (isset($_SESSION['username'])) {
                         }
 
                         ?>
-
                     </h5>
 
                     <h5>
+
 
                         <?php
                         $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
@@ -210,7 +216,109 @@ if (isset($_SESSION['username'])) {
                         }
 
                         ?>
+                        </h5>
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Đồng hồ và kính mắt
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 7)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
                     </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] == 8)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                  
+
+                </div>
+            </div>
+
+            <p class="d-inline-flex gap-1">
+                <a class="btn" style="font-size: 27px;font-weight:400" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     Túi xách
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body">
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==4)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+
+                    <h5>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==5)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                    </h5>
+
+                    <h5>
+
+
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
+                        $sql = "SELECT * From category";
+                        $ketqua = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($ketqua)) {
+                            if ($row['CategoryID'] ==6)
+                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
+                            else
+                                echo "";
+                        }
+
+                        ?>
+                        </h5>
+
 
                 </div>
             </div>
@@ -228,45 +336,130 @@ if (isset($_SESSION['username'])) {
        $sql = "SELECT * From product WHERE Name LIKE '%$search%'";
        $ketqua = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($ketqua)) {
-            echo '<div class="column l-2-4 me-4 s-6" >
-							<a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">>
-								<div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
-                                
-								</div>
-								<h4 class="home-product-item__name">' . $row['Name'] . '</h4>
-								<div class="home-product-item__price">
-									<div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
-									<div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
-								</div>
-								<div class="home-product-item__action">
-									<span class="home-product-item__like home-product-item__liked">
-										<i class="home-product-item__like-none far fa-heart"></i>
-										<i class="home-product-item__like-fill fas fa-heart"></i>
-									</span>
-									<div class="home-product-item__rating">
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-										<i class="home-product-item__star-gold fas fa-star"></i>
-									</div>
-									<span class="home-product-item__sold">Số lượng:' . $row['StockQuantity'] . '</span>
-								</div>
-								
-								<div class="home-product-item__favorite">
-									<i class="home-product-item__favorite-icon fas fa-check"></i>
-									<span>Yêu thích</span>
-								</div>
-								<div class="home-product-item__sale">
-									<span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
-									<span class="home-product-item__sale-label">GIẢM
-									</span>
-								</div>
-							</a>
-						</div>';
-        }
+            if( $row['StockQuantity'] > 0){
+                if (strcmp($row['Favorite'],'Yêu thích') == 0) {
+                    echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" > 
+                    <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
+                        <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
+                        </div>
+                        <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
+                        <div class="home-product-item__price">
+                            <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                            <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                        </div>
+                        <div class="home-product-item__action">
+                            <span class="home-product-item__like home-product-item__liked">
+                                <i class="home-product-item__like-none far fa-heart"></i>
+                                <i class="home-product-item__like-fill fas fa-heart"></i>
+                            </span>
+                            <div class="home-product-item__rating">
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                                <i class="home-product-item__star-gold fas fa-star"></i>
+                            </div>
+                            <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                        </div>
+                          <div class="home-product-item__favorite">
+                        <span class="home-product-item__like home-product-item__liked">
+                                <i class="home-product-item__like-none far fa-heart"></i>
+                                <i class="home-product-item__like-fill fas fa-heart"></i>
+                            </span>
+                         <span>' . $row['Favorite'] . '</span>
+                    </div>
+                  
+                        <div class="home-product-item__sale">
+                            <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
+                            <span class="home-product-item__sale-label">GIẢM
+                            </span>
+                        </div>
+                    </a>
+                </div>';
+            }
+       
+        else{
 
-        mysqli_close($conn);
+            echo '<div class="column l-2-4 me-4 s-6" style="padding:10px" >
+            <a class="home-product-item" href="./sanpham.php?id= ' . $row['ProductID'] . '">
+                <div class="home-product-item__img" style="background-image:url(./img/sanpham/' . $row['Image'] . ')">
+                </div>
+                <h4 class="home-product-item__name text-ellipsis">' . $row['Name'] . '</h4>
+                <div class="home-product-item__price" style="display:flex;justify-content:center;">
+                    <div class="home-product-item__price-old">' . number_format($row['Price']) . 'đ</div>
+                    <div class="home-product-item__price-new" style="font-size:23px" >' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01))) . 'đ</div>
+                </div>
+                <div class="home-product-item__action" style="display:flex;justify-content:space-around;width:100%">
+                  
+                    <div class="home-product-item__rating">
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                        <i class="home-product-item__star-gold fas fa-star"></i>
+                    </div>
+                    <div class="home-product-item__rating">
+
+                    <span class="home-product-item__sold">Số lượng: ' . $row['StockQuantity'] . '</span>
+                    </div>
+                </div>
+                
+          
+                <div class="home-product-item__sale">
+                    <span class="home-product-item__sale-percent">' . $row['Sale'] . '%</span>
+                    <span class="home-product-item__sale-label">GIẢM
+                    </span>
+                </div>
+            </a>
+        </div>';
+        }        
+}
+            else {
+                if( $row['StockQuantity']!= 0){
+                echo '<div class="column l-2-4 me-4 s-6" >
+                <a class="home-product-item" href="../pages/sanpham.php?id= ' . $row['ProductID'] . '">>
+                    <div class="home-product-item__img" style="background-image:url(./img/' . $row['Image'] . ')">
+                    </div>
+                    <h4 class="home-product-item__name">' . $row['tensp'] . '</h4>
+                    <div class="home-product-item__price">
+                        <div class="home-product-item__price-old">' . number_format($row['Price'], 3) . 'đ</div>
+                        <div class="home-product-item__price-new">' . number_format($row['Price'] - ($row['Price'] * ($row['Sale'] * 0.01)), 3) . 'đ</div>
+                    </div>
+                    <div class="home-product-item__action">
+                        <span class="home-product-item__like home-product-item__liked">
+                            <i class="home-product-item__like-none far fa-heart"></i>
+                            <i class="home-product-item__like-fill fas fa-heart"></i>
+                        </span>
+                        <div class="home-product-item__rating">
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                            <i class="home-product-item__star-gold fas fa-star"></i>
+                        </div>
+                        <span class="home-product-item__sold">Số lượng: Hết hàng</span>
+                    </div>
+                    
+                    <div class="home-product-item__favorite">
+                        <i class="home-product-item__favorite-icon fas fa-check"></i>
+                         <span>' . $row['Favorite'] . '</span>
+                    </div>
+                    <div class="home-product-item__sale">
+                        <span class="home-product-item__sale-percent">25%</span>
+                        <span class="home-product-item__sale-label">GIẢM
+                        </span>
+                    </div>
+                </a>
+            </div>';
+            }
+            else{
+                
+
+                echo '<div class="stamp">HẾT HÀNG</div>';
+            }
+        }
+    }
+
         ?>
 
         <!-- sản phẩm -->

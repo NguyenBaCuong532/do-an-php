@@ -21,8 +21,8 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thời Trang | Cửa Hàng</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="danhmuc.css">
-    <link rel="stylesheet" href="timkiem.css">
+    <!-- <link rel="stylesheet" href="danhmuc.css">
+    <link rel="stylesheet" href="timkiem.css"> -->
 
 
     <script src="./script.js"></script>
@@ -255,7 +255,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 4)
+                            if ($row['CategoryID'] == 7)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -271,7 +271,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 5)
+                            if ($row['CategoryID'] == 8)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -280,22 +280,7 @@ if (isset($_SESSION['username'])) {
                         ?>
                     </h5>
 
-                    <h5>
-
-
-                        <?php
-                        $conn = mysqli_connect("localhost", "root", "", "dawtmdt_phukienthoitrang");
-                        $sql = "SELECT * From category";
-                        $ketqua = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] == 6)
-                                echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
-                            else
-                                echo "";
-                        }
-
-                        ?>
-                        </h5>
+                  
 
                 </div>
             </div>
@@ -313,7 +298,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==7)
+                            if ($row['CategoryID'] ==4)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -329,7 +314,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==8)
+                            if ($row['CategoryID'] ==5)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -346,7 +331,7 @@ if (isset($_SESSION['username'])) {
                         $sql = "SELECT * From category";
                         $ketqua = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_array($ketqua)) {
-                            if ($row['CategoryID'] ==9)
+                            if ($row['CategoryID'] ==6)
                                 echo '<a href="./danhmuc.php?iddanhmuc= ' . $row['CategoryID'] . '" class="category-item__link">' . $row['CategoryName'] . '</a></br>';
                             else
                                 echo "";
@@ -354,6 +339,7 @@ if (isset($_SESSION['username'])) {
 
                         ?>
                         </h5>
+
 
                 </div>
             </div>
@@ -427,7 +413,6 @@ if (isset($_POST['submit1'])) {
        
 
 
-        <div class="home-product">
             <?php 
             while ($row = mysqli_fetch_assoc($result)) {
                 if( $row['StockQuantity'] > 0){
